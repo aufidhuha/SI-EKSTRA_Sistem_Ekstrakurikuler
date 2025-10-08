@@ -218,20 +218,26 @@ public class siswaPanel extends javax.swing.JPanel {
         jButton3.setBackground(new java.awt.Color(40, 167, 69));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-save-24.png"))); // NOI18N
         jButton3.setText("SIMPAN");
         jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton3.setIconTextGap(8);
 
         jButton4.setBackground(new java.awt.Color(211, 47, 47));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-delete-24.png"))); // NOI18N
         jButton4.setText("HAPUS");
         jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton4.setIconTextGap(8);
 
         jButton5.setBackground(new java.awt.Color(0, 123, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-cancel-24.png"))); // NOI18N
         jButton5.setText("BATAL");
         jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton5.setIconTextGap(8);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

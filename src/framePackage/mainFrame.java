@@ -169,6 +169,11 @@ public class mainFrame extends javax.swing.JFrame {
         buttonStatitiskaTabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         buttonStatitiskaTabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonStatitiskaTabel.setIconTextGap(8);
+        buttonStatitiskaTabel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonStatitiskaTabelActionPerformed(evt);
+            }
+        });
 
         buttonKeamananUser.setBackground(new java.awt.Color(30, 58, 138));
         buttonKeamananUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -349,6 +354,14 @@ public class mainFrame extends javax.swing.JFrame {
         contentPanel.revalidate();
         contentPanel.repaint();
     }//GEN-LAST:event_buttonFormSiswaActionPerformed
+
+    private void buttonStatitiskaTabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStatitiskaTabelActionPerformed
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new statiskaPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_buttonStatitiskaTabelActionPerformed
 
     /**
      * @param args the command line arguments
