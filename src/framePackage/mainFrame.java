@@ -103,7 +103,7 @@ public class mainFrame extends javax.swing.JFrame {
         sidebarPanel.setBackground(new java.awt.Color(30, 58, 138));
 
         buttonDashboard.setBackground(new java.awt.Color(30, 58, 138));
-        buttonDashboard.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonDashboard.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonDashboard.setForeground(new java.awt.Color(255, 255, 255));
         buttonDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-dashboard-layout-24.png"))); // NOI18N
         buttonDashboard.setText("DASHBOARD");
@@ -112,7 +112,7 @@ public class mainFrame extends javax.swing.JFrame {
         buttonDashboard.setIconTextGap(8);
 
         buttonKelas.setBackground(new java.awt.Color(30, 58, 138));
-        buttonKelas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonKelas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonKelas.setForeground(new java.awt.Color(255, 255, 255));
         buttonKelas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-class-24.png"))); // NOI18N
         buttonKelas.setText("KELAS");
@@ -121,7 +121,7 @@ public class mainFrame extends javax.swing.JFrame {
         buttonKelas.setIconTextGap(8);
 
         buttonEkstrakurikuler.setBackground(new java.awt.Color(30, 58, 138));
-        buttonEkstrakurikuler.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonEkstrakurikuler.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonEkstrakurikuler.setForeground(new java.awt.Color(255, 255, 255));
         buttonEkstrakurikuler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-talent-24.png"))); // NOI18N
         buttonEkstrakurikuler.setText("EKSTRAKURIKULER");
@@ -130,7 +130,7 @@ public class mainFrame extends javax.swing.JFrame {
         buttonEkstrakurikuler.setIconTextGap(8);
 
         buttonFormSiswa.setBackground(new java.awt.Color(30, 58, 138));
-        buttonFormSiswa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonFormSiswa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonFormSiswa.setForeground(new java.awt.Color(255, 255, 255));
         buttonFormSiswa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-person-24.png"))); // NOI18N
         buttonFormSiswa.setText("FORM SISWA");
@@ -144,7 +144,7 @@ public class mainFrame extends javax.swing.JFrame {
         });
 
         buttonDataSiswaAktif.setBackground(new java.awt.Color(30, 58, 138));
-        buttonDataSiswaAktif.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonDataSiswaAktif.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonDataSiswaAktif.setForeground(new java.awt.Color(255, 255, 255));
         buttonDataSiswaAktif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-active-24.png"))); // NOI18N
         buttonDataSiswaAktif.setText("DATA SISWA AKTIF");
@@ -162,10 +162,10 @@ public class mainFrame extends javax.swing.JFrame {
         buttonDataSiswaNonAktif.setIconTextGap(8);
 
         buttonStatitiskaTabel.setBackground(new java.awt.Color(30, 58, 138));
-        buttonStatitiskaTabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonStatitiskaTabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonStatitiskaTabel.setForeground(new java.awt.Color(255, 255, 255));
         buttonStatitiskaTabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-website-statistics-24.png"))); // NOI18N
-        buttonStatitiskaTabel.setText("STATITISKA TABEL");
+        buttonStatitiskaTabel.setText("STATISTIK TABEL");
         buttonStatitiskaTabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         buttonStatitiskaTabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonStatitiskaTabel.setIconTextGap(8);
@@ -176,7 +176,7 @@ public class mainFrame extends javax.swing.JFrame {
         });
 
         buttonKeamananUser.setBackground(new java.awt.Color(30, 58, 138));
-        buttonKeamananUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonKeamananUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonKeamananUser.setForeground(new java.awt.Color(255, 255, 255));
         buttonKeamananUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-secure-24.png"))); // NOI18N
         buttonKeamananUser.setText("KEAMANAN USER");
@@ -185,7 +185,7 @@ public class mainFrame extends javax.swing.JFrame {
         buttonKeamananUser.setIconTextGap(8);
 
         buttonAbout.setBackground(new java.awt.Color(30, 58, 138));
-        buttonAbout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonAbout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonAbout.setForeground(new java.awt.Color(255, 255, 255));
         buttonAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-about-24.png"))); // NOI18N
         buttonAbout.setText("ABOUT");
@@ -194,7 +194,7 @@ public class mainFrame extends javax.swing.JFrame {
         buttonAbout.setIconTextGap(8);
 
         buttonLogout.setBackground(new java.awt.Color(30, 58, 138));
-        buttonLogout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonLogout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonLogout.setForeground(new java.awt.Color(255, 255, 255));
         buttonLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-logout-24.png"))); // NOI18N
         buttonLogout.setText("LOGOUT");
@@ -265,13 +265,13 @@ public class mainFrame extends javax.swing.JFrame {
 
         runningTextLabel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         runningTextLabel.setForeground(new java.awt.Color(255, 255, 255));
-        runningTextLabel.setText("jLabel2");
+        runningTextLabel.setText("TEXT");
 
         labelWaktu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         labelWaktu.setForeground(new java.awt.Color(255, 255, 255));
         labelWaktu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-dashboard2-24.png"))); // NOI18N
         labelWaktu.setText("Day, 00-00-0000 00:00:00");
-        labelWaktu.setIconTextGap(10);
+        labelWaktu.setIconTextGap(8);
 
         javax.swing.GroupLayout navbarPanelLayout = new javax.swing.GroupLayout(navbarPanel);
         navbarPanel.setLayout(navbarPanelLayout);
@@ -279,7 +279,7 @@ public class mainFrame extends javax.swing.JFrame {
             navbarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navbarPanelLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(runningTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(runningTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelWaktu)
                 .addGap(70, 70, 70)
