@@ -17,9 +17,9 @@ public class connectionClass {
     private String pass = "";
     private String port = "3306";
     private String url = "jdbc:mysql://" + localhost + ":" + port + "/" + db;
-    private connectionClass cnVar;
+    private Connection cnVar;
     
-    public connectionClass getconnectionClass(){
+    public Connection getconnection(){
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             cnVar = DriverManager.getConnection(url, user, pass);
