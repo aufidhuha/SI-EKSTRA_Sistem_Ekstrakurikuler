@@ -113,6 +113,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="CARI DATA"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCariDataActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -144,6 +147,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="KELOLA"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonKelolaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

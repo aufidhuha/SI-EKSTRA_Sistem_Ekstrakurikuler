@@ -4,6 +4,28 @@
  */
 package framePackage;
 
+import classPackage.siswaClass;
+import javax.swing.JOptionPane;
+//import classPackage.eksttraKelasClass;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import static framePackage.NewJFrame.contentPanel;
+//import static framePackage.ryclePanel.isMode;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ResultSet;
+import java.io.SQLException;
+//import java.text.MessageFormat;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+//import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author ASUS
@@ -15,7 +37,74 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
      */
     public dataSiswaAktifPanel() {
         initComponents();
+        loadData();
     }
+    
+    void loadData(){
+        siswaClass kelas = new siswaClass();
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("Kode Ekstra");
+        model.addColumn("NISN");
+        model.addColumn("Nama Siswa");
+        model.addColumn("Jenis Kelamin");
+        model.addColumn("Kelas");
+        model.addColumn("Ekstrakurikuler");
+        model.addColumn("Status");
+        
+        try {
+            Resultset rsVar = kelas.showDataAktif();
+            
+            while (srVar.next()) {
+                String id = srVar.getString("kode_ekstra");
+                String nisn = srVar.getString("nisn");
+                String nama = srVar.getString("nama");
+                String jenis = srVar.getString("jenis");
+                String kelas = srVar.getString("nama_kelas");
+                String ekstra = srVar.getString("nama_ekstra");
+                String status = srVar.getString("status");
+                
+                Object[] data = {id, nisn, nama, jenis, kelas, ekstra, status};
+                model.addRow(data);
+            }
+            
+            TableSiswaAktif.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }
+    
+    void data(){
+        try {
+            siswaClass data = new siswaClass();
+            DefaultTableModel model = data.cariDataEkstra(txtJenisEkstra.gegtText());
+            TableSiswaAktif.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }
+    
+    void dataAll(){
+        try {
+            siswaClass data = new siswaClass();
+            DefaultTableModel model = data.showDataEkstraAll();
+            TableSiswaAktif.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }
+    
+    void cariDataSiswa(){
+        try {
+            siswaClass data = new siswaClass();
+            DefaultTableModel model = data.cariDataNamaAktif(txtCariSiswa.getTxt());
+            TableSiswaAktif.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,6 +140,11 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         });
 
         buttonCariData.setText("CARI DATA");
+        buttonCariData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariDataActionPerformed(evt);
+            }
+        });
 
         TableSiswaAktif.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -68,6 +162,11 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         buttonSaveData.setText("SAVE DATA");
 
         buttonKelola.setText("KELOLA");
+        buttonKelola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKelolaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -123,7 +222,37 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
 
     private void buttonCariEkskulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariEkskulActionPerformed
         // TODO add your handling code here:
+        new extraForDataFrame().setVisible(true);
     }//GEN-LAST:event_buttonCariEkskulActionPerformed
+
+    private void buttonCariDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariDataActionPerformed
+        // TODO add your handling code here:
+        if (txtJenisEkstra.getText().isEmpty()) {
+            dataAll();
+        }else {
+            data();
+        }
+    }//GEN-LAST:event_buttonCariDataActionPerformed
+
+    private void buttonKelolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelolaActionPerformed
+        // TODO add your handling code here:
+        int choiceRow = TableSiswaAktif.getSelectedRow();
+        
+        if (choiceRow < 0) {
+            JOptionPane.showMessageDialog(null, "Harap memilih data");
+            return;
+        }
+        
+        String kode = TableSiswaAktif.getValueAt(choiceRow, 0).toString();
+        String nisn = TableSiswaAktif.getValueAt(choiceRow, 1).toString();
+        String nama = TableSiswaAktif.getValueAt(choiceRow, 2).toString();
+        String jenis = TableSiswaAktif.getValueAt(choiceRow, 3).toString();
+        String kelas = TableSiswaAktif.getValueAt(choiceRow, 4).toString();
+        String ekstra = TableSiswaAktif.getValueAt(choiceRow, 5).toString();
+        String status = TableSiswaAktif.getValueAt(choiceRow, 6).toString();
+        
+        contenPanel.removeAll();
+    }//GEN-LAST:event_buttonKelolaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
