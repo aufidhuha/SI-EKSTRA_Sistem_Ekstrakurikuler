@@ -16,6 +16,7 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import static framePackage.NewJFrame.contentPanel;
+import java.awt.Font;
 //import static framePackage.ryclePanel.isMode;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,6 +27,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 //import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.Document;
+import javax.swing.text.Element;
 /**
  *
  * @author ASUS
@@ -131,6 +134,11 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("CARI SISWA");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         buttonCariEkskul.setText("CARI EKSKUL");
         buttonCariEkskul.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +168,11 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(TableSiswaAktif);
 
         buttonSaveData.setText("SAVE DATA");
+        buttonSaveData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveDataActionPerformed(evt);
+            }
+        });
 
         buttonKelola.setText("KELOLA");
         buttonKelola.addActionListener(new java.awt.event.ActionListener() {
@@ -251,8 +264,85 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         String ekstra = TableSiswaAktif.getValueAt(choiceRow, 5).toString();
         String status = TableSiswaAktif.getValueAt(choiceRow, 6).toString();
         
-        contenPanel.removeAll();
+        contentPanel.removeAll();
+        contentPanel.add(new siswaPanel();
+        contentPanel.revalidate();
+        contentPanel.repaint();
+        
+        siswaPanel.txtKodeEkstra.setText(kode);
+        siswaPanel.txtNisn.setText(nisn);
+        siswaPanel.txtNama.setText(nama);
+        siswaPanel.obJenisKelamin.setSelectedItem(jenis);
+        siswaPanel.txtKelasSiswa.setText(kelas);
+        siswaPanel.txtJenisEkstra.setText(ekstra);
+        siswaPanel.obStatus.setSelectedItem(status);
+        
+        siswaPanel.buttonSimpan.setText("UBAH");
     }//GEN-LAST:event_buttonKelolaActionPerformed
+
+    private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Simpan Data JTable e PDF");
+        
+        int userSelection = chooser.showSaveDialog(this);
+        
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = chooser.getSelectedFile();
+            
+            try {
+                Document document = new Document();
+                com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsolutePath() + ".pdf"));
+                document.open();
+                
+                //Font untuk header dan isi
+                Font fontHeader = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD);
+                Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
+                
+                //Tambahkan judul
+                Paragraph title = new Paragraph("Daftar Siswa Aktif Ekstrakurikuler", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+                
+                title.setAligment(Element.ALIGN_CENTETR);
+                document.add(title);
+                document.add(new Paragraph(" "));// spasi
+                
+                //Buat tabel PDF sesuai jumlah kolom JTable
+                pdfTable pdfTable = new pdfTable(TableSiswaAktif.getColumnCount());
+                pdfTable.setWidthPercentage(100); // tabel full width
+                pdfTable.setSpacingBefore(10f);
+                pdfTable.setSpacingAfter(10f);
+                
+                //Header kolom
+                for (int i = 0; i < TableSiswaAktif.getColumnCount(); i++) {
+                   pdfPCell cell = new pdfPCell(new  Phrase(TableSiswaAktif.getColumnName(i), fontHeader));
+                   cell.setHorizontalalignment(Element.ALIGN_CENTER);
+                   cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                   pdfTable.addCell(cell);
+                }   
+                   // isi tabel
+                    for (int row = 0; row < TableSiswaAktif.getRowCount(); row++) {
+                        for (int col = 0; col < TableSiswaAktif.getColumnCount(); col++) {
+                            Object value = TableSiswaAktif.getValueAt(row, col);
+                            pdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
+                            cell.setHorizontalAligment(Element.ALIGN_LEFT);
+                            pdfTable.addcell(cell);
+                        }
+                    }
+                    
+                    document.add(pdfTable);
+                    document.close();
+                    
+                    JOptionPane.showMessageDialog(this, 
+                            "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF: " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_buttonSaveDataActionPerformed
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
