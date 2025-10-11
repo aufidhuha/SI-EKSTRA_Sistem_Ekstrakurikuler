@@ -24,17 +24,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="jPanel4">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -48,8 +48,8 @@
                   <Component id="sidebarPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="contentPanel" pref="1144" max="32767" attributes="0"/>
                       <Component id="navbarPanel" max="32767" attributes="0"/>
+                      <Component id="contentPanel" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -57,6 +57,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="sidebarPanel" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="navbarPanel" min="-2" max="-2" attributes="0"/>
@@ -64,7 +65,6 @@
                   <Component id="contentPanel" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="sidebarPanel" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -80,48 +80,53 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="buttonDashboard" alignment="0" max="32767" attributes="0"/>
-                  <Component id="buttonKelas" alignment="0" pref="210" max="32767" attributes="0"/>
-                  <Component id="buttonEkstrakurikuler" alignment="0" pref="210" max="32767" attributes="0"/>
-                  <Component id="buttonFormSiswa" alignment="0" pref="210" max="32767" attributes="0"/>
-                  <Component id="buttonDataSiswaAktif" alignment="0" pref="210" max="32767" attributes="0"/>
-                  <Component id="buttonDataSiswaNonAktif" alignment="0" pref="210" max="32767" attributes="0"/>
-                  <Component id="buttonStatitiskaTabel" alignment="0" pref="210" max="32767" attributes="0"/>
-                  <Component id="buttonKeamananUser" alignment="0" pref="210" max="32767" attributes="0"/>
-                  <Component id="buttonAbout" alignment="0" pref="210" max="32767" attributes="0"/>
-                  <Component id="buttonLogout" alignment="0" pref="210" max="32767" attributes="0"/>
+                  <Component id="buttonKelas" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonEkstra" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonFormSiswa" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonSiswaAktif" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonSiswaNonAktif" alignment="0" pref="210" max="32767" attributes="0"/>
+                  <Component id="buttonStatistikTabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonKeamanan" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonAbout" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonLogout" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel4" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="buttonDashboard" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="buttonKelas" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonEkstrakurikuler" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonEkstra" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="buttonFormSiswa" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonDataSiswaAktif" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonSiswaAktif" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonDataSiswaNonAktif" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonSiswaNonAktif" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonStatitiskaTabel" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonStatistikTabel" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonKeamananUser" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonKeamanan" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="buttonAbout" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="buttonLogout" min="-2" pref="56" max="-2" attributes="0"/>
-                      <EmptySpace pref="87" max="32767" attributes="0"/>
+                      <EmptySpace pref="85" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -175,7 +180,7 @@
                 <Property name="iconTextGap" type="int" value="8"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonEkstrakurikuler">
+            <Component class="javax.swing.JButton" name="buttonEkstra">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8a" green="3a" red="1e" type="rgb"/>
@@ -226,7 +231,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonFormSiswaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonDataSiswaAktif">
+            <Component class="javax.swing.JButton" name="buttonSiswaAktif">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8a" green="3a" red="1e" type="rgb"/>
@@ -250,7 +255,7 @@
                 <Property name="iconTextGap" type="int" value="8"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonDataSiswaNonAktif">
+            <Component class="javax.swing.JButton" name="buttonSiswaNonAktif">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8a" green="3a" red="1e" type="rgb"/>
@@ -274,7 +279,7 @@
                 <Property name="iconTextGap" type="int" value="8"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonStatitiskaTabel">
+            <Component class="javax.swing.JButton" name="buttonStatistikTabel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8a" green="3a" red="1e" type="rgb"/>
@@ -298,10 +303,10 @@
                 <Property name="iconTextGap" type="int" value="8"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonStatitiskaTabelActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonStatistikTabelActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonKeamananUser">
+            <Component class="javax.swing.JButton" name="buttonKeamanan">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8a" green="3a" red="1e" type="rgb"/>
@@ -315,7 +320,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/framePackage/images/icons8-secure-24.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="KEAMANAN USER"/>
+                <Property name="text" type="java.lang.String" value="KEAMANAN"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                     <EmptyBorder bottom="1" left="15" right="1" top="1"/>
@@ -372,8 +377,18 @@
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="iconTextGap" type="int" value="8"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLogoutActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/framePackage/images/SI-EKSTRA 144.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
@@ -381,7 +396,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="SISTEM EKSTRAKURIKULER"/>
               </Properties>
             </Component>
@@ -398,11 +412,11 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="runningTextLabel" min="-2" pref="731" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="runningTextLabel" min="-2" pref="750" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Component id="labelWaktu" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace pref="72" max="32767" attributes="0"/>
                       <Component id="labelClose" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -412,12 +426,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="labelClose" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="runningTextLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelWaktu" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -460,9 +474,9 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/framePackage/images/icons8-dashboard2-24.png"/>
+                  <Image iconType="3" name="/framePackage/images/icons8-calendar-24.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Day, 00-00-0000 00:00:00"/>
+                <Property name="text" type="java.lang.String" value="Today, 00-00-0000 00:00:00"/>
                 <Property name="iconTextGap" type="int" value="8"/>
               </Properties>
             </Component>
@@ -474,6 +488,9 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout">
             <Property name="horizontalGap" type="int" value="1"/>

@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -28,6 +30,7 @@ public class mainFrame extends javax.swing.JFrame {
         initComponents();
         waktu();
         runningText();
+        
     }
 
     
@@ -66,6 +69,7 @@ public class mainFrame extends javax.swing.JFrame {
         timer.start();
     }
 
+  
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,19 +80,20 @@ public class mainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         sidebarPanel = new javax.swing.JPanel();
         buttonDashboard = new javax.swing.JButton();
         buttonKelas = new javax.swing.JButton();
-        buttonEkstrakurikuler = new javax.swing.JButton();
+        buttonEkstra = new javax.swing.JButton();
         buttonFormSiswa = new javax.swing.JButton();
-        buttonDataSiswaAktif = new javax.swing.JButton();
-        buttonDataSiswaNonAktif = new javax.swing.JButton();
-        buttonStatitiskaTabel = new javax.swing.JButton();
-        buttonKeamananUser = new javax.swing.JButton();
+        buttonSiswaAktif = new javax.swing.JButton();
+        buttonSiswaNonAktif = new javax.swing.JButton();
+        buttonStatistikTabel = new javax.swing.JButton();
+        buttonKeamanan = new javax.swing.JButton();
         buttonAbout = new javax.swing.JButton();
         buttonLogout = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         navbarPanel = new javax.swing.JPanel();
         labelClose = new javax.swing.JLabel();
         runningTextLabel = new javax.swing.JLabel();
@@ -98,7 +103,7 @@ public class mainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         sidebarPanel.setBackground(new java.awt.Color(30, 58, 138));
 
@@ -120,14 +125,14 @@ public class mainFrame extends javax.swing.JFrame {
         buttonKelas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonKelas.setIconTextGap(8);
 
-        buttonEkstrakurikuler.setBackground(new java.awt.Color(30, 58, 138));
-        buttonEkstrakurikuler.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonEkstrakurikuler.setForeground(new java.awt.Color(255, 255, 255));
-        buttonEkstrakurikuler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-talent-24.png"))); // NOI18N
-        buttonEkstrakurikuler.setText("EKSTRAKURIKULER");
-        buttonEkstrakurikuler.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        buttonEkstrakurikuler.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonEkstrakurikuler.setIconTextGap(8);
+        buttonEkstra.setBackground(new java.awt.Color(30, 58, 138));
+        buttonEkstra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonEkstra.setForeground(new java.awt.Color(255, 255, 255));
+        buttonEkstra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-talent-24.png"))); // NOI18N
+        buttonEkstra.setText("EKSTRAKURIKULER");
+        buttonEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonEkstra.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonEkstra.setIconTextGap(8);
 
         buttonFormSiswa.setBackground(new java.awt.Color(30, 58, 138));
         buttonFormSiswa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -143,46 +148,46 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
 
-        buttonDataSiswaAktif.setBackground(new java.awt.Color(30, 58, 138));
-        buttonDataSiswaAktif.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonDataSiswaAktif.setForeground(new java.awt.Color(255, 255, 255));
-        buttonDataSiswaAktif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-active-24.png"))); // NOI18N
-        buttonDataSiswaAktif.setText("DATA SISWA AKTIF");
-        buttonDataSiswaAktif.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        buttonDataSiswaAktif.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonDataSiswaAktif.setIconTextGap(8);
+        buttonSiswaAktif.setBackground(new java.awt.Color(30, 58, 138));
+        buttonSiswaAktif.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonSiswaAktif.setForeground(new java.awt.Color(255, 255, 255));
+        buttonSiswaAktif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-active-24.png"))); // NOI18N
+        buttonSiswaAktif.setText("DATA SISWA AKTIF");
+        buttonSiswaAktif.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonSiswaAktif.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonSiswaAktif.setIconTextGap(8);
 
-        buttonDataSiswaNonAktif.setBackground(new java.awt.Color(30, 58, 138));
-        buttonDataSiswaNonAktif.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonDataSiswaNonAktif.setForeground(new java.awt.Color(255, 255, 255));
-        buttonDataSiswaNonAktif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-indeterminate-checkbox-24.png"))); // NOI18N
-        buttonDataSiswaNonAktif.setText("DATA SISWA NON-AKTIF");
-        buttonDataSiswaNonAktif.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        buttonDataSiswaNonAktif.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonDataSiswaNonAktif.setIconTextGap(8);
+        buttonSiswaNonAktif.setBackground(new java.awt.Color(30, 58, 138));
+        buttonSiswaNonAktif.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonSiswaNonAktif.setForeground(new java.awt.Color(255, 255, 255));
+        buttonSiswaNonAktif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-indeterminate-checkbox-24.png"))); // NOI18N
+        buttonSiswaNonAktif.setText("DATA SISWA NON-AKTIF");
+        buttonSiswaNonAktif.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonSiswaNonAktif.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonSiswaNonAktif.setIconTextGap(8);
 
-        buttonStatitiskaTabel.setBackground(new java.awt.Color(30, 58, 138));
-        buttonStatitiskaTabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonStatitiskaTabel.setForeground(new java.awt.Color(255, 255, 255));
-        buttonStatitiskaTabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-website-statistics-24.png"))); // NOI18N
-        buttonStatitiskaTabel.setText("STATISTIK TABEL");
-        buttonStatitiskaTabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        buttonStatitiskaTabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonStatitiskaTabel.setIconTextGap(8);
-        buttonStatitiskaTabel.addActionListener(new java.awt.event.ActionListener() {
+        buttonStatistikTabel.setBackground(new java.awt.Color(30, 58, 138));
+        buttonStatistikTabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonStatistikTabel.setForeground(new java.awt.Color(255, 255, 255));
+        buttonStatistikTabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-website-statistics-24.png"))); // NOI18N
+        buttonStatistikTabel.setText("STATISTIK TABEL");
+        buttonStatistikTabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonStatistikTabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonStatistikTabel.setIconTextGap(8);
+        buttonStatistikTabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonStatitiskaTabelActionPerformed(evt);
+                buttonStatistikTabelActionPerformed(evt);
             }
         });
 
-        buttonKeamananUser.setBackground(new java.awt.Color(30, 58, 138));
-        buttonKeamananUser.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonKeamananUser.setForeground(new java.awt.Color(255, 255, 255));
-        buttonKeamananUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-secure-24.png"))); // NOI18N
-        buttonKeamananUser.setText("KEAMANAN USER");
-        buttonKeamananUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        buttonKeamananUser.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonKeamananUser.setIconTextGap(8);
+        buttonKeamanan.setBackground(new java.awt.Color(30, 58, 138));
+        buttonKeamanan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonKeamanan.setForeground(new java.awt.Color(255, 255, 255));
+        buttonKeamanan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-secure-24.png"))); // NOI18N
+        buttonKeamanan.setText("KEAMANAN");
+        buttonKeamanan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonKeamanan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonKeamanan.setIconTextGap(8);
 
         buttonAbout.setBackground(new java.awt.Color(30, 58, 138));
         buttonAbout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -201,57 +206,67 @@ public class mainFrame extends javax.swing.JFrame {
         buttonLogout.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         buttonLogout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonLogout.setIconTextGap(8);
+        buttonLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLogoutActionPerformed(evt);
+            }
+        });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("SISTEM EKSTRAKURIKULER");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/SI-EKSTRA 144.png"))); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("SISTEM EKSTRAKURIKULER");
 
         javax.swing.GroupLayout sidebarPanelLayout = new javax.swing.GroupLayout(sidebarPanel);
         sidebarPanel.setLayout(sidebarPanelLayout);
         sidebarPanelLayout.setHorizontalGroup(
             sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(buttonDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(buttonKelas, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(buttonEkstrakurikuler, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(buttonFormSiswa, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(buttonDataSiswaAktif, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(buttonDataSiswaNonAktif, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(buttonStatitiskaTabel, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(buttonKeamananUser, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(buttonAbout, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-            .addComponent(buttonLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+            .addComponent(buttonKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonEkstra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonFormSiswa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonSiswaAktif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonSiswaNonAktif, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+            .addComponent(buttonStatistikTabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonKeamanan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonAbout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sidebarPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(29, 29, 29)
+                .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sidebarPanelLayout.setVerticalGroup(
             sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidebarPanelLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(jLabel4)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
                 .addGap(56, 56, 56)
                 .addComponent(buttonDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(buttonKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonEkstrakurikuler, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(buttonFormSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonDataSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonDataSiswaNonAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonSiswaNonAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonStatitiskaTabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonStatistikTabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonKeamananUser, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonKeamanan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(buttonAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         navbarPanel.setBackground(new java.awt.Color(37, 99, 235));
@@ -269,8 +284,8 @@ public class mainFrame extends javax.swing.JFrame {
 
         labelWaktu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         labelWaktu.setForeground(new java.awt.Color(255, 255, 255));
-        labelWaktu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-dashboard2-24.png"))); // NOI18N
-        labelWaktu.setText("Day, 00-00-0000 00:00:00");
+        labelWaktu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-calendar-24.png"))); // NOI18N
+        labelWaktu.setText("Today, 00-00-0000 00:00:00");
         labelWaktu.setIconTextGap(8);
 
         javax.swing.GroupLayout navbarPanelLayout = new javax.swing.GroupLayout(navbarPanel);
@@ -278,11 +293,11 @@ public class mainFrame extends javax.swing.JFrame {
         navbarPanelLayout.setHorizontalGroup(
             navbarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navbarPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(runningTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(runningTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
                 .addComponent(labelWaktu)
-                .addGap(70, 70, 70)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(labelClose, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -294,7 +309,7 @@ public class mainFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(labelClose))
                     .addGroup(navbarPanelLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                        .addGap(19, 19, 19)
                         .addGroup(navbarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(runningTextLabel)
                             .addComponent(labelWaktu))))
@@ -304,38 +319,38 @@ public class mainFrame extends javax.swing.JFrame {
         contentPanel.setBackground(new java.awt.Color(204, 204, 204));
         contentPanel.setLayout(new java.awt.CardLayout(1, 1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(sidebarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1144, Short.MAX_VALUE)
-                    .addComponent(navbarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(navbarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(sidebarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(navbarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(sidebarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -344,8 +359,21 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void labelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCloseMouseClicked
         // TODO add your handling code here:
-        System.exit(0);
+        int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin keluar?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if (yesOrNo == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_labelCloseMouseClicked
+
+    private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
+        // TODO add your handling code here:
+        int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin keluar?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
+        if (yesOrNo == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_buttonLogoutActionPerformed
 
     private void buttonFormSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFormSiswaActionPerformed
         // TODO add your handling code here:
@@ -355,13 +383,13 @@ public class mainFrame extends javax.swing.JFrame {
         contentPanel.repaint();
     }//GEN-LAST:event_buttonFormSiswaActionPerformed
 
-    private void buttonStatitiskaTabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStatitiskaTabelActionPerformed
+    private void buttonStatistikTabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStatistikTabelActionPerformed
         // TODO add your handling code here:
         contentPanel.removeAll();
         contentPanel.add(new statiskaPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
-    }//GEN-LAST:event_buttonStatitiskaTabelActionPerformed
+    }//GEN-LAST:event_buttonStatistikTabelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,17 +417,18 @@ public class mainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAbout;
     private javax.swing.JButton buttonDashboard;
-    private javax.swing.JButton buttonDataSiswaAktif;
-    private javax.swing.JButton buttonDataSiswaNonAktif;
-    private javax.swing.JButton buttonEkstrakurikuler;
+    private javax.swing.JButton buttonEkstra;
     private javax.swing.JButton buttonFormSiswa;
-    private javax.swing.JButton buttonKeamananUser;
+    private javax.swing.JButton buttonKeamanan;
     private javax.swing.JButton buttonKelas;
     private javax.swing.JButton buttonLogout;
-    private javax.swing.JButton buttonStatitiskaTabel;
-    private javax.swing.JPanel contentPanel;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton buttonSiswaAktif;
+    private javax.swing.JButton buttonSiswaNonAktif;
+    private javax.swing.JButton buttonStatistikTabel;
+    public static javax.swing.JPanel contentPanel;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel labelClose;
     private javax.swing.JLabel labelWaktu;
     private javax.swing.JPanel navbarPanel;
