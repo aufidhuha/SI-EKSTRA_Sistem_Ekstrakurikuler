@@ -80,7 +80,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
     void data(){
         try {
             siswaClass data = new siswaClass();
-            DefaultTableModel model = data.cariDataEkstra(txtJenisEkstra.gegtText());
+            DefaultTableModel model = data.cariDataEkstra(txtJenisEkstra.getText());
             TableSiswaAktif.setModel(model);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
@@ -100,7 +100,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
     void cariDataSiswa(){
         try {
             siswaClass data = new siswaClass();
-            DefaultTableModel model = data.cariDataNamaAktif(txtCariSiswa.getTxt());
+            DefaultTableModel model = data.cariDataNamaAktif(txtCariSiswa.getText());
             TableSiswaAktif.setModel(model);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
@@ -126,6 +126,8 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         TableSiswaAktif = new javax.swing.JTable();
         buttonSaveData = new javax.swing.JButton();
         buttonKelola = new javax.swing.JButton();
+        txtCariSiswa = new javax.swing.JTextField();
+        txtJenisEkstra = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -134,11 +136,6 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("CARI SISWA");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
 
         buttonCariEkskul.setText("CARI EKSKUL");
         buttonCariEkskul.addActionListener(new java.awt.event.ActionListener() {
@@ -181,6 +178,15 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
             }
         });
 
+        txtCariSiswa.setBackground(new java.awt.Color(153, 153, 153));
+        txtCariSiswa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCariSiswaActionPerformed(evt);
+            }
+        });
+
+        txtJenisEkstra.setBackground(new java.awt.Color(153, 153, 153));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -192,43 +198,50 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                         .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(470, 470, 470)
-                            .addComponent(buttonCariEkskul)
-                            .addGap(77, 77, 77)
-                            .addComponent(buttonCariData))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(40, 40, 40)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtJenisEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(169, 169, 169)
+                                .addComponent(buttonCariEkskul)
+                                .addGap(77, 77, 77)
+                                .addComponent(buttonCariData)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCariSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(34, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(205, 205, 205))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
+                        .addGap(140, 140, 140)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonCariEkskul, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonCariData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCariSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtJenisEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(jLabel2)))
+                        .addGap(100, 100, 100)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonCariEkskul, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonCariData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -340,9 +353,10 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buttonSaveDataActionPerformed
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void txtCariSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariSiswaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2MouseClicked
+        cariDataSiswa();
+    }//GEN-LAST:event_txtCariSiswaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -354,5 +368,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtCariSiswa;
+    private javax.swing.JTextField txtJenisEkstra;
     // End of variables declaration//GEN-END:variables
 }
