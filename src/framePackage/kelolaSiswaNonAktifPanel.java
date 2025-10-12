@@ -4,6 +4,11 @@
  */
 package framePackage;
 
+import static framePackage.NewJFrame.contentPanel;
+import classPackage.siswaClass;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author ASUS
@@ -15,6 +20,102 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
      */
     public kelolaSiswaNonAktifPanel() {
         initComponents();
+        dataTidakAktif();
+        cariDataTidakAktif();
+    }
+    
+    static String isMode = "Tidak Aktif";
+    
+    void dataTidakAktif(){
+        DefaultTableModel model = new DefaultTableModel();
+        siswaClass dataC = new siswaClass();
+        
+        model.addColumn("Kode Ekstra");
+        model.addColumn("NISN");
+        model.addColumn("Nama Siswa");
+        model.addColumn("Jenis Kelamin");
+        model.addColumn("Kelas");
+        model.addColumn("Ekstrakurikuler");
+        model.addColumn("Status");
+        
+        try {
+            ResultSet rsVar = dataC.showDataNonAktif();
+            
+            while (rsVar.next()) {
+                String id = rsVar.getString("kode_ekstra");
+                String nisn = rsVar.getString("nisn");
+                String nama = rsVar.getString("nama");
+                String jenis = rsVar.getString("jenis");
+                String kelass = rsVar.getString("nama_kelas");
+                String ekstra = rsVar.getString("nama_ekstra");
+                String status = rsVar.getString("status");
+                
+                Object[] data = {id, nisn, nama, jenis, kelass, ekstra, status};
+                model.addRow(data);
+            }
+            
+            tableSiswaNonAktif.setModel(model);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
+    }
+    
+    void dataPurna(){
+        DefaultTableModel model = new DefaultTableModel();
+        siswaClass dataC = new siswaClass();
+        
+        model.addColumn("Kode Ekstra");
+        model.addColumn("NISN");
+        model.addColumn("Nama Siswa");
+        model.addColumn("Jenis Kelamin");
+        model.addColumn("Kelas");
+        model.addColumn("Ekstrakurikuler");
+        model.addColumn("Status");
+        
+        try {
+            ResultSet rsVar = dataC.showDataPurna();
+            
+            while (rsVar.next()) {
+                String id = rsVar.getString("kode_ekstra");
+                String nisn = rsVar.getString("nisn");
+                String nama = rsVar.getString("nama");
+                String jenis = rsVar.getString("jenis");
+                String kelass = rsVar.getString("nama_kelas");
+                String ekstra = rsVar.getString("nama_ekstra");
+                String status = rsVar.getString("status");
+                
+                Object[] data = {id, nisn, nama, jenis, kelass, ekstra, status};
+                model.addRow(data);
+            }
+            
+            tableSiswaNonAktif.setModel(model);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
+    }
+    
+    void cariDataTidakAktif(){
+        try {
+            siswaClass cari = new siswaClass();
+            DefaultTableModel model = cari.cariDataNamaTidakAktif(txtCariNama.getText());
+            
+            tableSiswaNonAktif.setModel(model);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }
+    
+    void cariDataPurna(){
+        try {
+            siswaClass cari = new siswaClass();
+            DefaultTableModel model = cari.cariDataNamaPurna(txtCariNama.getText());
+            
+            tableSiswaNonAktif.setModel(model);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
     }
 
     /**
@@ -27,34 +128,39 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtCariNama = new javax.swing.JTextField();
+        buttonPurna = new javax.swing.JButton();
+        buttonTidakAktif = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        tableSiswaNonAktif = new javax.swing.JTable();
+        buttonDaftar = new javax.swing.JButton();
+        buttonDeleteAll = new javax.swing.JButton();
+        buttonKelola = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("CARI SISWA");
 
-        jTextField1.setBackground(new java.awt.Color(153, 153, 153));
+        txtCariNama.setBackground(new java.awt.Color(204, 204, 204));
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jButton1.setText("DATA PURNA");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonPurna.setBackground(new java.awt.Color(102, 102, 102));
+        buttonPurna.setText("DATA PURNA");
+        buttonPurna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonPurnaActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 102));
-        jButton2.setText("DATA TIDAK AKTIF");
+        buttonTidakAktif.setBackground(new java.awt.Color(0, 153, 102));
+        buttonTidakAktif.setText("DATA TIDAK AKTIF");
+        buttonTidakAktif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTidakAktifActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableSiswaNonAktif.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -65,13 +171,13 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableSiswaNonAktif);
 
-        jButton3.setText("DAFTAR NON-AKTIF");
+        buttonDaftar.setText("DAFTAR NON-AKTIF");
 
-        jButton4.setText("KELOLA");
+        buttonDeleteAll.setText("DELETE ALL");
 
-        jButton5.setText("DELETE ALL");
+        buttonKelola.setText("KELOLA");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -81,11 +187,12 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(buttonDeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(buttonDaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -93,11 +200,11 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCariNama, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 362, Short.MAX_VALUE)
-                                .addComponent(jButton2)
+                                .addComponent(buttonTidakAktif)
                                 .addGap(34, 34, 34)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(buttonPurna, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
@@ -106,34 +213,38 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCariNama, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonPurna, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonTidakAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonDeleteAll, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonDaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonPurnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPurnaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonPurnaActionPerformed
+
+    private void buttonTidakAktifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTidakAktifActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonTidakAktifActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton buttonDaftar;
+    private javax.swing.JButton buttonDeleteAll;
+    private javax.swing.JButton buttonKelola;
+    private javax.swing.JButton buttonPurna;
+    private javax.swing.JButton buttonTidakAktif;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tableSiswaNonAktif;
+    private javax.swing.JTextField txtCariNama;
     // End of variables declaration//GEN-END:variables
 }
