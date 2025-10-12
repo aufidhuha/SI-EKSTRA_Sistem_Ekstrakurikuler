@@ -4,6 +4,11 @@
  */
 package framePackage;
 
+import classPackage.kelasClass;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
+
 /**
  *
  * @author ASUS
@@ -15,6 +20,50 @@ public class kelasPanel extends javax.swing.JPanel {
      */
     public kelasPanel() {
         initComponents();
+        loadData();
+        reset();
+    }
+     
+    void loadData(){
+        kelasClass kelas = new kelasClass();
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("ID kelas");
+        model.addColumn("Nama Kelas");
+        
+       
+        try {
+            ResultSet rsVar = kelas.showKelas();
+            
+            while (rsVar.next()){
+                String id = rsVar.getString("id_kelas");
+                String nama = rsVar.getString("nama_kelas");
+                
+                Object[] data = {id, nama};
+                model.addRow(data);
+            }
+            
+            tableKelas.setModel(model);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
+        
+    }
+    void reset() {
+        txtKodeKelas.setText(null);
+        txtNamaKelas.setText(null);
+        butonSimpan.setText("SIMPAN");
+        autoIDkelas();
+    }
+    void autoIDkelas(){
+        try {
+            kelasClass kelas = new kelasClass();
+            String id = kelas.autoIDkelas();
+            txtKodeKelas.setText(id);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+        txtKodeKelas.setEditable(false);
     }
 
     /**
@@ -26,21 +75,225 @@ public class kelasPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtKodeKelas = new javax.swing.JTextField();
+        txtNamaKelas = new javax.swing.JTextField();
+        tableKelas = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        butonHapus = new javax.swing.JButton();
+        butonBatal = new javax.swing.JButton();
+        butonSimpan = new javax.swing.JButton();
+
         setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("KODE KELAS");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setText("NAMA KELAS");
+
+        txtKodeKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtKodeKelasActionPerformed(evt);
+            }
+        });
+
+        txtNamaKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNamaKelasActionPerformed(evt);
+            }
+        });
+
+        tableKelas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableKelasMouseClicked(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tableKelas.setViewportView(jTable1);
+
+        butonHapus.setText("Hapus");
+        butonHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butonHapusActionPerformed(evt);
+            }
+        });
+
+        butonBatal.setText("Batal");
+        butonBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butonBatalActionPerformed(evt);
+            }
+        });
+
+        butonSimpan.setText("Simpan");
+        butonSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butonSimpanActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(butonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(butonSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(butonBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(butonSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(butonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(butonBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtKodeKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(230, 230, 230)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addContainerGap(642, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtNamaKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(141, 141, 141))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tableKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(137, 582, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNamaKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtKodeKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(45, 45, 45)
+                        .addComponent(tableKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void butonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonSimpanActionPerformed
+        // TODO add your handling code here:
+        if (txtKodeKelas.getText().isBlank() txtNamaKelas.getText().isBlank()) {
+        JOptionPane.showMessageDialog(null, "Harap isi semua");
+        return;
+    }
+        kelasClass kelas = new kelasClass();
+        
+        kelas.setKodekelas(txtKodeKelas.getText());
+        kelas.setNamaKelas(txtNamaKelas.getText());
+        
+        kelas.saveDataKelas();
+        
+        reset();
+        
+        loadData();
+    }//GEN-LAST:event_butonSimpanActionPerformed
+
+    private void butonBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonBatalActionPerformed
+        // TODO add your handling code here:
+        reset ();
+    }//GEN-LAST:event_butonBatalActionPerformed
+
+    private void txtKodeKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKodeKelasActionPerformed
+        // TODO add your handling code here:
+        txtKodeKelas();
+        
+    }//GEN-LAST:event_txtKodeKelasActionPerformed
+
+    private void tableKelasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKelasMouseClicked
+        // TODO add your handling code here:
+        int choiceRow = tableKelas.getSelectedRow();
+        
+        if (choiceRow < 0) {
+            JOptionPane.showMessageDialog(null, "Harap memilih data");
+            return;
+        }
+        
+        String idkategori = tableKelas.getValueAt(choiceRow, 0).toString();
+        String namaKategori = tableKelas.getValueAt(choiceRow, 1).toString();
+        
+        txtKodeKelas.setText(idkategori);
+        txtNamaKelas.setText("UBAH");
+        
+    }//GEN-LAST:event_tableKelasMouseClicked
+
+    private void butonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonHapusActionPerformed
+        // TODO add your handling code here:
+        if (txtKodeKelas.getText().isBlank() || txtNamaKelas.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Harap memilih data yang ingin dihapus");
+            return;
+        }
+        kelasClass kelas = new kelasClass();
+        
+        kelas.setKodeKelas(txtKodeKelas.getText());
+        kelas.setNamaKelas(txtNamaKelas.getText());
+        
+        kelas.deleteDataKelas();
+        
+        reset();
+    }//GEN-LAST:event_butonHapusActionPerformed
+
+    private void txtNamaKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaKelasActionPerformed
+        // TODO add your handling code here:
+        txtNamaKelas
+    }//GEN-LAST:event_txtNamaKelasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton butonBatal;
+    private javax.swing.JButton butonHapus;
+    private javax.swing.JButton butonSimpan;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane tableKelas;
+    private javax.swing.JTextField txtKodeKelas;
+    private javax.swing.JTextField txtNamaKelas;
     // End of variables declaration//GEN-END:variables
 }
