@@ -90,6 +90,9 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCariNamaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonPurna">
       <Properties>
@@ -138,16 +141,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="DAFTAR NON-AKTIF"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDaftarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonDeleteAll">
       <Properties>
         <Property name="text" type="java.lang.String" value="DELETE ALL"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDeleteAllActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonKelola">
       <Properties>
         <Property name="text" type="java.lang.String" value="KELOLA"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonKelolaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -143,6 +143,11 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         jLabel1.setText("CARI SISWA");
 
         txtCariNama.setBackground(new java.awt.Color(204, 204, 204));
+        txtCariNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCariNamaActionPerformed(evt);
+            }
+        });
 
         buttonPurna.setBackground(new java.awt.Color(102, 102, 102));
         buttonPurna.setText("DATA PURNA");
@@ -174,10 +179,25 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tableSiswaNonAktif);
 
         buttonDaftar.setText("DAFTAR NON-AKTIF");
+        buttonDaftar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDaftarActionPerformed(evt);
+            }
+        });
 
         buttonDeleteAll.setText("DELETE ALL");
+        buttonDeleteAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteAllActionPerformed(evt);
+            }
+        });
 
         buttonKelola.setText("KELOLA");
+        buttonKelola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKelolaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -229,11 +249,87 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
 
     private void buttonPurnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPurnaActionPerformed
         // TODO add your handling code here:
+        isMode = "Purna";
+        buttonTidakAktif.setBackground(new java.awt.Color(102, 102, 102));
+        buttonPurna.setBackground(new java.awt.Color(40, 167, 69));
+        dataPurna();
     }//GEN-LAST:event_buttonPurnaActionPerformed
 
     private void buttonTidakAktifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTidakAktifActionPerformed
         // TODO add your handling code here:
+        isMode = "Tidak Aktif";
+        buttonTidakAktif.setBackground(new java.awt.Color(40, 167, 69));
+        buttonPurna.setBackground(new java.awt.Color(102, 102, 102));
+        dataTidakAktif();
     }//GEN-LAST:event_buttonTidakAktifActionPerformed
+
+    private void buttonKelolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelolaActionPerformed
+        // TODO add your handling code here:
+        int choiceRow = tableSiswaNonAktif.getSelectedRow();
+        
+        if (choiceRow < 0) {
+            JOptionPane.showMessageDialog(null, "Harap memilih data");
+            return;
+        }
+        
+        String kode = tableSiswaNonAktif.getValueAt(choiceRow, 0).toString();
+        String nisn = tableSiswaNonAktif.getValueAt(choiceRow, 1).toString();
+        String nama = tableSiswaNonAktif.getValueAt(choiceRow, 2).toString();
+        String jenis = tableSiswaNonAktif.getValueAt(choiceRow, 3).toString();
+        String kelas = tableSiswaNonAktif.getValueAt(choiceRow, 4).toString();
+        String ekstra = tableSiswaNonAktif.getValueAt(choiceRow, 5).toString();
+        String status = tableSiswaNonAktif.getValueAt(choiceRow, 6).toString();
+        
+        contentPanel.removeAll();
+        contentPanel.add(new siswaPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+        
+        siswaPanel.txtKodeEkstra.setText(kode);
+        siswaPanel.txtNisn.setText(nisn);
+        siswaPanel.txtNama.setText(nama);
+        siswaPanel.obJenisKelamin.setSelectedItem(jenis);
+        siswaPanel.txtKelasSiswa.setText(kelas);
+        siswaPanel.txtJenisEkstra.setText(ekstra);
+        siswaPanel.obStatus.setSelectedItem(status);
+        siswaPanel.buttonSimpan.setText("UBAH");
+    }//GEN-LAST:event_buttonKelolaActionPerformed
+
+    private void buttonDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaftarActionPerformed
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new dataSiswaNonAktif());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_buttonDaftarActionPerformed
+
+    private void txtCariNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariNamaActionPerformed
+        // TODO add your handling code here:
+        if (isMode.equalsIgnoreCase("Tidak Aktif")) {
+            cariDataTidakAktif();
+        }else {
+            cariDataPurna();
+        }
+    }//GEN-LAST:event_txtCariNamaActionPerformed
+
+    private void buttonDeleteAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteAllActionPerformed
+        // TODO add your handling code here:
+        siswaClass deleteAll = new siswaClass();
+        int rowCount = tableSiswaNonAktif.getRowCount();
+        
+        if (rowCount == 0) {
+            JOptionPane.showMessageDialog(null, "Tidak ada data yang dihapus");
+            return;
+        }
+        
+        if (isMode.equalsIgnoreCase("Tidak Aktif")) {
+            deleteAll.deleteDataSiswaAllStatus("Tidak Aktif");
+            dataTidakAktif();
+        }else {
+            deleteAll.deleteDataSiswaAllStatus("Purna");
+            dataPurna();
+        }
+    }//GEN-LAST:event_buttonDeleteAllActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
