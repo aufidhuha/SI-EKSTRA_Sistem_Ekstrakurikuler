@@ -4,31 +4,7 @@
  */
 package framePackage;
 
-import classPackage.siswaClass;
-import javax.swing.JOptionPane;
-//import classPackage.eksttraKelasClass;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import static framePackage.NewJFrame.contentPanel;
-import java.awt.Font;
-//import static framePackage.ryclePanel.isMode;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ResultSet;
-import java.io.SQLException;
-//import java.text.MessageFormat;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-//import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.text.Document;
-import javax.swing.text.Element;
+
 /**
  *
  * @author ASUS
@@ -40,74 +16,10 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
      */
     public dataSiswaAktifPanel() {
         initComponents();
-        loadData();
-    }
-    
-    void loadData(){
-        siswaClass kelas = new siswaClass();
-        DefaultTableModel model = new DefaultTableModel();
         
-        model.addColumn("Kode Ekstra");
-        model.addColumn("NISN");
-        model.addColumn("Nama Siswa");
-        model.addColumn("Jenis Kelamin");
-        model.addColumn("Kelas");
-        model.addColumn("Ekstrakurikuler");
-        model.addColumn("Status");
-        
-        try {
-            Resultset rsVar = kelas.showDataAktif();
-            
-            while (srVar.next()) {
-                String id = srVar.getString("kode_ekstra");
-                String nisn = srVar.getString("nisn");
-                String nama = srVar.getString("nama");
-                String jenis = srVar.getString("jenis");
-                String kelas = srVar.getString("nama_kelas");
-                String ekstra = srVar.getString("nama_ekstra");
-                String status = srVar.getString("status");
-                
-                Object[] data = {id, nisn, nama, jenis, kelas, ekstra, status};
-                model.addRow(data);
-            }
-            
-            TableSiswaAktif.setModel(model);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
-        }
     }
     
-    void data(){
-        try {
-            siswaClass data = new siswaClass();
-            DefaultTableModel model = data.cariDataEkstra(txtJenisEkstra.getText());
-            TableSiswaAktif.setModel(model);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
-        }
-    }
-    
-    void dataAll(){
-        try {
-            siswaClass data = new siswaClass();
-            DefaultTableModel model = data.showDataEkstraAll();
-            TableSiswaAktif.setModel(model);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
-        }
-    }
-    
-    void cariDataSiswa(){
-        try {
-            siswaClass data = new siswaClass();
-            DefaultTableModel model = data.cariDataNamaAktif(txtCariSiswa.getText());
-            TableSiswaAktif.setModel(model);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
-        }
-    }
-    
-    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -118,257 +30,21 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        buttonCariEkskul = new javax.swing.JButton();
-        buttonCariData = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TableSiswaAktif = new javax.swing.JTable();
-        buttonSaveData = new javax.swing.JButton();
-        buttonKelola = new javax.swing.JButton();
-        txtCariSiswa = new javax.swing.JTextField();
-        txtJenisEkstra = new javax.swing.JTextField();
-
         setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("JENIS EKSTRAKULIKULER");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("CARI SISWA");
-
-        buttonCariEkskul.setText("CARI EKSKUL");
-        buttonCariEkskul.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariEkskulActionPerformed(evt);
-            }
-        });
-
-        buttonCariData.setText("CARI DATA");
-        buttonCariData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCariDataActionPerformed(evt);
-            }
-        });
-
-        TableSiswaAktif.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(TableSiswaAktif);
-
-        buttonSaveData.setText("SAVE DATA");
-        buttonSaveData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSaveDataActionPerformed(evt);
-            }
-        });
-
-        buttonKelola.setText("KELOLA");
-        buttonKelola.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonKelolaActionPerformed(evt);
-            }
-        });
-
-        txtCariSiswa.setBackground(new java.awt.Color(153, 153, 153));
-        txtCariSiswa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCariSiswaActionPerformed(evt);
-            }
-        });
-
-        txtJenisEkstra.setBackground(new java.awt.Color(153, 153, 153));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(880, 880, 880)
-                        .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtJenisEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(169, 169, 169)
-                                .addComponent(buttonCariEkskul)
-                                .addGap(77, 77, 77)
-                                .addComponent(buttonCariData)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCariSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(34, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonCariEkskul, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonCariData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCariSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtJenisEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(jLabel2)))
-                        .addGap(100, 100, 100)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(32, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonCariEkskulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariEkskulActionPerformed
-        // TODO add your handling code here:
-        new extraForDataFrame().setVisible(true);
-    }//GEN-LAST:event_buttonCariEkskulActionPerformed
-
-    private void buttonCariDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariDataActionPerformed
-        // TODO add your handling code here:
-        if (txtJenisEkstra.getText().isEmpty()) {
-            dataAll();
-        }else {
-            data();
-        }
-    }//GEN-LAST:event_buttonCariDataActionPerformed
-
-    private void buttonKelolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelolaActionPerformed
-        // TODO add your handling code here:
-        int choiceRow = TableSiswaAktif.getSelectedRow();
-        
-        if (choiceRow < 0) {
-            JOptionPane.showMessageDialog(null, "Harap memilih data");
-            return;
-        }
-        
-        String kode = TableSiswaAktif.getValueAt(choiceRow, 0).toString();
-        String nisn = TableSiswaAktif.getValueAt(choiceRow, 1).toString();
-        String nama = TableSiswaAktif.getValueAt(choiceRow, 2).toString();
-        String jenis = TableSiswaAktif.getValueAt(choiceRow, 3).toString();
-        String kelas = TableSiswaAktif.getValueAt(choiceRow, 4).toString();
-        String ekstra = TableSiswaAktif.getValueAt(choiceRow, 5).toString();
-        String status = TableSiswaAktif.getValueAt(choiceRow, 6).toString();
-        
-        contentPanel.removeAll();
-        contentPanel.add(new siswaPanel();
-        contentPanel.revalidate();
-        contentPanel.repaint();
-        
-        siswaPanel.txtKodeEkstra.setText(kode);
-        siswaPanel.txtNisn.setText(nisn);
-        siswaPanel.txtNama.setText(nama);
-        siswaPanel.obJenisKelamin.setSelectedItem(jenis);
-        siswaPanel.txtKelasSiswa.setText(kelas);
-        siswaPanel.txtJenisEkstra.setText(ekstra);
-        siswaPanel.obStatus.setSelectedItem(status);
-        
-        siswaPanel.buttonSimpan.setText("UBAH");
-    }//GEN-LAST:event_buttonKelolaActionPerformed
-
-    private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed
-        // TODO add your handling code here:
-        JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("Simpan Data JTable e PDF");
-        
-        int userSelection = chooser.showSaveDialog(this);
-        
-        if (userSelection == JFileChooser.APPROVE_OPTION) {
-            File fileToSave = chooser.getSelectedFile();
-            
-            try {
-                Document document = new Document();
-                com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsolutePath() + ".pdf"));
-                document.open();
-                
-                //Font untuk header dan isi
-                Font fontHeader = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD);
-                Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
-                
-                //Tambahkan judul
-                Paragraph title = new Paragraph("Daftar Siswa Aktif Ekstrakurikuler", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
-                
-                title.setAligment(Element.ALIGN_CENTETR);
-                document.add(title);
-                document.add(new Paragraph(" "));// spasi
-                
-                //Buat tabel PDF sesuai jumlah kolom JTable
-                pdfTable pdfTable = new pdfTable(TableSiswaAktif.getColumnCount());
-                pdfTable.setWidthPercentage(100); // tabel full width
-                pdfTable.setSpacingBefore(10f);
-                pdfTable.setSpacingAfter(10f);
-                
-                //Header kolom
-                for (int i = 0; i < TableSiswaAktif.getColumnCount(); i++) {
-                   pdfPCell cell = new pdfPCell(new  Phrase(TableSiswaAktif.getColumnName(i), fontHeader));
-                   cell.setHorizontalalignment(Element.ALIGN_CENTER);
-                   cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
-                   pdfTable.addCell(cell);
-                }   
-                   // isi tabel
-                    for (int row = 0; row < TableSiswaAktif.getRowCount(); row++) {
-                        for (int col = 0; col < TableSiswaAktif.getColumnCount(); col++) {
-                            Object value = TableSiswaAktif.getValueAt(row, col);
-                            pdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
-                            cell.setHorizontalAligment(Element.ALIGN_LEFT);
-                            pdfTable.addcell(cell);
-                        }
-                    }
-                    
-                    document.add(pdfTable);
-                    document.close();
-                    
-                    JOptionPane.showMessageDialog(this, 
-                            "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF: " + e.getMessage());
-            }
-        }
-    }//GEN-LAST:event_buttonSaveDataActionPerformed
-
-    private void txtCariSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariSiswaActionPerformed
-        // TODO add your handling code here:
-        cariDataSiswa();
-    }//GEN-LAST:event_txtCariSiswaActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TableSiswaAktif;
-    private javax.swing.JButton buttonCariData;
-    private javax.swing.JButton buttonCariEkskul;
-    private javax.swing.JButton buttonKelola;
-    private javax.swing.JButton buttonSaveData;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtCariSiswa;
-    private javax.swing.JTextField txtJenisEkstra;
     // End of variables declaration//GEN-END:variables
 }
