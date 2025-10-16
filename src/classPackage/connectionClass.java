@@ -5,7 +5,8 @@
 package classPackage;
 
 import javax.swing.JOptionPane;
-import java.sql.Connection;
+import java.sql.*;
+
 
 /**
  *
@@ -20,7 +21,7 @@ public class connectionClass {
     private String url = "jdbc:mysql://" + localhost + ":" + port + "/" + db;
     private Connection cnVar;
     
-    public Connection getconnection(){
+    public Connection getConnection(){
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             cnVar = DriverManager.getConnection(url, user, pass);

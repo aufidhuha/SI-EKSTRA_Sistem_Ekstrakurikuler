@@ -6,7 +6,7 @@ package classPackage;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import framePackage.loginFrame;
-import framePackage.NewJFrame;
+
 
 /**
  *
@@ -14,19 +14,13 @@ import framePackage.NewJFrame;
  */
 public class secureClass {
 
-    public void setUsername(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setPassword(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
     private String username, password, lastUsername, newUsername, newPassword, pengguna;
     
     private Connection cnVAR; 
     private PreparedStatement psVar;
     private Statement stVar;
-    private ResulSet rsVar;
+    private ResultSet rsVar;
     private String query;
     
     public secureClass() {
@@ -69,6 +63,7 @@ public class secureClass {
     public String getPassword(){
         return this.password;
     }
+    
     public boolean loginApp() {
         try {
             query = "SELECT * FROM user WHERE username = ? AND password = SHA2(?, 384)";
@@ -108,4 +103,6 @@ public class secureClass {
         }
         return 0 ;
     }
+    
+    
 }
