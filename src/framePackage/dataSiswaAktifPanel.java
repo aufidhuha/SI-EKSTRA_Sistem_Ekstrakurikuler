@@ -13,19 +13,20 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import static framePackage.NewJFrame.contenPanel;
+import static framePackage.mainFrame.contentPanel;
 //import static framePackage.ryclePanel.isMode;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.ResultSet;
-import java.Sql.SQLException;
-import java.awt.Font;
+// import java.Sql.SQLException;
+//import java.awt.Font;
 //import java.text.MessageFormat;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 //import javax.swing.JTable;
+import java.sql.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.Document;
+//import javax.swing.text.Document;
 /**
  *
  * @author ASUS
@@ -51,8 +52,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
      model.addColumn("Kelas");
      model.addColumn("Ekstrakurikuler");
      model.addColumn("Status");
-    
-   
+       
 
          try {
              ResultSet rsVar = kelas.showDataAktif();
@@ -66,18 +66,18 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                  String ekstra = rsVar.getString("nama_ekstra");
                  String status = rsVar.getString("status");
 
-                 Object[] data = {id, nisn, jenis, kelass, ekstra, status};
+                 Object[] data = {id, nisn, nama, jenis, kelass, ekstra, status};
                  model.addRow(data);
              }
              
-             tabelSiswaAktif.setModel(model);
+             tableSiswaAktif.setModel(model);
          } catch (SQLException sQLException) {
-              JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+              JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
          }
 }
      void data(){
          try {
-             siswaClass data = new siswaClass()
+             siswaClass data = new siswaClass();
              
              DefaultTableModel model = data.cariDataEktra(txtJenisExtra.getText());
 
@@ -361,7 +361,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF : " + e.getMessage());
             }
-        }
+        
     }//GEN-LAST:event_buttonSaveDataActionPerformed
 
     

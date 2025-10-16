@@ -72,7 +72,7 @@ public class aboutClass {
         
     }
     
-    public String jumlahPengguna(){
+    public String namaPengguna(){
         try {
             query = "SELECT pengguna FROM user";
             stVar = cnVar.createStatement();
@@ -88,7 +88,7 @@ public class aboutClass {
         
     }
     
-    public String keterangnaTentang(){
+    public String keteranganTentang(){
         return this.tentang = "<html>"
                 + "<body>"
                 + "</p><Aplikasi SI-EKSTRA</b> atau <b>Aplikasi Sistem Ekstrakurikuler</b> merupakan aplikasi yang dapat digunakan untuk mempermudah pendapatan dan management terhadap ekstrakurikuler di lingkungan pendidikan <br> dan siswa yang mengikuti ekstrakurikuler tersebut <br><br>Aplikasi <b>SI-EKSTRA</b> dibuat oleh Mahasiswa <b>INSTITUT TEKNOLOGI MOJOSARI</b>, antara lain : "

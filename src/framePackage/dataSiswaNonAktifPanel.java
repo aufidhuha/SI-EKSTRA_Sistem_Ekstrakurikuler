@@ -10,7 +10,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import static framePackage.NewJFrame.contentPanel;
+import static framePackage.mainFrame.contentPanel;
 import classPackage.siswaClass;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Element;
@@ -91,7 +91,7 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
                 model.addRow(data);
             }
             
-            tableNonAktif.setmodel(model);
+            tableNonAktif.setModel(model);
         } catch (SQLException sQLException) {
             
         }
@@ -281,7 +281,7 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
         } catch (Exception e){
             JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF: " + e.getMessage());
         }    
-        }
+        
     }//GEN-LAST:event_buttonSaveDataActionPerformed
 
 
@@ -293,4 +293,4 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableNonAktif;
     // End of variables declaration//GEN-END:variables
-
+}
