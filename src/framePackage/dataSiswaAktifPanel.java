@@ -3,8 +3,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package framePackage;
-
-
+//import classPackage.ekstraKelasClass;
+import classPackage.siswaClass;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import static framePackage.NewJFrame.contenPanel;
+//import static framePackage.ryclePanel.isMode;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.ResultSet;
+import java.Sql.SQLException;
+import java.awt.Font;
+//import java.text.MessageFormat;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+//import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.text.Document;
 /**
  *
  * @author ASUS
@@ -16,11 +37,77 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
      */
     public dataSiswaAktifPanel() {
         initComponents();
+        loadData();
         
     }
+     void loadData(){
+     siswaClass kelas = new siswaClass();
+     DefaultTableModel model = new DefaultTableModel();
+    
+     model.addColumn("Kode Ekstra");
+     model.addColumn("NISN");
+     model.addColumn("Nama Siswa");
+     model.addColumn("Jenis Kelamin");
+     model.addColumn("Kelas");
+     model.addColumn("Ekstrakurikuler");
+     model.addColumn("Status");
     
    
 
+         try {
+             ResultSet rsVar = kelas.showDataAktif();
+              
+             while (rsVar.next()) {
+                 String id = rsVar.getString("kode_ekstra");
+                 String nisn = rsVar.getString("nisn");
+                 String nama = rsVar.getString("nama");
+                 String jenis = rsVar.getString("jenis");
+                 String kelass = rsVar.getString("nama_kelas");
+                 String ekstra = rsVar.getString("nama_ekstra");
+                 String status = rsVar.getString("status");
+
+                 Object[] data = {id, nisn, jenis, kelass, ekstra, status};
+                 model.addRow(data);
+             }
+             
+             tabelSiswaAktif.setModel(model);
+         } catch (SQLException sQLException) {
+              JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+         }
+}
+     void data(){
+         try {
+             siswaClass data = new siswaClass()
+             
+             DefaultTableModel model = data.cariDataEktra(txtJenisExtra.getText());
+
+             tabelSiswaAktif.setModel(model);
+         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+         }
+}
+      void dataAll(){
+          try {
+              siswaClass data = new siswaClass();
+            
+              DefaultTableModel model = data.showDataEkstraAll();
+
+              tabelSiswaAktif.setModel(model);
+          } catch (Exception e) {
+               JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+          }
+}
+      void cariDataSiswa[]{
+            try {
+                siswaClass data = new siswaClass();
+ 
+                DefaultTableModel model = data.cariDataNamaAktif(txtCariSiswa.getText());
+
+                tabelSiswaAktif.setModel(model);
+            } catch (Exception e) {
+                 JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+            }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,21 +117,265 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        txtJenisExtra = new javax.swing.JTextField();
+        buttonEskul = new javax.swing.JButton();
+        txtCariSiswa = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tabelSiswaAktif = new javax.swing.JScrollPane();
+        tableSiswaAktif = new javax.swing.JTable();
+        buttonCariData = new javax.swing.JButton();
+        buttonKelola = new javax.swing.JButton();
+        buttonSaveData = new javax.swing.JButton();
+
         setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("JENIS EKSTRAKURIKULER");
+
+        txtJenisExtra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtJenisExtraActionPerformed(evt);
+            }
+        });
+
+        buttonEskul.setText("CARI ESKUL");
+        buttonEskul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEskulActionPerformed(evt);
+            }
+        });
+
+        txtCariSiswa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCariSiswaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("CARI SISWA");
+
+        tableSiswaAktif.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tabelSiswaAktif.setViewportView(tableSiswaAktif);
+
+        buttonCariData.setText("CARI DATA");
+        buttonCariData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCariDataActionPerformed(evt);
+            }
+        });
+
+        buttonKelola.setText("KELOLA");
+        buttonKelola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKelolaActionPerformed(evt);
+            }
+        });
+
+        buttonSaveData.setText("SAVE DATA");
+        buttonSaveData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(471, 471, 471)
+                        .addComponent(buttonSaveData))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(228, 228, 228)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtJenisExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(buttonEskul)
+                        .addGap(28, 28, 28)
+                        .addComponent(buttonCariData)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCariSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(254, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonKelola)
+                .addGap(495, 495, 495))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtJenisExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonEskul)
+                    .addComponent(buttonCariData)
+                    .addComponent(txtCariSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonSaveData)
+                        .addGap(99, 99, 99)
+                        .addComponent(buttonKelola)
+                        .addGap(146, 146, 146))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(188, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtJenisExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJenisExtraActionPerformed
+        // TODO add your handling code here:
+        txtJenisExtra();
+    }//GEN-LAST:event_txtJenisExtraActionPerformed
+
+    private void txtCariSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariSiswaActionPerformed
+        // TODO add your handling code here:
+         txtCariSiswa();
+    }//GEN-LAST:event_txtCariSiswaActionPerformed
+
+    private void buttonEskulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEskulActionPerformed
+        // TODO add your handling code here:
+        new extraForDataFrame (). setVisible(true);
+    }//GEN-LAST:event_buttonEskulActionPerformed
+
+    private void buttonCariDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariDataActionPerformed
+        // TODO add your handling code here:
+        if (txtJenisExtra.getText().isEmpty()) {
+            dataAll();  
+        }
+        else {
+            data ();       
+        }
+    }//GEN-LAST:event_buttonCariDataActionPerformed
+
+    private void buttonKelolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelolaActionPerformed
+        // TODO add your handling code here:
+        int ChoiceRow = tabelSiswaAktif.getSelectedRow();
+        
+        if (ChoiceRow < 0) {
+            
+            JOptionPane.showMessageDialog(null, "Hrap memeilih data");
+            return;
+        }
+        String kode = tabelSiswaAktif.getValueAt(ChoiceRow, 0).toString();
+        String nisn = tabelSiswaAktif.getValueAt(ChoiceRow, 1).toString();
+        String nama = tabelSiswaAktif.getValueAt(ChoiceRow, 2).toString();
+        String jenis = tabelSiswaAktif.getValueAt(ChoiceRow, 3).toString();
+        String kelas = tabelSiswaAktif.getValueAt(ChoiceRow, 4).toString();
+        String ekstra = tabelSiswaAktif.getValueAt(ChoiceRow, 5).toString();
+        String status = tabelSiswaAktif.getValueAt(ChoiceRow, 6).toString();
+        
+        contentPanel.removeAll();
+        contentPanel.add(new siswaPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+        
+        siswaPanel.txtKodeEkstra.setText(kode);
+        siswaPanel.txtNisn.setTex(nisn);
+        siswaPanel.txtNama.setText(nama);
+        siswaPanel.cbJenisKelamin.setSelectedItem(jenis);
+        siswaPanel.txtKelasSiswa.setText(kelas);
+        siswaPanel.txtJenisEkstra.setText(ekstra);
+        siswaPanel.cbStatus.setSelectedItem(status);
+        
+        siswaPanel.buttonSimpan.setText("UBAH");
+    }//GEN-LAST:event_buttonKelolaActionPerformed
+
+    private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("simpan Data JTable ke PDF");
+        
+        int userSelection = chooser.showSaveDialog(this);
+        
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = chooser.getSelectedFile();
+            
+            try {
+                Document document = new Document ();
+                com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsolutePath() + ".pdf");
+                document.open();
+                
+                //Font untuk header dan isi
+                Font fontHeader = new Font(Font.FontFmily.HELVETICA, 9, Font.BOLD);
+                Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
+
+
+                //Tambahkan Judul
+                Paragraph title = new Paragraph ;("Daftar Siswa Aktif Ekstrakurikuler"), new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+                
+                title.setAlignment(Element.ALIGN CENTER);
+                document.add(title);
+                document.add(new Paragraph("")); //spasi
+
+                //Buat tabel PDF sesuai jumlah kolom JTable
+                PdfPTable pdfTable = new PdfPTable(tableSiswaAktif.getColumnCount());
+                pdfTable.setWidtingPercentage(100); // tabel full width
+                pdfTable.setSpacingBefore(10f);
+                pdfTable.setSpacingAfter(10f);
+                
+                //Header kolom
+                for (int i = 0;) i < tableSiswaAktif.getColumnt(); i++{
+                PdfPCell cell = new PdfPcell(new Phrase(tabelSiswaAktif.getColumName(i), fontHeader));
+                cell.setHorizontalAligment(Element.ALIGN_CENTER);
+                cell.setBackgroundColor(RuleBasedCollator.LIGHT GRAY);
+                pdfTable.addCell(cell);  
+                }
+                //Isi tabel
+                for (int row = 0; row < tabelSiswaAktif.getRowCount(); row++) {
+                    for (int col = 0; col < tabelSiswaAktif.getColumnCount(); col++) {
+                        Object value = tabelSiswaAktif.getValueAt(row, col);
+                        PdfaPCell cell = new PdfPCell(new Phrase(value == null) ?"" : value.toString(), fontCell));
+                        cell.setHorizontalAligment(StackTraceElement.ALIGN_LEFT);
+                        pdfTable.addCell(cell);
+                    }
+                }
+                document.add(pdfTable);
+                document.close();
+
+                JOptionPane.showMessageDialog(this, 
+                      "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF : " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_buttonSaveDataActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCariData;
+    private javax.swing.JButton buttonEskul;
+    private javax.swing.JButton buttonKelola;
+    private javax.swing.JButton buttonSaveData;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane tabelSiswaAktif;
+    private javax.swing.JTable tableSiswaAktif;
+    private javax.swing.JTextField txtCariSiswa;
+    private javax.swing.JTextField txtJenisExtra;
     // End of variables declaration//GEN-END:variables
 }
