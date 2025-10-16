@@ -4,6 +4,28 @@
  */
 package framePackage;
 
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import static framePackage.NewJFrame.contentPanel;
+import classPackage.siswaClass;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import java.applet.io.File;
+import java.applet.io.FileOutputStream;
+import java.applet.io.FileWriter;
+import java.awt.Font;
+import java.io.FileOutputStream;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 /**
  *
  * @author ASUS
@@ -15,6 +37,64 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
      */
     public dataSiswaNonAktifPanel() {
         initComponents();
+        dataTidakAktif();
+    }
+    
+    static String isMode = "Tidak Aktif";
+    
+    void dataTidakAktif(){
+        DefaultTableModel model = new DefaultTableModel();
+        siswaClass dataC = new siswaClass();
+        
+        model.addColumn("NISN");
+        model.addColumn("Nama Siswa");
+        model.addColumn("Kelas");
+        model.addColumn("Ekstrakurikuler");
+        
+        try {
+            ResultSet rsVar = dataC.showSimpleDataNonAktif();
+            
+            while (rsVar.next()) {
+                String nisn = rsVar.getString("nisn");
+                String nama = rsVar.getString("nama");
+                String kelass = rsVar.getString("nama_kelas");
+                String ekstra = rsVar.getString("nama_ekstra");
+                
+                Object[] data = {nisn, nama, kelass, ekstra};
+                model.addRow(data);
+            }
+            
+            tableNonAktif.setModel(model);
+        } catch (SQLException sQLException) {
+        }
+    }
+    
+    void dataPurna(){
+        DefaultTableModel model = new DefaultTableModel();
+        siswaClass dataC = new siswaClass();
+        
+        model.addColumn("NISN");
+        model.addColumn("Nama Siswa");
+        model.addColumn("Kelas");
+        model.addColumn("Ekstrakurikuler");
+        
+        try {
+            ResultSet rsVar = dataC.showSimpleDataPurna();
+            
+            while (rsVar.next()) {
+                String nisn = rsVar.getString("nisn");
+                String nama = rsVar.getString("nama");
+                String kelass = rsVar.getString("nama_kelas");
+                String ekstra = rsVar.getString("nama_ekstra");
+                
+                Object[] data = {nisn, nama, kelass, ekstra};
+                model.addRow(data);
+            }
+            
+            tableNonAktif.setmodel(model);
+        } catch (SQLException sQLException) {
+            
+        }
     }
 
     /**
@@ -26,21 +106,191 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonPurna = new javax.swing.JButton();
+        buttonTidakAktif = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableNonAktif = new javax.swing.JTable();
+        bkembali = new javax.swing.JButton();
+        buttonSaveData = new javax.swing.JButton();
+
         setBackground(new java.awt.Color(255, 255, 255));
+
+        buttonPurna.setBackground(new java.awt.Color(153, 153, 153));
+        buttonPurna.setText("DATA PURNA");
+        buttonPurna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPurnaActionPerformed(evt);
+            }
+        });
+
+        buttonTidakAktif.setBackground(new java.awt.Color(0, 102, 51));
+        buttonTidakAktif.setText("DATA TIDAK AKTIF");
+        buttonTidakAktif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTidakAktifActionPerformed(evt);
+            }
+        });
+
+        tableNonAktif.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableNonAktif);
+
+        bkembali.setText("KEMBALI");
+        bkembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bkembaliActionPerformed(evt);
+            }
+        });
+
+        buttonSaveData.setText("SAVE DATA");
+        buttonSaveData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bkembali, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1075, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonTidakAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(buttonPurna, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonTidakAktif, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(buttonPurna, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bkembali, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addComponent(buttonSaveData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonTidakAktifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTidakAktifActionPerformed
+        // TODO add your handling code here:
+        isMode = "Tidak Aktif";
+        buttonTidakAktif.setBackground(new java.awt.Color(40, 167, 69));
+        buttonPurna.setBackground(new java.awt.Color(102, 102, 102));
+        dataTidakAktif();
+    }//GEN-LAST:event_buttonTidakAktifActionPerformed
+
+    private void buttonPurnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPurnaActionPerformed
+        // TODO add your handling code here:
+        isMode = "Purna";
+        buttonTidakAktif.setBackground(new java.awt.Color(102, 102, 102));
+        buttonPurna.setBackground(new java.awt.Color(40, 167, 69));
+        dataPurna();
+    }//GEN-LAST:event_buttonPurnaActionPerformed
+
+    private void bkembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkembaliActionPerformed
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new kelolaSiswaNonAktifPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_bkembaliActionPerformed
+
+    private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Simpan Data JTable ke PDF");
+        
+        int userSelection = showSaveDialog(this);
+        
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            Document document = new Document();
+            pdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsolutePath() + ".pdf"));
+            document.open();
+            
+            //Font untuk header dan isi
+            Font fontHeader = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD);
+            Font fontCell = new Font(Font.FontFamily.HELVETICA, 9);
+            
+            //Tambahkan judul
+            
+            Paragraph title;
+            
+            if (isMode.equalsIgnoreCase("Tidak Aktif")) {
+                title = new Paragraph("Daftar Siswa Tidak Aktif", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD));
+                
+            }else {
+                title = new Paragraph("Daftar Siswa Purna", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD));
+            }
+            
+            title.setAligment(Element.ALIGN_CENTER);
+            document.add(title);
+            document.add(new Paragraph(" ")); // spasi
+            
+            //buat tabel PDF sesuai jumlah kolom JTable
+            PdfPTable.pdfTable = new PdfPTable(tableNonAktif.getColumnCount();
+            pdfTable.setWidthPecentage(100); // tabel full width
+            pdfTable.setSpacingBefore(10f);
+            pdfTable.setSpacingAfter(10f);
+            
+            //Header kolom
+            for (int i =0; i < tableNonAktif.getColumnCount(); i++ {
+                PdfPCell cell = new PdfPCell (new Phrase(tableNonAktif.getColumnName(i), fontHeader));
+                cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                cell.setBackgroundColor(BaseColor.LIGHT_GREY);
+                pdfTable.addCell(cell);
+            }
+            
+            //Isi tabel
+            for (int row = 0; row < tableNonAktif.getRowCount(); row++) {
+                for (int col = 0; col < tableNonAktif.getColumnCount(); col++) {
+                    Object value = tableNonAktif.getValueAt(row, col);
+                    PdfPCell cell = new PdfPCell(new Phrase(value == null ? "" value.toString(), fontCell));
+                    cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                    pdfTable.addCell(cell);
+                }
+            }
+            
+            document.add(pdfTable);
+            document.close();
+            
+            JOptionPane.showMessageDialog(this,
+                "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutepath() + ".pdf");
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF: " + e.getMessage());
+        }    
+        }
+    }//GEN-LAST:event_buttonSaveDataActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bkembali;
+    private javax.swing.JButton buttonPurna;
+    private javax.swing.JButton buttonSaveData;
+    private javax.swing.JButton buttonTidakAktif;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableNonAktif;
     // End of variables declaration//GEN-END:variables
-}
+

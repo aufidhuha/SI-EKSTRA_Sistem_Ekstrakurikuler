@@ -4,6 +4,7 @@
  */
 package framePackage;
 
+
 /**
  *
  * @author ASUS
@@ -15,7 +16,10 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
      */
     public dataSiswaAktifPanel() {
         initComponents();
+        
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.

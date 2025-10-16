@@ -4,10 +4,28 @@
  */
 package classPackage;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
  */
 public class connectionClass {
+    private String localhost = "localhost";
+    private String db = "coba_ekskul";
+    private String user = "root";
+    private String pass = "";
+    private String port = "3306";
+    private String url = "jdbc:mysql://" + localhost + ":" + port + "/" + db;
+    private Connection cnVar;
     
+    public Connection getconnection(){
+        try {
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+            cnVar = DriverManager.getConnection(url, user, pass);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
+        return cnVar;
+    }
 }
