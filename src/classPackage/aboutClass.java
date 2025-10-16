@@ -72,6 +72,23 @@ public class aboutClass {
         
     }
     
+    public String jumlahPengguna(){
+        try {
+            query = "SELECT pengguna FROM user";
+            stVar = cnVar.createStatement();
+            rsVar = stVar.executeQuery(query);
+            
+            if (rsVar.next()){
+                return  this.pengguna = rsVar.getString("pengguna");
+            }
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
+        return "";
+        
+    }
+    
+    public String keterangnaTentang(){
     public String namaPengguna(){
         try {
             query = "SELECT pengguna FROM user";
