@@ -4,6 +4,13 @@
  */
 package framePackage;
 
+import classPackage.kelasClass;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import framePackage.siswaPanel;
+
 /**
  *
  * @author ASUS
@@ -15,6 +22,30 @@ public class kelasFrame extends javax.swing.JFrame {
      */
     public kelasFrame() {
         initComponents();
+        loadData();
+    }
+    
+    void loadData(){
+        
+        kelasClass kelas = new kelasClass();
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("Nama Kelas");
+        
+        try {
+            ResultSet rsVar = kelas.showKelas();
+            
+            while (rsVar.next()) {                
+                String nama = rsVar.getString("nama_kelas");
+                
+                Object [] data = {nama};
+                model.addRow(data);
+            }
+            
+            tblKelas.setModel(model);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error" + sQLException.getMessage());
+        }
     }
 
     /**
@@ -26,21 +57,117 @@ public class kelasFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        pKelas = new javax.swing.JPanel();
+        btnPilih = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblKelas = new javax.swing.JTable();
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
+
+        pKelas.setBackground(new java.awt.Color(255, 255, 255));
+        pKelas.setForeground(new java.awt.Color(102, 102, 102));
+
+        btnPilih.setBackground(new java.awt.Color(255, 255, 255));
+        btnPilih.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPilih.setForeground(new java.awt.Color(102, 102, 102));
+        btnPilih.setText("PILIH");
+        btnPilih.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPilihActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("DATA KELAS");
+
+        tblKelas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblKelas);
+
+        javax.swing.GroupLayout pKelasLayout = new javax.swing.GroupLayout(pKelas);
+        pKelas.setLayout(pKelasLayout);
+        pKelasLayout.setHorizontalGroup(
+            pKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pKelasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPilih)
+                .addGap(35, 35, 35))
+            .addGroup(pKelasLayout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(jLabel1)
+                .addContainerGap(120, Short.MAX_VALUE))
+            .addGroup(pKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pKelasLayout.createSequentialGroup()
+                    .addGap(35, 35, 35)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(35, Short.MAX_VALUE)))
+        );
+        pKelasLayout.setVerticalGroup(
+            pKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pKelasLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 389, Short.MAX_VALUE)
+                .addComponent(btnPilih)
+                .addGap(44, 44, 44))
+            .addGroup(pKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pKelasLayout.createSequentialGroup()
+                    .addGap(94, 94, 94)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(94, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(pKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihActionPerformed
+        // TODO add your handling code here:
+        
+        int choiseRow = tblKelas.getSelectedRow();
+        
+        String nama = tblKelas.getValueAt(choiseRow, 0).toString();
+        
+        pKelas.txtKelasSiswa.setText(nama);
+        
+        dispose();;
+    }//GEN-LAST:event_btnPilihActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +205,11 @@ public class kelasFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPilih;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel pKelas;
+    private javax.swing.JTable tblKelas;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@
 package classPackage;
 
 import javax.swing.JOptionPane;
+import java.sql.Connection;
 
 /**
  *
@@ -28,4 +29,5 @@ public class connectionClass {
         }
         return cnVar;
     }
+
 }
