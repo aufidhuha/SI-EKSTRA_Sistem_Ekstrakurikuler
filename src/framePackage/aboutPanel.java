@@ -4,6 +4,8 @@
  */
 package framePackage;
 
+import classPackage.aboutClass;
+
 /**
  *
  * @author ASUS
@@ -15,6 +17,13 @@ public class aboutPanel extends javax.swing.JPanel {
      */
     public aboutPanel() {
         initComponents();
+        abouttext();
+        
+    }
+    
+    void abouttext(){
+        aboutClass about = new aboutClass();
+        aboutLabel.setText(about.keteranganTentang());
     }
 
     /**
@@ -26,21 +35,32 @@ public class aboutPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        aboutLabel = new javax.swing.JLabel();
+
         setBackground(new java.awt.Color(255, 255, 255));
+
+        aboutLabel.setText("Text ...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(aboutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(547, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(aboutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(610, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel aboutLabel;
     // End of variables declaration//GEN-END:variables
 }
