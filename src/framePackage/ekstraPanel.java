@@ -3,6 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package framePackage;
+import classPackage.ekstraClass;
+import javax.swing.table.DefaultTableCellRenderer;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -15,6 +21,47 @@ public class ekstraPanel extends javax.swing.JPanel {
      */
     public ekstraPanel() {
         initComponents();
+        loadData();
+        autoID();
+    }
+    void loadData (){
+        ekstraClass extra = new ekstraClass();
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("ID Ekstra");
+        model.addColumn("Nama Ekstra");
+        
+        try {
+            ResultSet rsVar = extra.showEsktra();
+            
+            while (rsVar.next()){
+                String id = rsVar.getString("Id_ekstra");
+                String nama = rsVar.getString("nama_ekstra");
+                
+                Object[] data = (id, nama);
+                model.addRow(data);
+            }
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
+        tabelEkstra.setModel(model);
+    }
+    void reset (){
+        txtKodeEkstra.setText(null);
+        txtNamaEkstra.setText(null);
+        buttonSimpan.setText("SIMPAN");
+        autoID();
+    }
+    void autoID (){
+        try {
+            ekstraClass extra = new ekstraClass();
+            String id = extra.autoIDExtra();
+            txtKodeEkstra.setText(id);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error : " + e.getMessage());
+        }
+        txtKodeEkstra.setEditable(false);
+        
     }
 
     /**
@@ -26,21 +73,174 @@ public class ekstraPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtKodeEkstra = new javax.swing.JTextField();
+        txtNamaEkstra = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelEkstra = new javax.swing.JTable();
+        buttonSimpan = new javax.swing.JButton();
+        buttonHapus = new javax.swing.JButton();
+        buttonBatal = new javax.swing.JButton();
+
         setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setText("KODE EKTRA");
+
+        jLabel2.setText("NAMA EKSTRA");
+
+        tabelEkstra.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tabelEkstra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelEkstraMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabelEkstra);
+
+        buttonSimpan.setText("SIMPAN");
+        buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSimpanActionPerformed(evt);
+            }
+        });
+
+        buttonHapus.setText("HAPUS");
+        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusActionPerformed(evt);
+            }
+        });
+
+        buttonBatal.setText("BATAL");
+        buttonBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBatalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(txtKodeEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(106, 106, 106)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNamaEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonBatal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonSimpan, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtKodeEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNamaEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(buttonSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(buttonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(buttonBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
+        // TODO add your handling code here:
+        if (txtKodeEkstra.getText().isBlank() || txtNamaEkstra.getText()isBlack()) {
+        JOptionPane.showMessageDialog(null, "Harap isi semua");
+        return;
+    }
+        
+        ekstraClass extra = new ekstraClass();
+        
+        extra.setKodeEkstra(txtKodeEkstra.getText());
+        extra.setNamaEkstra(txtNamaEkstra.getName());
+        extra.saveDataEsktra();
+        reset();
+        loadData();
+    }//GEN-LAST:event_buttonSimpanActionPerformed
+
+    private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
+        // TODO add your handling code here:
+        if (txtKodeEkstra.getText().isBlank() || txtNamaEkstra.getText()isBlack()) {
+        JOptionPane.showMessageDialog(null, "Harap memilih data yang ingin dihapus");
+        return;
+    }
+        ekstraClass extra = new ekstraClass();
+        
+        extra.setKodeEkstra(txtKodeEkstra.getText());
+        extra.setNamaEkstra(txtNamaEkstra.getName());
+        extra.saveDataEsktra();
+        reset();
+        loadData();
+    }//GEN-LAST:event_buttonHapusActionPerformed
+
+    private void tabelEkstraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelEkstraMouseClicked
+        // TODO add your handling code here:
+        int choiceRow = tabelEkstra.getSelectedRow();
+        
+        if (choiceRow < 0){
+            JOptionPane.showMessageDialog(null,"Harap memilih data");
+            return;
+            
+        }
+        
+        String idkategori = tabelEkstra.getValueAt(choiceRow,0).toString();
+        String namaKategori = tabelEkstra.getValueAt(choiceRow,1). toString();
+        
+        txtKodeEkstra.setText(idkategori);
+        txtNamaEkstra.setText(namaKategori);
+        buttonSimpan.setText("UBAH");
+    }//GEN-LAST:event_tabelEkstraMouseClicked
+
+    private void buttonBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBatalActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_buttonBatalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBatal;
+    private javax.swing.JButton buttonHapus;
+    private javax.swing.JButton buttonSimpan;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabelEkstra;
+    private javax.swing.JTextField txtKodeEkstra;
+    private javax.swing.JTextField txtNamaEkstra;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,6 +13,14 @@ import framePackage.NewJFrame;
  * @author ASUS
  */
 public class secureClass {
+
+    public void setUsername(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setPassword(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     private String username, password, lastUsername, newUsername, newPassword, pengguna;
     
     private Connection cnVAR; 
