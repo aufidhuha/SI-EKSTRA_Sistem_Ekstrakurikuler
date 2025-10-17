@@ -79,9 +79,9 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
          try {
              siswaClass data = new siswaClass();
              
-             DefaultTableModel model = data.cariDataEktra(txtJenisExtra.getText());
+             DefaultTableModel model = data.cariDataEkstra(txtJenisExtra.getText());
 
-             tabelSiswaAktif.setModel(model);
+             tableSiswaAktif.setModel(model);
          } catch (Exception e) {
              JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
          }
@@ -92,18 +92,18 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
             
               DefaultTableModel model = data.showDataEkstraAll();
 
-              tabelSiswaAktif.setModel(model);
+              tableSiswaAktif.setModel(model);
           } catch (Exception e) {
                JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
           }
 }
-      void cariDataSiswa[]{
+      void cariDataSiswa(){
             try {
                 siswaClass data = new siswaClass();
  
                 DefaultTableModel model = data.cariDataNamaAktif(txtCariSiswa.getText());
 
-                tabelSiswaAktif.setModel(model);
+                tableSiswaAktif.setModel(model);
             } catch (Exception e) {
                  JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
             }
@@ -127,32 +127,43 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         buttonCariData = new javax.swing.JButton();
         buttonKelola = new javax.swing.JButton();
         buttonSaveData = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        buttonKelola1 = new javax.swing.JButton();
+        buttonKelola2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("JENIS EKSTRAKURIKULER");
 
+        txtJenisExtra.setBackground(new java.awt.Color(204, 204, 204));
+        txtJenisExtra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         txtJenisExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtJenisExtraActionPerformed(evt);
             }
         });
 
-        buttonEskul.setText("CARI ESKUL");
+        buttonEskul.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonEskul.setText("CARI EKSTRAKURIKULER");
         buttonEskul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEskulActionPerformed(evt);
             }
         });
 
+        txtCariSiswa.setBackground(new java.awt.Color(204, 204, 204));
+        txtCariSiswa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         txtCariSiswa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCariSiswaActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CARI SISWA");
 
         tableSiswaAktif.setModel(new javax.swing.table.DefaultTableModel(
@@ -168,6 +179,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         ));
         tabelSiswaAktif.setViewportView(tableSiswaAktif);
 
+        buttonCariData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonCariData.setText("CARI DATA");
         buttonCariData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,17 +187,67 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
             }
         });
 
+        buttonKelola.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonKelola.setForeground(new java.awt.Color(255, 255, 255));
         buttonKelola.setText("KELOLA");
+        buttonKelola.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonKelola.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonKelolaActionPerformed(evt);
             }
         });
 
+        buttonSaveData.setBackground(new java.awt.Color(40, 167, 69));
+        buttonSaveData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonSaveData.setForeground(new java.awt.Color(255, 255, 255));
         buttonSaveData.setText("SAVE DATA");
+        buttonSaveData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonSaveData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSaveDataActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(30, 58, 138));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("DATA SISWA AKTIF");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel8)
+                .addContainerGap(1010, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel8)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        buttonKelola1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonKelola1.setForeground(new java.awt.Color(255, 255, 255));
+        buttonKelola1.setText("ABSENSI");
+        buttonKelola1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonKelola1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKelola1ActionPerformed(evt);
+            }
+        });
+
+        buttonKelola2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonKelola2.setForeground(new java.awt.Color(255, 255, 255));
+        buttonKelola2.setText("HAPUS SEMUA DATA");
+        buttonKelola2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonKelola2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKelola2ActionPerformed(evt);
             }
         });
 
@@ -193,55 +255,60 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(471, 471, 471)
-                        .addComponent(buttonSaveData))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(228, 228, 228)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtJenisExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(buttonEskul)
-                        .addGap(28, 28, 28)
-                        .addComponent(buttonCariData)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCariSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(254, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonKelola)
-                .addGap(495, 495, 495))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtJenisExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonEskul)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonCariData, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCariSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(112, 112, 112))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(buttonKelola2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(buttonKelola1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(57, 57, 57))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtCariSiswa)
+                    .addComponent(buttonEskul, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtJenisExtra)
+                    .addComponent(buttonCariData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
+                .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtJenisExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonEskul)
-                    .addComponent(buttonCariData)
-                    .addComponent(txtCariSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonSaveData)
-                        .addGap(99, 99, 99)
-                        .addComponent(buttonKelola)
-                        .addGap(146, 146, 146))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(188, Short.MAX_VALUE))))
+                    .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonKelola1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonKelola2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -257,7 +324,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
 
     private void buttonEskulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEskulActionPerformed
         // TODO add your handling code here:
-        new extraForDataFrame (). setVisible(true);
+        new dataExtraForKelola (). setVisible(true);
     }//GEN-LAST:event_buttonEskulActionPerformed
 
     private void buttonCariDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariDataActionPerformed
@@ -364,15 +431,27 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_buttonSaveDataActionPerformed
 
+    private void buttonKelola1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelola1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonKelola1ActionPerformed
+
+    private void buttonKelola2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelola2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonKelola2ActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCariData;
     private javax.swing.JButton buttonEskul;
     private javax.swing.JButton buttonKelola;
+    private javax.swing.JButton buttonKelola1;
+    private javax.swing.JButton buttonKelola2;
     private javax.swing.JButton buttonSaveData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane tabelSiswaAktif;
     private javax.swing.JTable tableSiswaAktif;
     private javax.swing.JTextField txtCariSiswa;

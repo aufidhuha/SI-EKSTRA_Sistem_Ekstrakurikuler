@@ -124,6 +124,11 @@ public class mainFrame extends javax.swing.JFrame {
         buttonKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         buttonKelas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonKelas.setIconTextGap(8);
+        buttonKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKelasActionPerformed(evt);
+            }
+        });
 
         buttonEkstra.setBackground(new java.awt.Color(30, 58, 138));
         buttonEkstra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -133,6 +138,11 @@ public class mainFrame extends javax.swing.JFrame {
         buttonEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         buttonEkstra.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonEkstra.setIconTextGap(8);
+        buttonEkstra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEkstraActionPerformed(evt);
+            }
+        });
 
         buttonFormSiswa.setBackground(new java.awt.Color(30, 58, 138));
         buttonFormSiswa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -386,10 +396,26 @@ public class mainFrame extends javax.swing.JFrame {
     private void buttonStatistikTabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStatistikTabelActionPerformed
         // TODO add your handling code here:
         contentPanel.removeAll();
-        contentPanel.add(new statiskaPanel());
+        contentPanel.add(new statistikPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
     }//GEN-LAST:event_buttonStatistikTabelActionPerformed
+
+    private void buttonKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelasActionPerformed
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new kelasPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_buttonKelasActionPerformed
+
+    private void buttonEkstraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEkstraActionPerformed
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new ekstraPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_buttonEkstraActionPerformed
 
     /**
      * @param args the command line arguments

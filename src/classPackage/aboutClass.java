@@ -88,7 +88,7 @@ public class aboutClass {
         
     }
     
-    public String keterangnaTentang(){
+    
     public String namaPengguna(){
         try {
             query = "SELECT pengguna FROM user";

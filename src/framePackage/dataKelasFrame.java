@@ -15,12 +15,12 @@ import framePackage.siswaPanel;
  *
  * @author ASUS
  */
-public class kelasFrame extends javax.swing.JFrame {
+public class dataKelasFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form kelasFrame
      */
-    public kelasFrame() {
+    public dataKelasFrame() {
         initComponents();
         loadData();
     }
@@ -83,18 +83,18 @@ public class kelasFrame extends javax.swing.JFrame {
         pKelas.setBackground(new java.awt.Color(255, 255, 255));
         pKelas.setForeground(new java.awt.Color(102, 102, 102));
 
-        btnPilih.setBackground(new java.awt.Color(255, 255, 255));
         btnPilih.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnPilih.setForeground(new java.awt.Color(102, 102, 102));
+        btnPilih.setForeground(new java.awt.Color(255, 255, 255));
         btnPilih.setText("PILIH");
+        btnPilih.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPilihActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("DATA KELAS");
 
         tblKelas.setModel(new javax.swing.table.DefaultTableModel(
@@ -114,14 +114,14 @@ public class kelasFrame extends javax.swing.JFrame {
         pKelas.setLayout(pKelasLayout);
         pKelasLayout.setHorizontalGroup(
             pKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pKelasLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnPilih)
-                .addGap(35, 35, 35))
             .addGroup(pKelasLayout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addComponent(jLabel1)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pKelasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPilih, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
             .addGroup(pKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pKelasLayout.createSequentialGroup()
                     .addGap(35, 35, 35)
@@ -133,9 +133,9 @@ public class kelasFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pKelasLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 389, Short.MAX_VALUE)
-                .addComponent(btnPilih)
-                .addGap(44, 44, 44))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 392, Short.MAX_VALUE)
+                .addComponent(btnPilih, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
             .addGroup(pKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pKelasLayout.createSequentialGroup()
                     .addGap(94, 94, 94)
@@ -186,20 +186,21 @@ public class kelasFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(kelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(dataKelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(kelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(dataKelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(kelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(dataKelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(kelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(dataKelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new kelasFrame().setVisible(true);
+                new dataKelasFrame().setVisible(true);
             }
         });
     }

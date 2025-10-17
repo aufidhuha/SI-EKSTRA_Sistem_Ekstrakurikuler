@@ -8,12 +8,12 @@ package framePackage;
  *
  * @author ASUS
  */
-public class statiskaPanel extends javax.swing.JPanel {
+public class statistikPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form statiskaPanel
+     * Creates new form statistikPanel
      */
-    public statiskaPanel() {
+    public statistikPanel() {
         initComponents();
     }
 

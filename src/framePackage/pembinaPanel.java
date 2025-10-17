@@ -4,66 +4,17 @@
  */
 package framePackage;
 
-import classPackage.kelasClass;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import java.sql.*;
-
 /**
  *
  * @author ASUS
  */
-public class kelasPanel extends javax.swing.JPanel {
+public class pembinaPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form kelasPanel
+     * Creates new form pembinaPanel
      */
-    public kelasPanel() {
+    public pembinaPanel() {
         initComponents();
-     //   loadData();
-     //   reset();
-    }
-     
-    void loadData(){
-        kelasClass kelas = new kelasClass();
-        DefaultTableModel model = new DefaultTableModel();
-        
-        model.addColumn("ID kelas");
-        model.addColumn("Nama Kelas");
-        
-       
-        try {
-            ResultSet rsVar = kelas.showKelas();
-            
-            while (rsVar.next()){
-                String id = rsVar.getString("id_kelas");
-                String nama = rsVar.getString("nama_kelas");
-                
-                Object[] data = {id, nama};
-                model.addRow(data);
-            }
-            
-            tableKelas.setModel(model);
-        } catch (SQLException sQLException) {
-            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
-        }
-        
-    }
-    void reset() {
-        txtKodeKelas.setText(null);
-        txtNamaKelas.setText(null);
-        butonSimpan.setText("SIMPAN");
-        autoIDkelas();
-    }
-    void autoIDkelas(){
-        try {
-            kelasClass kelas = new kelasClass();
-            String id = kelas.autoIDKelas();
-            txtKodeKelas.setText(id);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
-        }
-        txtKodeKelas.setEditable(false);
     }
 
     /**
@@ -75,10 +26,6 @@ public class kelasPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        butonHapus = new javax.swing.JButton();
-        butonBatal = new javax.swing.JButton();
-        butonSimpan = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -88,8 +35,103 @@ public class kelasPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtKodeKelas = new javax.swing.JTextField();
         txtNamaKelas = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        butonHapus = new javax.swing.JButton();
+        butonBatal = new javax.swing.JButton();
+        butonSimpan = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel2.setBackground(new java.awt.Color(30, 58, 138));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("DATA PEMBINA");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel8)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        tableKelas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableKelas);
+
+        jPanel3.setBackground(new java.awt.Color(37, 99, 235));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("NIP PEMBINA");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("NAMA PEMBINA");
+
+        txtKodeKelas.setBackground(new java.awt.Color(255, 255, 255));
+        txtKodeKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtKodeKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtKodeKelasActionPerformed(evt);
+            }
+        });
+
+        txtNamaKelas.setBackground(new java.awt.Color(255, 255, 255));
+        txtNamaKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtNamaKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNamaKelasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtKodeKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(60, 60, 60)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNamaKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(106, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtKodeKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNamaKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TOMBOL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
@@ -157,97 +199,6 @@ public class kelasPanel extends javax.swing.JPanel {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(30, 58, 138));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("DATA KELAS");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel8)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-
-        tableKelas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tableKelas);
-
-        jPanel3.setBackground(new java.awt.Color(37, 99, 235));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("KODE KELAS");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("NAMA KELAS");
-
-        txtKodeKelas.setBackground(new java.awt.Color(255, 255, 255));
-        txtKodeKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        txtKodeKelas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtKodeKelasActionPerformed(evt);
-            }
-        });
-
-        txtNamaKelas.setBackground(new java.awt.Color(255, 255, 255));
-        txtNamaKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        txtNamaKelas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamaKelasActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtKodeKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNamaKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(106, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtKodeKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNamaKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -277,34 +228,16 @@ public class kelasPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void butonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonSimpanActionPerformed
-        // TODO add your handling code here:
-        if (txtKodeKelas.getText().isBlank() || txtNamaKelas.getText().isBlank()) {
-        JOptionPane.showMessageDialog(null, "Harap isi semua");
-        return;
-    }
-        kelasClass kelas = new kelasClass();
-        
-        kelas.setKodeKelas(txtKodeKelas.getText());
-        kelas.setNamaKelas(txtNamaKelas.getText());
-        
-        kelas.saveDataKelas();
-        
-        reset();
-        
-        loadData();
-    }//GEN-LAST:event_butonSimpanActionPerformed
-
-    private void butonBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonBatalActionPerformed
-        // TODO add your handling code here:
-        reset ();
-    }//GEN-LAST:event_butonBatalActionPerformed
-
     private void txtKodeKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKodeKelasActionPerformed
         // TODO add your handling code here:
         //txtKodeKelas();
-        
+
     }//GEN-LAST:event_txtKodeKelasActionPerformed
+
+    private void txtNamaKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaKelasActionPerformed
+        // TODO add your handling code here:
+        // txtNamaKelas
+    }//GEN-LAST:event_txtNamaKelasActionPerformed
 
     private void butonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonHapusActionPerformed
         // TODO add your handling code here:
@@ -313,19 +246,37 @@ public class kelasPanel extends javax.swing.JPanel {
             return;
         }
         kelasClass kelas = new kelasClass();
-        
+
         kelas.setKodeKelas(txtKodeKelas.getText());
         kelas.setNamaKelas(txtNamaKelas.getText());
-        
+
         kelas.deleteDataKelas();
-        
+
         reset();
     }//GEN-LAST:event_butonHapusActionPerformed
 
-    private void txtNamaKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaKelasActionPerformed
+    private void butonBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonBatalActionPerformed
         // TODO add your handling code here:
-       // txtNamaKelas
-    }//GEN-LAST:event_txtNamaKelasActionPerformed
+        reset ();
+    }//GEN-LAST:event_butonBatalActionPerformed
+
+    private void butonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonSimpanActionPerformed
+        // TODO add your handling code here:
+        if (txtKodeKelas.getText().isBlank() || txtNamaKelas.getText().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Harap isi semua");
+            return;
+        }
+        kelasClass kelas = new kelasClass();
+
+        kelas.setKodeKelas(txtKodeKelas.getText());
+        kelas.setNamaKelas(txtNamaKelas.getText());
+
+        kelas.saveDataKelas();
+
+        reset();
+
+        loadData();
+    }//GEN-LAST:event_butonSimpanActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
