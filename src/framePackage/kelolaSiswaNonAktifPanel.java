@@ -6,6 +6,7 @@ package framePackage;
 
 import static framePackage.NewJFrame.contentPanel;
 import classPackage.siswaClass;
+import static framePackage.mainFrame.contentPanel;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -20,8 +21,8 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
      */
     public kelolaSiswaNonAktifPanel() {
         initComponents();
-        dataTidakAktif();
-        cariDataTidakAktif();
+      //  dataTidakAktif();
+      //  cariDataTidakAktif();
     }
     
     static String isMode = "Tidak Aktif";
@@ -339,7 +340,7 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
     private void buttonDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaftarActionPerformed
         // TODO add your handling code here:
         contentPanel.removeAll();
-        contentPanel.add(new dataSiswaNonAktif());
+        contentPanel.add(new dataSiswaNonAktifPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
     }//GEN-LAST:event_buttonDaftarActionPerformed

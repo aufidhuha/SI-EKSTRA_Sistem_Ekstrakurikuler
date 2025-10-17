@@ -38,7 +38,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
      */
     public dataSiswaAktifPanel() {
         initComponents();
-        loadData();
+      //  loadData();
         
     }
      void loadData(){
@@ -187,6 +187,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
             }
         });
 
+        buttonKelola.setBackground(new java.awt.Color(40, 167, 69));
         buttonKelola.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonKelola.setForeground(new java.awt.Color(255, 255, 255));
         buttonKelola.setText("KELOLA");
@@ -231,6 +232,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        buttonKelola1.setBackground(new java.awt.Color(40, 167, 69));
         buttonKelola1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonKelola1.setForeground(new java.awt.Color(255, 255, 255));
         buttonKelola1.setText("ABSENSI");
@@ -241,6 +243,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
             }
         });
 
+        buttonKelola2.setBackground(new java.awt.Color(40, 167, 69));
         buttonKelola2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonKelola2.setForeground(new java.awt.Color(255, 255, 255));
         buttonKelola2.setText("HAPUS SEMUA DATA");
@@ -433,6 +436,10 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
 
     private void buttonKelola1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelola1ActionPerformed
         // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new absensiPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
     }//GEN-LAST:event_buttonKelola1ActionPerformed
 
     private void buttonKelola2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelola2ActionPerformed

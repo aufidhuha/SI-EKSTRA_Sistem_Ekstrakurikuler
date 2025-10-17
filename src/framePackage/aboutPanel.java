@@ -35,15 +35,11 @@ public class aboutPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        aboutLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        aboutLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        aboutLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        aboutLabel.setForeground(new java.awt.Color(0, 0, 0));
-        aboutLabel.setText("Text");
 
         jPanel1.setBackground(new java.awt.Color(30, 58, 138));
 
@@ -68,13 +64,17 @@ public class aboutPanel extends javax.swing.JPanel {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        aboutLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        aboutLabel.setForeground(new java.awt.Color(0, 0, 0));
+        aboutLabel.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(88, 88, 88)
                 .addComponent(aboutLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -82,9 +82,9 @@ public class aboutPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(aboutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(570, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(aboutLabel)
+                .addContainerGap(568, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
