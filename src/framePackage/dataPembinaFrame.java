@@ -54,6 +54,7 @@ public class dataPembinaFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("DATA GURU - PEMBINA");
 
+        jButton1.setBackground(new java.awt.Color(40, 167, 69));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("PILIH");

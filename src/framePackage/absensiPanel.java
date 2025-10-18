@@ -64,8 +64,11 @@ public class absensiPanel extends javax.swing.JPanel {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        buttonCariData.setBackground(new java.awt.Color(102, 16, 242));
         buttonCariData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonCariData.setForeground(new java.awt.Color(255, 255, 255));
         buttonCariData.setText("CARI DATA");
+        buttonCariData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonCariData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCariDataActionPerformed(evt);
@@ -84,8 +87,11 @@ public class absensiPanel extends javax.swing.JPanel {
             }
         });
 
+        buttonEskul.setBackground(new java.awt.Color(111, 66, 193));
         buttonEskul.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonEskul.setForeground(new java.awt.Color(255, 255, 255));
         buttonEskul.setText("CARI EKSTRAKURIKULER");
+        buttonEskul.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonEskul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEskulActionPerformed(evt);
@@ -95,8 +101,10 @@ public class absensiPanel extends javax.swing.JPanel {
         buttonSaveData.setBackground(new java.awt.Color(40, 167, 69));
         buttonSaveData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonSaveData.setForeground(new java.awt.Color(255, 255, 255));
-        buttonSaveData.setText("SAVE DATA");
+        buttonSaveData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-save-as-24.png"))); // NOI18N
+        buttonSaveData.setText("SIMPAN DATA");
         buttonSaveData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonSaveData.setIconTextGap(8);
         buttonSaveData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSaveDataActionPerformed(evt);
@@ -116,9 +124,10 @@ public class absensiPanel extends javax.swing.JPanel {
         ));
         tabelSiswaAktif.setViewportView(tableSiswaAktif);
 
-        buttonSaveData1.setBackground(new java.awt.Color(40, 167, 69));
+        buttonSaveData1.setBackground(new java.awt.Color(108, 117, 125));
         buttonSaveData1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonSaveData1.setForeground(new java.awt.Color(255, 255, 255));
+        buttonSaveData1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-back-24.png"))); // NOI18N
         buttonSaveData1.setText("KEMBALI");
         buttonSaveData1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonSaveData1.addActionListener(new java.awt.event.ActionListener() {
@@ -138,15 +147,15 @@ public class absensiPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtJenisExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonEskul)
+                        .addComponent(buttonEskul, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buttonCariData, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(buttonSaveData1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(26, 26, 26)
-                            .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(57, 57, 57))
         );
@@ -158,16 +167,17 @@ public class absensiPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonEskul, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtJenisExtra)
-                    .addComponent(buttonCariData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonEskul, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonCariData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtJenisExtra))
                 .addGap(40, 40, 40)
                 .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonSaveData1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -188,7 +198,7 @@ public class absensiPanel extends javax.swing.JPanel {
 
     private void buttonEskulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEskulActionPerformed
         // TODO add your handling code here:
-        new dataExtraForKelola (). setVisible(true);
+        new dataEkstraForAbsensiFrame().setVisible(true);
     }//GEN-LAST:event_buttonEskulActionPerformed
 
     private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed

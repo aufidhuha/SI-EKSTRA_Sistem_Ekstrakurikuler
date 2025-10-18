@@ -108,28 +108,28 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="buttonDashboard" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonDashboard" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonKelas" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonKelas" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonPembina" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonPembina" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonEkstra" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonEkstra" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonFormSiswa" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonFormSiswa" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonSiswaAktif" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonSiswaAktif" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonSiswaNonAktif" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonSiswaNonAktif" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonStatistikTabel" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonStatistikTabel" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonKeamanan" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonKeamanan" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonAbout" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="buttonAbout" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonLogout" min="-2" pref="56" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buttonLogout" min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -158,6 +158,9 @@
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="iconTextGap" type="int" value="8"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDashboardActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="buttonKelas">
               <Properties>

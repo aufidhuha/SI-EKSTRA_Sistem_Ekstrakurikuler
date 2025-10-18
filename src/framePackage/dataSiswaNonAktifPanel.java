@@ -37,7 +37,7 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
      */
     public dataSiswaNonAktifPanel() {
         initComponents();
-        dataTidakAktif();
+       // dataTidakAktif();
     }
     
     static String isMode = "Tidak Aktif";
@@ -152,8 +152,10 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tableNonAktif);
 
+        bkembali.setBackground(new java.awt.Color(108, 117, 125));
         bkembali.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         bkembali.setForeground(new java.awt.Color(255, 255, 255));
+        bkembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-back-24.png"))); // NOI18N
         bkembali.setText("KEMBALI");
         bkembali.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         bkembali.addActionListener(new java.awt.event.ActionListener() {
@@ -165,8 +167,10 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
         buttonSaveData.setBackground(new java.awt.Color(40, 167, 69));
         buttonSaveData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonSaveData.setForeground(new java.awt.Color(255, 255, 255));
-        buttonSaveData.setText("SAVE DATA");
+        buttonSaveData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-save-as-24.png"))); // NOI18N
+        buttonSaveData.setText("SIMPAN DATA");
         buttonSaveData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonSaveData.setIconTextGap(8);
         buttonSaveData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSaveDataActionPerformed(evt);

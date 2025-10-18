@@ -84,6 +84,7 @@ public class dataKelasFrame extends javax.swing.JFrame {
         pKelas.setBackground(new java.awt.Color(255, 255, 255));
         pKelas.setForeground(new java.awt.Color(102, 102, 102));
 
+        btnPilih.setBackground(new java.awt.Color(40, 167, 69));
         btnPilih.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPilih.setForeground(new java.awt.Color(255, 255, 255));
         btnPilih.setText("PILIH");

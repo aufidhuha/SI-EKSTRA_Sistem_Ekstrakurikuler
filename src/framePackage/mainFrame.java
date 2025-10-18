@@ -116,6 +116,11 @@ public class mainFrame extends javax.swing.JFrame {
         buttonDashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         buttonDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonDashboard.setIconTextGap(8);
+        buttonDashboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDashboardActionPerformed(evt);
+            }
+        });
 
         buttonKelas.setBackground(new java.awt.Color(30, 58, 138));
         buttonKelas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -293,28 +298,28 @@ public class mainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(38, 38, 38)
-                .addComponent(buttonDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonPembina, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPembina, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonFormSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonFormSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonSiswaNonAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonSiswaNonAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonStatistikTabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonStatistikTabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonKeamanan, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonKeamanan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         navbarPanel.setBackground(new java.awt.Color(37, 99, 235));
@@ -410,7 +415,8 @@ public class mainFrame extends javax.swing.JFrame {
         int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin keluar?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if (yesOrNo == JOptionPane.YES_OPTION) {
-            System.exit(0);
+            dispose();
+            new loginFrame().setVisible(true);
         }
     }//GEN-LAST:event_labelCloseMouseClicked
 
@@ -419,7 +425,8 @@ public class mainFrame extends javax.swing.JFrame {
         int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin keluar?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         
         if (yesOrNo == JOptionPane.YES_OPTION) {
-            System.exit(0);
+            dispose();
+            new loginFrame().setVisible(true);
         }
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
@@ -473,15 +480,15 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void buttonSiswaNonAktifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSiswaNonAktifActionPerformed
         // TODO add your handling code here:
-         contentPanel.removeAll();
-        contentPanel.add(new dataSiswaNonAktifPanel());
+        contentPanel.removeAll();
+        contentPanel.add(new kelolaSiswaNonAktifPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
     }//GEN-LAST:event_buttonSiswaNonAktifActionPerformed
 
     private void buttonKeamananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKeamananActionPerformed
         // TODO add your handling code here:
-         contentPanel.removeAll();
+        contentPanel.removeAll();
         contentPanel.add(new keamananPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
@@ -489,11 +496,19 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void buttonAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAboutActionPerformed
         // TODO add your handling code here:
-         contentPanel.removeAll();
+        contentPanel.removeAll();
         contentPanel.add(new aboutPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
     }//GEN-LAST:event_buttonAboutActionPerformed
+
+    private void buttonDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDashboardActionPerformed
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new dashboardPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_buttonDashboardActionPerformed
 
     /**
      * @param args the command line arguments

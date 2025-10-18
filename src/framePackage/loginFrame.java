@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package framePackage;
+
 import classPackage.secureClass;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.SQLException;
@@ -11,7 +12,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
 
 /**
  *
@@ -62,23 +62,22 @@ public class loginFrame extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/SI-EKSTRA 320.png"))); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("SISTEM INFORMASI EKSTRAKURIKULER");
+        jLabel7.setText("SISTEM EKSTRAKURIKULER");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jLabel7)))
+                .addGap(63, 63, 63)
+                .addComponent(jLabel4)
                 .addContainerGap(67, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(122, 122, 122))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,29 +261,29 @@ public class loginFrame extends javax.swing.JFrame {
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         // TODO add your handling code here:
-        secureClass login = new secureClass();
-        login.setUsername(txtUsername.getText());
-        login.setPassword(txtPassword.getText());
-        
-        if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
-        JOptionPane.showMessageDialog(null, "Username tidak boleh kosong","Peringatan",JOptionPane.WARNING_MESSAGE);
-        return; 
-        } else if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
-        JOptionPane.showMessageDialog(null, "Password tidak boleh kosong","Peringatan",JOptionPane.WARNING_MESSAGE);
-        return;
-        } else if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
-        JOptionPane.showMessageDialog(null, "Username & Password tidak boleh kosong","Peringatan",JOptionPane.WARNING_MESSAGE);
-        return;
-        }
-        
-        boolean success = login.loginApp();
-        if (success){
+//        secureClass login = new secureClass();
+//        login.setUsername(txtUsername.getText());
+//        login.setPassword(txtPassword.getText());
+//
+//        if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
+//            JOptionPane.showMessageDialog(null, "Username tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+//            return;
+//        } else if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
+//            JOptionPane.showMessageDialog(null, "Password tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+//            return;
+//        } else if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
+//            JOptionPane.showMessageDialog(null, "Username & Password tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+//            return;
+//        }
+
+//        boolean success = login.loginApp();
+//        if (success) {
             dispose();
             new mainFrame().setVisible(true);
-        }else {
-            JOptionPane.showMessageDialog(null,"Username atau Password salah","Peringatan",JOptionPane.WARNING_MESSAGE);
-        }
-        
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Username atau Password salah", "Peringatan", JOptionPane.WARNING_MESSAGE);
+//        }
+
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void labelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCloseMouseClicked

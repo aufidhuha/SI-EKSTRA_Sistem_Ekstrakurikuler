@@ -130,18 +130,30 @@ public class siswaPanel extends javax.swing.JPanel {
         buttonPilihKelas.setForeground(new java.awt.Color(255, 255, 255));
         buttonPilihKelas.setText("PILIH KELAS");
         buttonPilihKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonPilihKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPilihKelasActionPerformed(evt);
+            }
+        });
 
         buttonPilihEkstra.setBackground(new java.awt.Color(51, 153, 0));
         buttonPilihEkstra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonPilihEkstra.setForeground(new java.awt.Color(255, 255, 255));
         buttonPilihEkstra.setText("PILIH EKSTRA");
         buttonPilihEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonPilihEkstra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPilihEkstraActionPerformed(evt);
+            }
+        });
 
         cbJenisKelamin.setBackground(new java.awt.Color(255, 255, 255));
+        cbJenisKelamin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbJenisKelamin.setForeground(new java.awt.Color(0, 0, 0));
         cbJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
 
         cbStatus.setBackground(new java.awt.Color(255, 255, 255));
+        cbStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbStatus.setForeground(new java.awt.Color(0, 0, 0));
         cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktif", "Tidak Aktif", "Purna" }));
 
@@ -269,23 +281,33 @@ public class siswaPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(44, 44, 44)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 69, Short.MAX_VALUE))
+                .addGap(0, 85, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonPilihKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPilihKelasActionPerformed
+        // TODO add your handling code here:
+        new dataKelasFrame().setVisible(true);
+    }//GEN-LAST:event_buttonPilihKelasActionPerformed
+
+    private void buttonPilihEkstraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPilihEkstraActionPerformed
+        // TODO add your handling code here:
+        new dataEkstraFrame().setVisible(true);
+    }//GEN-LAST:event_buttonPilihEkstraActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
