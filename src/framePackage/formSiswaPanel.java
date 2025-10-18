@@ -8,12 +8,12 @@ package framePackage;
  *
  * @author ASUS
  */
-public class siswaPanel extends javax.swing.JPanel {
+public class formSiswaPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form siswaPanel
      */
-    public siswaPanel() {
+    public formSiswaPanel() {
         initComponents();
     }
 

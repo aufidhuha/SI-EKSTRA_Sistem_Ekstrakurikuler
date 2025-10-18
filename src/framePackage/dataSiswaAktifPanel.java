@@ -373,19 +373,19 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         String status = tabelSiswaAktif.getValueAt(ChoiceRow, 6).toString();
         
         contentPanel.removeAll();
-        contentPanel.add(new siswaPanel());
+        contentPanel.add(new formSiswaPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
         
-        siswaPanel.txtKodeEkstra.setText(kode);
-        siswaPanel.txtNisn.setTex(nisn);
-        siswaPanel.txtNama.setText(nama);
-        siswaPanel.cbJenisKelamin.setSelectedItem(jenis);
-        siswaPanel.txtKelasSiswa.setText(kelas);
-        siswaPanel.txtJenisEkstra.setText(ekstra);
-        siswaPanel.cbStatus.setSelectedItem(status);
+        formSiswaPanel.txtKodeEkstra.setText(kode);
+        formSiswaPanel.txtNisn.setTex(nisn);
+        formSiswaPanel.txtNama.setText(nama);
+        formSiswaPanel.cbJenisKelamin.setSelectedItem(jenis);
+        formSiswaPanel.txtKelasSiswa.setText(kelas);
+        formSiswaPanel.txtJenisEkstra.setText(ekstra);
+        formSiswaPanel.cbStatus.setSelectedItem(status);
         
-        siswaPanel.buttonSimpan.setText("UBAH");
+        formSiswaPanel.buttonSimpan.setText("UBAH");
     }//GEN-LAST:event_buttonKelolaActionPerformed
 
     private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed

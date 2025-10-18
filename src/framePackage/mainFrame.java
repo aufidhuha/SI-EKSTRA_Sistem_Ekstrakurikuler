@@ -433,7 +433,7 @@ public class mainFrame extends javax.swing.JFrame {
     private void buttonFormSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFormSiswaActionPerformed
         // TODO add your handling code here:
         contentPanel.removeAll();
-        contentPanel.add(new siswaPanel());
+        contentPanel.add(new formSiswaPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
     }//GEN-LAST:event_buttonFormSiswaActionPerformed

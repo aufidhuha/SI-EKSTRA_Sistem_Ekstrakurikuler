@@ -331,18 +331,18 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         String status = tableSiswaNonAktif.getValueAt(choiceRow, 6).toString();
         
         contentPanel.removeAll();
-        contentPanel.add(new siswaPanel());
+        contentPanel.add(new formSiswaPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
         
-        siswaPanel.txtKodeEkstra.setText(kode);
-        siswaPanel.txtNisn.setText(nisn);
-        siswaPanel.txtNama.setText(nama);
-        siswaPanel.obJenisKelamin.setSelectedItem(jenis);
-        siswaPanel.txtKelasSiswa.setText(kelas);
-        siswaPanel.txtJenisEkstra.setText(ekstra);
-        siswaPanel.obStatus.setSelectedItem(status);
-        siswaPanel.buttonSimpan.setText("UBAH");
+        formSiswaPanel.txtKodeEkstra.setText(kode);
+        formSiswaPanel.txtNisn.setText(nisn);
+        formSiswaPanel.txtNama.setText(nama);
+        formSiswaPanel.obJenisKelamin.setSelectedItem(jenis);
+        formSiswaPanel.txtKelasSiswa.setText(kelas);
+        formSiswaPanel.txtJenisEkstra.setText(ekstra);
+        formSiswaPanel.obStatus.setSelectedItem(status);
+        formSiswaPanel.buttonSimpan.setText("UBAH");
     }//GEN-LAST:event_buttonKelolaActionPerformed
 
     private void buttonDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaftarActionPerformed
