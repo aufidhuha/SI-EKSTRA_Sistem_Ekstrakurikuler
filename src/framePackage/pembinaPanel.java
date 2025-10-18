@@ -4,6 +4,11 @@
  */
 package framePackage;
 
+import classPackage.kelasClass;
+import classPackage.pembinaClass;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
@@ -15,6 +20,28 @@ public class pembinaPanel extends javax.swing.JPanel {
      */
     public pembinaPanel() {
         initComponents();
+        loadData();
+        reset();
+    }
+    
+    void reset(){
+        txtNIP.setText(null);
+        txtNIP.setEditable(true);
+        txtNamaPembina.setText(null);
+        butonSimpan.setText("SIMPAN");
+    }
+    
+    void loadData(){
+        try {
+
+            pembinaClass data = new pembinaClass();
+            DefaultTableModel model = data.showDataPembina();
+
+            tablePembina.setModel(model);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
     }
 
     /**
@@ -29,12 +56,12 @@ public class pembinaPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableKelas = new javax.swing.JTable();
+        tablePembina = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtKodeKelas = new javax.swing.JTextField();
-        txtNamaKelas = new javax.swing.JTextField();
+        txtNIP = new javax.swing.JTextField();
+        txtNamaPembina = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         butonHapus = new javax.swing.JButton();
         butonBatal = new javax.swing.JButton();
@@ -65,7 +92,7 @@ public class pembinaPanel extends javax.swing.JPanel {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        tableKelas.setModel(new javax.swing.table.DefaultTableModel(
+        tablePembina.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -76,7 +103,12 @@ public class pembinaPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tableKelas);
+        tablePembina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePembinaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablePembina);
 
         jPanel3.setBackground(new java.awt.Color(37, 99, 235));
 
@@ -88,19 +120,19 @@ public class pembinaPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NAMA PEMBINA");
 
-        txtKodeKelas.setBackground(new java.awt.Color(255, 255, 255));
-        txtKodeKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        txtKodeKelas.addActionListener(new java.awt.event.ActionListener() {
+        txtNIP.setBackground(new java.awt.Color(255, 255, 255));
+        txtNIP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        txtNIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtKodeKelasActionPerformed(evt);
+                txtNIPActionPerformed(evt);
             }
         });
 
-        txtNamaKelas.setBackground(new java.awt.Color(255, 255, 255));
-        txtNamaKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        txtNamaKelas.addActionListener(new java.awt.event.ActionListener() {
+        txtNamaPembina.setBackground(new java.awt.Color(255, 255, 255));
+        txtNamaPembina.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        txtNamaPembina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamaKelasActionPerformed(evt);
+                txtNamaPembinaActionPerformed(evt);
             }
         });
 
@@ -111,12 +143,12 @@ public class pembinaPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtKodeKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNIP, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(60, 60, 60)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(txtNamaKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNamaPembina, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -128,8 +160,8 @@ public class pembinaPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtKodeKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNamaKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNIP, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNamaPembina, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -228,31 +260,33 @@ public class pembinaPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtKodeKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKodeKelasActionPerformed
+    private void txtNIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNIPActionPerformed
         // TODO add your handling code here:
-        //txtKodeKelas();
 
-    }//GEN-LAST:event_txtKodeKelasActionPerformed
+    }//GEN-LAST:event_txtNIPActionPerformed
 
-    private void txtNamaKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaKelasActionPerformed
+    private void txtNamaPembinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaPembinaActionPerformed
         // TODO add your handling code here:
-        // txtNamaKelas
-    }//GEN-LAST:event_txtNamaKelasActionPerformed
+        
+    }//GEN-LAST:event_txtNamaPembinaActionPerformed
 
     private void butonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonHapusActionPerformed
         // TODO add your handling code here:
-        if (txtKodeKelas.getText().isBlank() || txtNamaKelas.getText().isBlank()){
+        if (txtNIP.getText().isBlank() || txtNamaPembina.getText().isBlank()){
             JOptionPane.showMessageDialog(null, "Harap memilih data yang ingin dihapus");
             return;
         }
-        kelasClass kelas = new kelasClass();
+        
+        pembinaClass pembina  = new pembinaClass();
 
-        kelas.setKodeKelas(txtKodeKelas.getText());
-        kelas.setNamaKelas(txtNamaKelas.getText());
+        pembina.setNip(txtNIP.getText());
+        pembina.setNama(txtNamaPembina.getText());
 
-        kelas.deleteDataKelas();
+        pembina.deleteData();
 
         reset();
+        
+        loadData();
     }//GEN-LAST:event_butonHapusActionPerformed
 
     private void butonBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonBatalActionPerformed
@@ -262,21 +296,35 @@ public class pembinaPanel extends javax.swing.JPanel {
 
     private void butonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonSimpanActionPerformed
         // TODO add your handling code here:
-        if (txtKodeKelas.getText().isBlank() || txtNamaKelas.getText().isBlank()) {
+        if (txtNIP.getText().isBlank() || txtNamaPembina.getText().isBlank()) {
             JOptionPane.showMessageDialog(null, "Harap isi semua");
             return;
         }
-        kelasClass kelas = new kelasClass();
+        
+        pembinaClass pembina = new pembinaClass();
 
-        kelas.setKodeKelas(txtKodeKelas.getText());
-        kelas.setNamaKelas(txtNamaKelas.getText());
+        pembina.setNip(txtNIP.getText());
+        pembina.setNama(txtNamaPembina.getText());
 
-        kelas.saveDataKelas();
+        pembina.saveData();
 
         reset();
 
         loadData();
     }//GEN-LAST:event_butonSimpanActionPerformed
+
+    private void tablePembinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablePembinaMouseClicked
+        // TODO add your handling code here:
+        int choiceRow = tablePembina.getSelectedRow();
+        
+        String nip = tablePembina.getValueAt(choiceRow, 0).toString();
+        String nama = tablePembina.getValueAt(choiceRow, 1).toString();
+        
+        txtNIP.setText(nip);
+        txtNIP.setEditable(false);
+        txtNamaPembina.setText(nama);
+        butonSimpan.setText("UBAH");
+    }//GEN-LAST:event_tablePembinaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -290,8 +338,8 @@ public class pembinaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableKelas;
-    private javax.swing.JTextField txtKodeKelas;
-    private javax.swing.JTextField txtNamaKelas;
+    private javax.swing.JTable tablePembina;
+    private javax.swing.JTextField txtNIP;
+    private javax.swing.JTextField txtNamaPembina;
     // End of variables declaration//GEN-END:variables
 }

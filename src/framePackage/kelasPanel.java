@@ -20,42 +20,43 @@ public class kelasPanel extends javax.swing.JPanel {
      */
     public kelasPanel() {
         initComponents();
-     //   loadData();
-     //   reset();
+        loadData();
+        reset();
     }
-     
-    void loadData(){
+
+    void loadData() {
         kelasClass kelas = new kelasClass();
         DefaultTableModel model = new DefaultTableModel();
-        
+
         model.addColumn("ID kelas");
         model.addColumn("Nama Kelas");
-        
-       
+
         try {
             ResultSet rsVar = kelas.showKelas();
-            
-            while (rsVar.next()){
+
+            while (rsVar.next()) {
                 String id = rsVar.getString("id_kelas");
                 String nama = rsVar.getString("nama_kelas");
-                
+
                 Object[] data = {id, nama};
                 model.addRow(data);
             }
-            
+
             tableKelas.setModel(model);
         } catch (SQLException sQLException) {
             JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
         }
-        
+
     }
+
     void reset() {
         txtKodeKelas.setText(null);
         txtNamaKelas.setText(null);
         butonSimpan.setText("SIMPAN");
         autoIDkelas();
     }
-    void autoIDkelas(){
+
+    void autoIDkelas() {
         try {
             kelasClass kelas = new kelasClass();
             String id = kelas.autoIDKelas();
@@ -191,6 +192,11 @@ public class kelasPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableKelas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableKelasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableKelas);
 
         jPanel3.setBackground(new java.awt.Color(37, 99, 235));
@@ -204,7 +210,7 @@ public class kelasPanel extends javax.swing.JPanel {
         jLabel2.setText("NAMA KELAS");
 
         txtKodeKelas.setBackground(new java.awt.Color(255, 255, 255));
-        txtKodeKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtKodeKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtKodeKelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtKodeKelasActionPerformed(evt);
@@ -212,7 +218,7 @@ public class kelasPanel extends javax.swing.JPanel {
         });
 
         txtNamaKelas.setBackground(new java.awt.Color(255, 255, 255));
-        txtNamaKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtNamaKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtNamaKelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNamaKelasActionPerformed(evt);
@@ -280,52 +286,66 @@ public class kelasPanel extends javax.swing.JPanel {
     private void butonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonSimpanActionPerformed
         // TODO add your handling code here:
         if (txtKodeKelas.getText().isBlank() || txtNamaKelas.getText().isBlank()) {
-        JOptionPane.showMessageDialog(null, "Harap isi semua");
-        return;
-    }
+            JOptionPane.showMessageDialog(null, "Harap isi semua");
+            return;
+        }
         kelasClass kelas = new kelasClass();
-        
+
         kelas.setKodeKelas(txtKodeKelas.getText());
         kelas.setNamaKelas(txtNamaKelas.getText());
-        
+
         kelas.saveDataKelas();
-        
+
         reset();
         
-        loadData();
+        loadData();        
     }//GEN-LAST:event_butonSimpanActionPerformed
 
     private void butonBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonBatalActionPerformed
         // TODO add your handling code here:
-        reset ();
+        reset();
     }//GEN-LAST:event_butonBatalActionPerformed
 
     private void txtKodeKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKodeKelasActionPerformed
         // TODO add your handling code here:
         //txtKodeKelas();
-        
+
     }//GEN-LAST:event_txtKodeKelasActionPerformed
 
     private void butonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonHapusActionPerformed
         // TODO add your handling code here:
-        if (txtKodeKelas.getText().isBlank() || txtNamaKelas.getText().isBlank()){
+        if (txtKodeKelas.getText().isBlank() || txtNamaKelas.getText().isBlank()) {
             JOptionPane.showMessageDialog(null, "Harap memilih data yang ingin dihapus");
             return;
         }
         kelasClass kelas = new kelasClass();
-        
+
         kelas.setKodeKelas(txtKodeKelas.getText());
         kelas.setNamaKelas(txtNamaKelas.getText());
-        
+
         kelas.deleteDataKelas();
         
         reset();
+        
+        loadData();
     }//GEN-LAST:event_butonHapusActionPerformed
 
     private void txtNamaKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaKelasActionPerformed
         // TODO add your handling code here:
-       // txtNamaKelas
+        
     }//GEN-LAST:event_txtNamaKelasActionPerformed
+
+    private void tableKelasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKelasMouseClicked
+        // TODO add your handling code here:
+        int choiceRow = tableKelas.getSelectedRow();
+        
+        String kodeKelas = tableKelas.getValueAt(choiceRow, 0).toString();
+        String namaKelas = tableKelas.getValueAt(choiceRow, 1).toString();
+        
+        txtKodeKelas.setText(kodeKelas);
+        txtNamaKelas.setText(namaKelas);
+        butonSimpan.setText("UBAH");
+    }//GEN-LAST:event_tableKelasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

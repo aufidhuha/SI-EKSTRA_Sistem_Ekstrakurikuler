@@ -261,28 +261,28 @@ public class loginFrame extends javax.swing.JFrame {
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         // TODO add your handling code here:
-//        secureClass login = new secureClass();
-//        login.setUsername(txtUsername.getText());
-//        login.setPassword(txtPassword.getText());
-//
-//        if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
-//            JOptionPane.showMessageDialog(null, "Username tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
-//            return;
-//        } else if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
-//            JOptionPane.showMessageDialog(null, "Password tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
-//            return;
-//        } else if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
-//            JOptionPane.showMessageDialog(null, "Username & Password tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
-//            return;
-//        }
+        secureClass login = new secureClass();
+        login.setUsername(txtUsername.getText());
+        login.setPassword(txtPassword.getText());
 
-//        boolean success = login.loginApp();
-//        if (success) {
+        if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Username tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Password tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Username & Password tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        boolean success = login.loginApp();
+        if (success) {
             dispose();
             new mainFrame().setVisible(true);
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Username atau Password salah", "Peringatan", JOptionPane.WARNING_MESSAGE);
-//        }
+        } else {
+            JOptionPane.showMessageDialog(null, "Username atau Password salah", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        }
 
     }//GEN-LAST:event_buttonLoginActionPerformed
 

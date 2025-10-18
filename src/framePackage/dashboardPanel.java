@@ -5,6 +5,7 @@
 package framePackage;
 
 import classPackage.aboutClass;
+import static framePackage.mainFrame.contentPanel;
 
 /**
  *
@@ -17,7 +18,7 @@ public class dashboardPanel extends javax.swing.JPanel {
      */
     public dashboardPanel() {
         initComponents();
-       //  jumlahAll();
+        jumlahAll();
     }
     
     void jumlahAll(){
@@ -25,7 +26,8 @@ public class dashboardPanel extends javax.swing.JPanel {
         
         LabelKelas.setText(about.jumlahKelas());
         LabelEkstra.setText(about.jumlahEkstra());
-        LabelKelas.setText(about.jumlahSiswa());
+        LabelPembina.setText(about.jumlahPembina());
+        LabelSiswa.setText(about.jumlahSiswa());
         LabelPengguna.setText(about.namaPengguna());
     }
 
@@ -39,24 +41,24 @@ public class dashboardPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        LabelKelas = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        labelInfoKelas = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        LabelKelas = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        LabelSiswa = new javax.swing.JLabel();
+        LabelPembina = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        labelInfoPembina = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         LabelEkstra = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        labelInfoEkstra = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        LabelEkstra1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        LabelSiswa = new javax.swing.JLabel();
+        labelInfoSiswa = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         LabelPengguna = new javax.swing.JLabel();
@@ -66,22 +68,28 @@ public class dashboardPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(0, 123, 255));
 
-        LabelKelas.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        LabelKelas.setForeground(new java.awt.Color(255, 255, 255));
-        LabelKelas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        LabelKelas.setText("0  ");
-        LabelKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("KELAS");
         jLabel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("MORE INFO");
+        labelInfoKelas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labelInfoKelas.setForeground(new java.awt.Color(255, 255, 255));
+        labelInfoKelas.setText("MORE INFO");
+        labelInfoKelas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelInfoKelasMouseClicked(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-class-64.png"))); // NOI18N
+
+        LabelKelas.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        LabelKelas.setForeground(new java.awt.Color(255, 255, 255));
+        LabelKelas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LabelKelas.setText("0  ");
+        LabelKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        LabelKelas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,15 +97,15 @@ public class dashboardPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(LabelKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(37, 37, 37))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(216, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addContainerGap(224, Short.MAX_VALUE)
+                .addComponent(labelInfoKelas)
                 .addGap(210, 210, 210))
         );
         jPanel1Layout.setVerticalGroup(
@@ -111,26 +119,31 @@ public class dashboardPanel extends javax.swing.JPanel {
                         .addComponent(LabelKelas))
                     .addComponent(jLabel7))
                 .addGap(13, 13, 13)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(labelInfoKelas)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(40, 167, 69));
 
-        LabelSiswa.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        LabelSiswa.setForeground(new java.awt.Color(255, 255, 255));
-        LabelSiswa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        LabelSiswa.setText("0  ");
-        LabelSiswa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        LabelPembina.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        LabelPembina.setForeground(new java.awt.Color(255, 255, 255));
+        LabelPembina.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LabelPembina.setText("0  ");
+        LabelPembina.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("PEMBINA");
         jLabel11.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("MORE INFO");
+        labelInfoPembina.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labelInfoPembina.setForeground(new java.awt.Color(255, 255, 255));
+        labelInfoPembina.setText("MORE INFO");
+        labelInfoPembina.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelInfoPembinaMouseClicked(evt);
+            }
+        });
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-training-64.png"))); // NOI18N
 
@@ -142,13 +155,13 @@ public class dashboardPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(LabelSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LabelPembina, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(37, 37, 37))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(labelInfoPembina)
                 .addGap(204, 204, 204))
         );
         jPanel3Layout.setVerticalGroup(
@@ -159,10 +172,10 @@ public class dashboardPanel extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(LabelSiswa))
+                        .addComponent(LabelPembina))
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
+                .addComponent(labelInfoPembina)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -180,9 +193,14 @@ public class dashboardPanel extends javax.swing.JPanel {
         jLabel13.setText("EKSTRAKURIKULER");
         jLabel13.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("MORE INFO");
+        labelInfoEkstra.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labelInfoEkstra.setForeground(new java.awt.Color(255, 255, 255));
+        labelInfoEkstra.setText("MORE INFO");
+        labelInfoEkstra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelInfoEkstraMouseClicked(evt);
+            }
+        });
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-extracurricular-activities-64.png"))); // NOI18N
 
@@ -195,12 +213,12 @@ public class dashboardPanel extends javax.swing.JPanel {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
                     .addComponent(LabelEkstra, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(37, 37, 37))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(labelInfoEkstra)
                 .addGap(204, 204, 204))
         );
         jPanel6Layout.setVerticalGroup(
@@ -214,7 +232,7 @@ public class dashboardPanel extends javax.swing.JPanel {
                         .addComponent(LabelEkstra))
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jLabel5)
+                .addComponent(labelInfoEkstra)
                 .addGap(21, 21, 21))
         );
 
@@ -225,16 +243,21 @@ public class dashboardPanel extends javax.swing.JPanel {
         jLabel14.setText("SISWA AKTIF");
         jLabel14.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
 
-        LabelEkstra1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        LabelEkstra1.setForeground(new java.awt.Color(255, 255, 255));
-        LabelEkstra1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        LabelEkstra1.setText("0  ");
-        LabelEkstra1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        LabelEkstra1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        LabelSiswa.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        LabelSiswa.setForeground(new java.awt.Color(255, 255, 255));
+        LabelSiswa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LabelSiswa.setText("0  ");
+        LabelSiswa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        LabelSiswa.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("MORE INFO");
+        labelInfoSiswa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labelInfoSiswa.setForeground(new java.awt.Color(255, 255, 255));
+        labelInfoSiswa.setText("MORE INFO");
+        labelInfoSiswa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelInfoSiswaMouseClicked(evt);
+            }
+        });
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-auditorium-64.png"))); // NOI18N
 
@@ -246,13 +269,13 @@ public class dashboardPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14)
-                    .addComponent(LabelEkstra1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LabelSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addGap(37, 37, 37))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
+                .addComponent(labelInfoSiswa)
                 .addGap(203, 203, 203))
         );
         jPanel2Layout.setVerticalGroup(
@@ -263,10 +286,10 @@ public class dashboardPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(12, 12, 12)
-                        .addComponent(LabelEkstra1))
+                        .addComponent(LabelSiswa))
                     .addComponent(jLabel9))
                 .addGap(11, 11, 11)
-                .addComponent(jLabel6)
+                .addComponent(labelInfoSiswa)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -289,7 +312,7 @@ public class dashboardPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LabelPengguna)
-                .addContainerGap(572, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,7 +321,7 @@ public class dashboardPanel extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(LabelPengguna))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -308,15 +331,15 @@ public class dashboardPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(98, 98, 98)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -324,7 +347,7 @@ public class dashboardPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -336,23 +359,51 @@ public class dashboardPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void labelInfoKelasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelInfoKelasMouseClicked
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new kelasPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_labelInfoKelasMouseClicked
+
+    private void labelInfoPembinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelInfoPembinaMouseClicked
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new pembinaPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_labelInfoPembinaMouseClicked
+
+    private void labelInfoEkstraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelInfoEkstraMouseClicked
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new ekstraPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_labelInfoEkstraMouseClicked
+
+    private void labelInfoSiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelInfoSiswaMouseClicked
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new dataSiswaAktifPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_labelInfoSiswaMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelEkstra;
-    private javax.swing.JLabel LabelEkstra1;
     private javax.swing.JLabel LabelKelas;
+    private javax.swing.JLabel LabelPembina;
     private javax.swing.JLabel LabelPengguna;
     private javax.swing.JLabel LabelSiswa;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -361,5 +412,9 @@ public class dashboardPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel labelInfoEkstra;
+    private javax.swing.JLabel labelInfoKelas;
+    private javax.swing.JLabel labelInfoPembina;
+    private javax.swing.JLabel labelInfoSiswa;
     // End of variables declaration//GEN-END:variables
 }

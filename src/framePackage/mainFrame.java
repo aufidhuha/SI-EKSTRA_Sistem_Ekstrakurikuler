@@ -31,6 +31,11 @@ public class mainFrame extends javax.swing.JFrame {
         waktu();
         runningText();
         
+        contentPanel.removeAll();
+        contentPanel.add(new dashboardPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+        
     }
 
     

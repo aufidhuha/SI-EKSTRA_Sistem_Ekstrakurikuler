@@ -14,7 +14,7 @@ import java.sql.*;
  */
 public class connectionClass {
     private String localhost = "localhost";
-    private String db = "coba_ekskul";
+    private String db = "sistemekstra";
     private String user = "root";
     private String pass = "";
     private String port = "3306";
