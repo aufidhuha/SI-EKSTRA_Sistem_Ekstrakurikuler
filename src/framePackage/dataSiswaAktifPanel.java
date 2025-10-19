@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package framePackage;
-//import classPackage.ekstraKelasClass;
+
 import classPackage.siswaClass;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -14,19 +14,14 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import static framePackage.mainFrame.contentPanel;
-//import static framePackage.ryclePanel.isMode;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.ResultSet;
-// import java.Sql.SQLException;
-//import java.awt.Font;
-//import java.text.MessageFormat;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-//import javax.swing.JTable;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
-//import javax.swing.text.Document;
+
 /**
  *
  * @author ASUS
@@ -38,76 +33,81 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
      */
     public dataSiswaAktifPanel() {
         initComponents();
-      //  loadData();
-        
+        loadData();
+
     }
-     void loadData(){
-     siswaClass kelas = new siswaClass();
-     DefaultTableModel model = new DefaultTableModel();
-    
-     model.addColumn("Kode Ekstra");
-     model.addColumn("NISN");
-     model.addColumn("Nama Siswa");
-     model.addColumn("Jenis Kelamin");
-     model.addColumn("Kelas");
-     model.addColumn("Ekstrakurikuler");
-     model.addColumn("Status");
-       
 
-         try {
-             ResultSet rsVar = kelas.showDataAktif();
-              
-             while (rsVar.next()) {
-                 String id = rsVar.getString("kode_ekstra");
-                 String nisn = rsVar.getString("nisn");
-                 String nama = rsVar.getString("nama");
-                 String jenis = rsVar.getString("jenis");
-                 String kelass = rsVar.getString("nama_kelas");
-                 String ekstra = rsVar.getString("nama_ekstra");
-                 String status = rsVar.getString("status");
+    void loadData() {
 
-                 Object[] data = {id, nisn, nama, jenis, kelass, ekstra, status};
-                 model.addRow(data);
-             }
-             
-             tableSiswaAktif.setModel(model);
-         } catch (SQLException sQLException) {
-              JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
-         }
-}
-     void data(){
-         try {
-             siswaClass data = new siswaClass();
-             
-             DefaultTableModel model = data.cariDataEkstra(txtJenisExtra.getText());
+        siswaClass dataAktif = new siswaClass();
+        DefaultTableModel model = new DefaultTableModel();
 
-             tableSiswaAktif.setModel(model);
-         } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
-         }
-}
-      void dataAll(){
-          try {
-              siswaClass data = new siswaClass();
-            
-              DefaultTableModel model = data.showDataEkstraAll();
+        model.addColumn("Kode Ekstra");
+        model.addColumn("NISN");
+        model.addColumn("Nama Siswa");
+        model.addColumn("Jenis Kelamin");
+        model.addColumn("Kelas");
+        model.addColumn("Ekstrakurikuler");
+        model.addColumn("Status");
 
-              tableSiswaAktif.setModel(model);
-          } catch (Exception e) {
-               JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
-          }
-}
-      void cariDataSiswa(){
-            try {
-                siswaClass data = new siswaClass();
- 
-                DefaultTableModel model = data.cariDataNamaAktif(txtCariSiswa.getText());
+        try {
+            ResultSet rsVar = dataAktif.showDataSiswa("Aktif");
 
-                tableSiswaAktif.setModel(model);
-            } catch (Exception e) {
-                 JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+            while (rsVar.next()) {
+                String id = rsVar.getString("kode_ekstra");
+                String nisn = rsVar.getString("nisn");
+                String nama = rsVar.getString("nama");
+                String jenis = rsVar.getString("jenis");
+                String kelas = rsVar.getString("nama_kelas");
+                String ekstra = rsVar.getString("nama_ekstra");
+                String status = rsVar.getString("status");
+
+                Object[] data = {id, nisn, nama, jenis, kelas, ekstra, status};
+                model.addRow(data);
             }
-}
+
+            tableSiswaAktif.setModel(model);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
+    }
+
+    void cariDataEkstra() {
+        try {
+            siswaClass data = new siswaClass();
+
+            DefaultTableModel model = data.cariDataEkstra(txtJenisExtra.getText());
+
+            tableSiswaAktif.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }
+
+    void loadDataAll() {
+        try {
+            siswaClass data = new siswaClass();
+
+            DefaultTableModel model = data.showDataSiswaAll();
+
+            tableSiswaAktif.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }
+
+    void cariDataSiswa() {
+        try {
+            siswaClass data = new siswaClass();
+
+            DefaultTableModel model = data.cariDataNamaSiswa("Aktif", txtCariSiswa.getText());
+
+            tableSiswaAktif.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -122,15 +122,15 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         buttonEskul = new javax.swing.JButton();
         txtCariSiswa = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        tabelSiswaAktif = new javax.swing.JScrollPane();
+        JScrollPane1 = new javax.swing.JScrollPane();
         tableSiswaAktif = new javax.swing.JTable();
         buttonCariData = new javax.swing.JButton();
         buttonKelola = new javax.swing.JButton();
         buttonSaveData = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        buttonKelola1 = new javax.swing.JButton();
-        buttonKelola2 = new javax.swing.JButton();
+        buttonAbsensi = new javax.swing.JButton();
+        buttonHapusSemua = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -180,7 +180,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelSiswaAktif.setViewportView(tableSiswaAktif);
+        JScrollPane1.setViewportView(tableSiswaAktif);
 
         buttonCariData.setBackground(new java.awt.Color(102, 16, 242));
         buttonCariData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -242,29 +242,29 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        buttonKelola1.setBackground(new java.awt.Color(0, 123, 255));
-        buttonKelola1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonKelola1.setForeground(new java.awt.Color(255, 255, 255));
-        buttonKelola1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-form-24.png"))); // NOI18N
-        buttonKelola1.setText("ABSENSI");
-        buttonKelola1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonKelola1.setIconTextGap(8);
-        buttonKelola1.addActionListener(new java.awt.event.ActionListener() {
+        buttonAbsensi.setBackground(new java.awt.Color(0, 123, 255));
+        buttonAbsensi.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonAbsensi.setForeground(new java.awt.Color(255, 255, 255));
+        buttonAbsensi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-form-24.png"))); // NOI18N
+        buttonAbsensi.setText("ABSENSI");
+        buttonAbsensi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonAbsensi.setIconTextGap(8);
+        buttonAbsensi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonKelola1ActionPerformed(evt);
+                buttonAbsensiActionPerformed(evt);
             }
         });
 
-        buttonKelola2.setBackground(new java.awt.Color(211, 47, 47));
-        buttonKelola2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonKelola2.setForeground(new java.awt.Color(255, 255, 255));
-        buttonKelola2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-delete-all-24.png"))); // NOI18N
-        buttonKelola2.setText("HAPUS SEMUA DATA");
-        buttonKelola2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonKelola2.setIconTextGap(8);
-        buttonKelola2.addActionListener(new java.awt.event.ActionListener() {
+        buttonHapusSemua.setBackground(new java.awt.Color(211, 47, 47));
+        buttonHapusSemua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonHapusSemua.setForeground(new java.awt.Color(255, 255, 255));
+        buttonHapusSemua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-delete-all-24.png"))); // NOI18N
+        buttonHapusSemua.setText("HAPUS SEMUA DATA");
+        buttonHapusSemua.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonHapusSemua.setIconTextGap(8);
+        buttonHapusSemua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonKelola2ActionPerformed(evt);
+                buttonHapusSemuaActionPerformed(evt);
             }
         });
 
@@ -293,14 +293,14 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(buttonKelola2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonHapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buttonKelola1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonAbsensi, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(57, 57, 57))))
         );
         layout.setVerticalGroup(
@@ -319,25 +319,25 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                         .addComponent(buttonCariData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtJenisExtra))
                 .addGap(40, 40, 40)
-                .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonKelola1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonKelola2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonAbsensi, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonHapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtJenisExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJenisExtraActionPerformed
         // TODO add your handling code here:
-        txtJenisExtra();
+        cariDataEkstra();
     }//GEN-LAST:event_txtJenisExtraActionPerformed
 
     private void txtCariSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariSiswaActionPerformed
         // TODO add your handling code here:
-         txtCariSiswa();
+        cariDataSiswa();
     }//GEN-LAST:event_txtCariSiswaActionPerformed
 
     private void buttonEskulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEskulActionPerformed
@@ -348,135 +348,147 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
     private void buttonCariDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariDataActionPerformed
         // TODO add your handling code here:
         if (txtJenisExtra.getText().isEmpty()) {
-            dataAll();  
-        }
-        else {
-            data ();       
+            loadDataAll();
+        } else {
+            cariDataEkstra();
         }
     }//GEN-LAST:event_buttonCariDataActionPerformed
 
     private void buttonKelolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelolaActionPerformed
         // TODO add your handling code here:
-        int ChoiceRow = tabelSiswaAktif.getSelectedRow();
-        
+        int ChoiceRow = tableSiswaAktif.getSelectedRow();
+
         if (ChoiceRow < 0) {
-            
             JOptionPane.showMessageDialog(null, "Hrap memeilih data");
             return;
         }
-        String kode = tabelSiswaAktif.getValueAt(ChoiceRow, 0).toString();
-        String nisn = tabelSiswaAktif.getValueAt(ChoiceRow, 1).toString();
-        String nama = tabelSiswaAktif.getValueAt(ChoiceRow, 2).toString();
-        String jenis = tabelSiswaAktif.getValueAt(ChoiceRow, 3).toString();
-        String kelas = tabelSiswaAktif.getValueAt(ChoiceRow, 4).toString();
-        String ekstra = tabelSiswaAktif.getValueAt(ChoiceRow, 5).toString();
-        String status = tabelSiswaAktif.getValueAt(ChoiceRow, 6).toString();
-        
+
+        String kode = tableSiswaAktif.getValueAt(ChoiceRow, 0).toString();
+        String nisn = tableSiswaAktif.getValueAt(ChoiceRow, 1).toString();
+        String nama = tableSiswaAktif.getValueAt(ChoiceRow, 2).toString();
+        String jenis = tableSiswaAktif.getValueAt(ChoiceRow, 3).toString();
+        String kelas = "";
+
+        if (tableSiswaAktif.getValueAt(ChoiceRow, 4) != null) {
+            kelas = tableSiswaAktif.getValueAt(ChoiceRow, 4).toString();
+        } else {
+            kelas = "";
+        }
+
+        String ekstra = "";
+
+        if (tableSiswaAktif.getValueAt(ChoiceRow, 5) != null) {
+            ekstra = tableSiswaAktif.getValueAt(ChoiceRow, 5).toString();
+        } else {
+            ekstra = "";
+        }
+
+        String status = tableSiswaAktif.getValueAt(ChoiceRow, 6).toString();
+
         contentPanel.removeAll();
         contentPanel.add(new formSiswaPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
-        
+
         formSiswaPanel.txtKodeEkstra.setText(kode);
-        formSiswaPanel.txtNisn.setTex(nisn);
-        formSiswaPanel.txtNama.setText(nama);
+        formSiswaPanel.txtNISN.setText(nisn);
+        formSiswaPanel.txtNamaSiswa.setText(nama);
         formSiswaPanel.cbJenisKelamin.setSelectedItem(jenis);
         formSiswaPanel.txtKelasSiswa.setText(kelas);
         formSiswaPanel.txtJenisEkstra.setText(ekstra);
         formSiswaPanel.cbStatus.setSelectedItem(status);
-        
-        formSiswaPanel.buttonSimpan.setText("UBAH");
+
+        formSiswaPanel.buttonSimpanUbah.setText("UBAH");
     }//GEN-LAST:event_buttonKelolaActionPerformed
 
     private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed
         // TODO add your handling code here:
         JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("simpan Data JTable ke PDF");
-        
+        chooser.setDialogTitle("Menyimpan Data Siswa Aktif");
+
         int userSelection = chooser.showSaveDialog(this);
-        
+
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File fileToSave = chooser.getSelectedFile();
-            
+
             try {
-                Document document = new Document ();
-                com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsolutePath() + ".pdf");
+                Document document = new Document();
+                com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsolutePath() + ".pdf"));
                 document.open();
-                
+
                 //Font untuk header dan isi
-                Font fontHeader = new Font(Font.FontFmily.HELVETICA, 9, Font.BOLD);
+                Font fontHeader = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD);
                 Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
 
-
                 //Tambahkan Judul
-                Paragraph title = new Paragraph ;("Daftar Siswa Aktif Ekstrakurikuler"), new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
-                
-                title.setAlignment(Element.ALIGN CENTER);
+                Paragraph title = new Paragraph("Daftar Siswa Aktif Ekstrakurikuler", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD));
+
+                title.setAlignment(Element.ALIGN_CENTER);
                 document.add(title);
                 document.add(new Paragraph("")); //spasi
 
                 //Buat tabel PDF sesuai jumlah kolom JTable
                 PdfPTable pdfTable = new PdfPTable(tableSiswaAktif.getColumnCount());
-                pdfTable.setWidtingPercentage(100); // tabel full width
+                pdfTable.setWidthPercentage(100); // tabel full width
                 pdfTable.setSpacingBefore(10f);
                 pdfTable.setSpacingAfter(10f);
-                
+
                 //Header kolom
-                for (int i = 0;) i < tableSiswaAktif.getColumnt(); i++{
-                PdfPCell cell = new PdfPcell(new Phrase(tabelSiswaAktif.getColumName(i), fontHeader));
-                cell.setHorizontalAligment(Element.ALIGN_CENTER);
-                cell.setBackgroundColor(RuleBasedCollator.LIGHT GRAY);
-                pdfTable.addCell(cell);  
+                for (int i = 0; i < tableSiswaAktif.getColumnCount(); i++) {
+                    PdfPCell cell = new PdfPCell(new Phrase(tableSiswaAktif.getColumnName(i), fontHeader));
+                    cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                    pdfTable.addCell(cell);
                 }
                 //Isi tabel
-                for (int row = 0; row < tabelSiswaAktif.getRowCount(); row++) {
-                    for (int col = 0; col < tabelSiswaAktif.getColumnCount(); col++) {
-                        Object value = tabelSiswaAktif.getValueAt(row, col);
-                        PdfaPCell cell = new PdfPCell(new Phrase(value == null) ?"" : value.toString(), fontCell));
-                        cell.setHorizontalAligment(StackTraceElement.ALIGN_LEFT);
+                for (int row = 0; row < tableSiswaAktif.getRowCount(); row++) {
+                    for (int col = 0; col < tableSiswaAktif.getColumnCount(); col++) {
+                        Object value = tableSiswaAktif.getValueAt(row, col);
+                        PdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
+                        cell.setHorizontalAlignment(Element.ALIGN_LEFT);
                         pdfTable.addCell(cell);
                     }
                 }
                 document.add(pdfTable);
                 document.close();
 
-                JOptionPane.showMessageDialog(this, 
-                      "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
-                }
+                JOptionPane.showMessageDialog(this,
+                        "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF : " + e.getMessage());
             }
-        
+        }
     }//GEN-LAST:event_buttonSaveDataActionPerformed
 
-    private void buttonKelola1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelola1ActionPerformed
+    private void buttonAbsensiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAbsensiActionPerformed
         // TODO add your handling code here:
         contentPanel.removeAll();
         contentPanel.add(new absensiPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
-    }//GEN-LAST:event_buttonKelola1ActionPerformed
+    }//GEN-LAST:event_buttonAbsensiActionPerformed
 
-    private void buttonKelola2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelola2ActionPerformed
+    private void buttonHapusSemuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusSemuaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonKelola2ActionPerformed
 
-    
+    }//GEN-LAST:event_buttonHapusSemuaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane JScrollPane1;
+    private javax.swing.JButton buttonAbsensi;
     private javax.swing.JButton buttonCariData;
     private javax.swing.JButton buttonEskul;
+    private javax.swing.JButton buttonHapusSemua;
     private javax.swing.JButton buttonKelola;
-    private javax.swing.JButton buttonKelola1;
-    private javax.swing.JButton buttonKelola2;
     private javax.swing.JButton buttonSaveData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane tabelSiswaAktif;
     private javax.swing.JTable tableSiswaAktif;
     private javax.swing.JTextField txtCariSiswa;
-    private javax.swing.JTextField txtJenisExtra;
+    public static javax.swing.JTextField txtJenisExtra;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,15 +4,19 @@
  */
 package framePackage;
 import classPackage.ekstraClass;
+import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author ASUS
  */
+
 public class dataEkstraFrame extends javax.swing.JFrame {
 
     /**
@@ -24,28 +28,28 @@ public class dataEkstraFrame extends javax.swing.JFrame {
         
     }
     
-    void loadData(){
+    void loadData() {
         ekstraClass extra = new ekstraClass();
         DefaultTableModel model = new DefaultTableModel();
-        
-        model.addColumn("Nama Ekstra");
-        
+
+        model.addColumn("Nama Ekstrakurikuler");
+
         try {
-            ResultSet rsVan = extra.showEsktra();
-            
-            while (rsVan.next()) {
-                String nama = rsVan.getString("nama_ekstra");
-                
-                Object [] data = (nama);
+            ResultSet rsVar = extra.showDataEkstra();
+
+            while (rsVar.next()) {
+                String nama = rsVar.getString("nama_ekstra");
+
+                Object[] data = {nama};
                 model.addRow(data);
-                
             }
-        } catch (SQLException sQLException;) {
-           JOptionPane.showMessageDialog(null, "Eror : " + sQLException.getMessage());
+
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
         }
-        tableExtra.setModel(model);
+        tblKelas.setModel(model);
     }
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,6 +80,11 @@ public class dataEkstraFrame extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("PILIH");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         tblKelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -138,41 +147,45 @@ public class dataEkstraFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int choiceRow = tblKelas.getSelectedRow();
+
+        if (choiceRow < 0) {
+            JOptionPane.showMessageDialog(null, "Harap memilih data");
+            return;
+        }
+
+        String namaEkstra = tblKelas.getValueAt(choiceRow, 0).toString();
+
+        formSiswaPanel.txtJenisEkstra.setText(namaEkstra);
+
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+     */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(dataEkstraFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(dataEkstraFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(dataEkstraFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(dataEkstraFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (UnsupportedLookAndFeelException unsupportedLookAndFeelException) {
         }
-        //</editor-fold>
-        //</editor-fold>
+    //</editor-fold>
+    //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new dataEkstraFrame().setVisible(true);
-            }
-        });
-    }
+    /* Create and display the form */
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new dataEkstraFrame().setVisible(true);
+        }
+    });
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

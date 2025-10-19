@@ -4,7 +4,21 @@
  */
 package framePackage;
 
+import classPackage.siswaClass;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import static framePackage.mainFrame.contentPanel;
+import java.io.File;
+import java.io.FileOutputStream;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +31,27 @@ public class absensiPanel extends javax.swing.JPanel {
      */
     public absensiPanel() {
         initComponents();
+        loadDataAll();
+    }
+
+    void loadDataAll() {
+        try {
+            siswaClass dataAbsen = new siswaClass();
+            DefaultTableModel model = dataAbsen.showDataAbsensiAll();
+            tableAbsensi.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }
+
+    void loadDataCategory() {
+        try {
+            siswaClass dataAbsen = new siswaClass();
+            DefaultTableModel model = dataAbsen.showDataAbsensiKategori(txtJenisExtra.getText());
+            tableAbsensi.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
     }
 
     /**
@@ -35,9 +70,9 @@ public class absensiPanel extends javax.swing.JPanel {
         txtJenisExtra = new javax.swing.JTextField();
         buttonEskul = new javax.swing.JButton();
         buttonSaveData = new javax.swing.JButton();
-        tabelSiswaAktif = new javax.swing.JScrollPane();
-        tableSiswaAktif = new javax.swing.JTable();
-        buttonSaveData1 = new javax.swing.JButton();
+        JScrollPane = new javax.swing.JScrollPane();
+        tableAbsensi = new javax.swing.JTable();
+        buttonKembali = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -79,8 +114,9 @@ public class absensiPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("JENIS EKSTRAKURIKULER");
 
+        txtJenisExtra.setEditable(false);
         txtJenisExtra.setBackground(new java.awt.Color(204, 204, 204));
-        txtJenisExtra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtJenisExtra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtJenisExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtJenisExtraActionPerformed(evt);
@@ -111,7 +147,7 @@ public class absensiPanel extends javax.swing.JPanel {
             }
         });
 
-        tableSiswaAktif.setModel(new javax.swing.table.DefaultTableModel(
+        tableAbsensi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -122,17 +158,17 @@ public class absensiPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelSiswaAktif.setViewportView(tableSiswaAktif);
+        JScrollPane.setViewportView(tableAbsensi);
 
-        buttonSaveData1.setBackground(new java.awt.Color(108, 117, 125));
-        buttonSaveData1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonSaveData1.setForeground(new java.awt.Color(255, 255, 255));
-        buttonSaveData1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-back-24.png"))); // NOI18N
-        buttonSaveData1.setText("KEMBALI");
-        buttonSaveData1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonSaveData1.addActionListener(new java.awt.event.ActionListener() {
+        buttonKembali.setBackground(new java.awt.Color(108, 117, 125));
+        buttonKembali.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonKembali.setForeground(new java.awt.Color(255, 255, 255));
+        buttonKembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-back-24.png"))); // NOI18N
+        buttonKembali.setText("KEMBALI");
+        buttonKembali.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonKembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSaveData1ActionPerformed(evt);
+                buttonKembaliActionPerformed(evt);
             }
         });
 
@@ -153,10 +189,10 @@ public class absensiPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(buttonSaveData1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
@@ -172,11 +208,11 @@ public class absensiPanel extends javax.swing.JPanel {
                         .addComponent(buttonCariData, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtJenisExtra))
                 .addGap(40, 40, 40)
-                .addComponent(tabelSiswaAktif, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonSaveData1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -184,16 +220,15 @@ public class absensiPanel extends javax.swing.JPanel {
     private void buttonCariDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCariDataActionPerformed
         // TODO add your handling code here:
         if (txtJenisExtra.getText().isEmpty()) {
-            dataAll();
-        }
-        else {
-            data ();
+            loadDataAll();
+        } else {
+            loadDataCategory();
         }
     }//GEN-LAST:event_buttonCariDataActionPerformed
 
     private void txtJenisExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJenisExtraActionPerformed
         // TODO add your handling code here:
-        txtJenisExtra();
+
     }//GEN-LAST:event_txtJenisExtraActionPerformed
 
     private void buttonEskulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEskulActionPerformed
@@ -212,74 +247,77 @@ public class absensiPanel extends javax.swing.JPanel {
             File fileToSave = chooser.getSelectedFile();
 
             try {
-                Document document = new Document ();
-                com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsolutePath() + ".pdf");
-                    document.open();
+                Document document = new Document();
+                com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsoluteFile() + ".pdf"));
+                document.open();
 
-                    //Font untuk header dan isi
-                    Font fontHeader = new Font(Font.FontFmily.HELVETICA, 9, Font.BOLD);
-                    Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
+                //Font untuk header dan isi
+                Font fontHeader = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD);
+                Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
 
-                    //Tambahkan Judul
-                    Paragraph title = new Paragraph ;("Daftar Siswa Aktif Ekstrakurikuler"), new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+                //Tambahkan Judul
+                Paragraph title = new Paragraph("Daftar Siswa Aktif Ekstrakurikuler", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD));
 
-                    title.setAlignment(Element.ALIGN CENTER);
-                    document.add(title);
-                    document.add(new Paragraph("")); //spasi
+                title.setAlignment(Element.ALIGN_CENTER);
+                document.add(title);
+                document.add(new Paragraph("")); //spasi
 
-                    //Buat tabel PDF sesuai jumlah kolom JTable
-                    PdfPTable pdfTable = new PdfPTable(tableSiswaAktif.getColumnCount());
-                    pdfTable.setWidtingPercentage(100); // tabel full width
-                    pdfTable.setSpacingBefore(10f);
-                    pdfTable.setSpacingAfter(10f);
+                //Buat tabel PDF sesuai jumlah kolom JTable
+                PdfPTable pdfTable = new PdfPTable(tableAbsensi.getColumnCount());
+                pdfTable.setWidthPercentage(100); // tabel full width
+                pdfTable.setSpacingBefore(10f);
+                pdfTable.setSpacingAfter(10f);
 
-                    //Header kolom
-                    for (int i = 0;) i < tableSiswaAktif.getColumnt(); i++{
-                        PdfPCell cell = new PdfPcell(new Phrase(tabelSiswaAktif.getColumName(i), fontHeader));
-                        cell.setHorizontalAligment(Element.ALIGN_CENTER);
-                        cell.setBackgroundColor(RuleBasedCollator.LIGHT GRAY);
-                        pdfTable.addCell(cell);
-                    }
-                    //Isi tabel
-                    for (int row = 0; row < tabelSiswaAktif.getRowCount(); row++) {
-                        for (int col = 0; col < tabelSiswaAktif.getColumnCount(); col++) {
-                            Object value = tabelSiswaAktif.getValueAt(row, col);
-                            PdfaPCell cell = new PdfPCell(new Phrase(value == null) ?"" : value.toString(), fontCell));
-                        cell.setHorizontalAligment(StackTraceElement.ALIGN_LEFT);
+                //Header kolom
+                for (int i = 0; i < tableAbsensi.getColumnCount(); i++) {
+                    PdfPCell cell = new PdfPCell(new Phrase(tableAbsensi.getColumnName(i), fontHeader));
+                    cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                    pdfTable.addCell(cell);
+                }
+                //Isi tabel
+                for (int row = 0; row < tableAbsensi.getRowCount(); row++) {
+                    for (int col = 0; col < tableAbsensi.getColumnCount(); col++) {
+                        Object value = tableAbsensi.getValueAt(row, col);
+                        PdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
+
+                        cell.setHorizontalAlignment(Element.ALIGN_LEFT);
                         pdfTable.addCell(cell);
                     }
                 }
+
                 document.add(pdfTable);
                 document.close();
 
                 JOptionPane.showMessageDialog(this,
-                    "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF : " + e.getMessage());
-        }
+                        "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
 
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF : " + e.getMessage());
+            }
+
+        }
     }//GEN-LAST:event_buttonSaveDataActionPerformed
 
-    private void buttonSaveData1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveData1ActionPerformed
+    private void buttonKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKembaliActionPerformed
         // TODO add your handling code here:
         contentPanel.removeAll();
         contentPanel.add(new dataSiswaAktifPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
-    }//GEN-LAST:event_buttonSaveData1ActionPerformed
+    }//GEN-LAST:event_buttonKembaliActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane JScrollPane;
     private javax.swing.JButton buttonCariData;
     private javax.swing.JButton buttonEskul;
+    private javax.swing.JButton buttonKembali;
     private javax.swing.JButton buttonSaveData;
-    private javax.swing.JButton buttonSaveData1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane tabelSiswaAktif;
-    private javax.swing.JTable tableSiswaAktif;
-    private javax.swing.JTextField txtJenisExtra;
+    private javax.swing.JTable tableAbsensi;
+    public static javax.swing.JTextField txtJenisExtra;
     // End of variables declaration//GEN-END:variables
 }

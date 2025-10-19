@@ -149,7 +149,7 @@ public class ekstraClass {
 
     }
 
-    public ResultSet showEsktra() {
+    public ResultSet showDataEkstra() {
 
         query = "SELECT ekstra.id_ekstra, ekstra.nama_ekstra, pembina.nama FROM ekstra JOIN pembina ON ekstra.nip_pembina = pembina.nip ORDER BY ekstra.id_ekstra ASC";
 
@@ -162,5 +162,20 @@ public class ekstraClass {
 
         return rsVar;
     }
+    
+    
+    public ResultSet showStatiska() {
+        query = " SELECT ekstra.nama_ekstra, COUNT(DISTINCT ekstrasiswa.nisn) AS jumlah_siswa FROM ekstra LEFT JOIN ekstrasiswa ON ekstra.id_ekstra = ekstrasiswa.id_ekstra AND ekstrasiswa.status = 'Aktif' GROUP BY ekstra.nama_ekstra ORDER BY jumlah_siswa DESC";
+        try {
+
+            stVar = cnVar.createStatement();
+            rsVar = stVar.executeQuery(query);
+
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
+        return rsVar;
+    }
+
 
 }

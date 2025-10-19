@@ -5,11 +5,14 @@
 package framePackage;
 
 import classPackage.kelasClass;
+import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import framePackage.formSiswaPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -163,11 +166,16 @@ public class dataKelasFrame extends javax.swing.JFrame {
     private void btnPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihActionPerformed
         // TODO add your handling code here:
         
-        int choiseRow = tblKelas.getSelectedRow();
+        int choiceRow = tblKelas.getSelectedRow();
         
-        String nama = tblKelas.getValueAt(choiseRow, 0).toString();
+        if (choiceRow < 0) {
+            JOptionPane.showMessageDialog(null, "Harap memilih data");
+            return;
+        }
         
-        pKelas.txtKelasSiswa.setText(nama);
+        String namaKelas = tblKelas.getValueAt(choiceRow, 0).toString();
+        
+        formSiswaPanel.txtKelasSiswa.setText(namaKelas);
         
         dispose();;
     }//GEN-LAST:event_btnPilihActionPerformed
@@ -182,20 +190,8 @@ public class dataKelasFrame extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(dataKelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(dataKelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(dataKelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(dataKelasFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (UnsupportedLookAndFeelException unsupportedLookAndFeelException) {
         }
         //</editor-fold>
         //</editor-fold>

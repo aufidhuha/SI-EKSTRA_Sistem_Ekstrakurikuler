@@ -35,11 +35,11 @@
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="buttonSaveData1" min="-2" pref="127" max="-2" attributes="0"/>
+                          <Component id="buttonKembali" min="-2" pref="127" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="buttonSaveData" min="-2" pref="137" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="tabelSiswaAktif" min="-2" pref="1024" max="-2" attributes="0"/>
+                      <Component id="JScrollPane" min="-2" pref="1024" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
@@ -61,11 +61,11 @@
                   <Component id="txtJenisExtra" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="tabelSiswaAktif" min="-2" pref="410" max="-2" attributes="0"/>
+              <Component id="JScrollPane" min="-2" pref="410" max="-2" attributes="0"/>
               <EmptySpace pref="34" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonSaveData" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="buttonSaveData1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="buttonKembali" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
           </Group>
@@ -149,18 +149,22 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtJenisExtra">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-            <EmptyBorder bottom="1" left="15" right="1" top="1"/>
+            <EmptyBorder bottom="1" left="10" right="1" top="1"/>
           </Border>
         </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtJenisExtraActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="buttonEskul">
       <Properties>
@@ -210,11 +214,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSaveDataActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="tabelSiswaAktif">
+    <Container class="javax.swing.JScrollPane" name="JScrollPane">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tableSiswaAktif">
+        <Component class="javax.swing.JTable" name="tableAbsensi">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -228,7 +232,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="buttonSaveData1">
+    <Component class="javax.swing.JButton" name="buttonKembali">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="75" red="6c" type="rgb"/>
@@ -250,7 +254,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSaveData1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonKembaliActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

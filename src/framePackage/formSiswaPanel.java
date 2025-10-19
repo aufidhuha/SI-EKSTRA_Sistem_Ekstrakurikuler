@@ -34,7 +34,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
     
     void reset(){
         txtKodeEkstra.setText(null);
-        txtNIM.setText(null);
+        txtNISN.setText(null);
         txtNamaSiswa.setText(null);
         txtKelasSiswa.setText(null);
         txtJenisEkstra.setText(null);
@@ -59,7 +59,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtKodeEkstra = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtNIM = new javax.swing.JTextField();
+        txtNISN = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtNamaSiswa = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -116,9 +116,9 @@ public class formSiswaPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NOMOR INDUK SISWA");
 
-        txtNIM.setBackground(new java.awt.Color(255, 255, 255));
-        txtNIM.setForeground(new java.awt.Color(0, 0, 0));
-        txtNIM.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtNISN.setBackground(new java.awt.Color(255, 255, 255));
+        txtNISN.setForeground(new java.awt.Color(0, 0, 0));
+        txtNISN.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -198,7 +198,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
                     .addComponent(jLabel7))
                 .addGap(69, 69, 69)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNIM)
+                    .addComponent(txtNISN)
                     .addComponent(txtKodeEkstra)
                     .addComponent(txtNamaSiswa)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -223,7 +223,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtNIM, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNISN, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -356,7 +356,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
 
     private void buttonSimpanUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanUbahActionPerformed
         // TODO add your handling code here:
-        if (txtKodeEkstra.getText().isBlank() || txtNIM.getText().isBlank() || txtNamaSiswa.getText().isBlank() || txtKelasSiswa.getText().isBlank() || txtJenisEkstra.getText().isBlank() || (cbJenisKelamin.getSelectedItem() == null) || (cbStatus.getSelectedItem() == null)) {
+        if (txtKodeEkstra.getText().isBlank() || txtNISN.getText().isBlank() || txtNamaSiswa.getText().isBlank() || txtKelasSiswa.getText().isBlank() || txtJenisEkstra.getText().isBlank() || (cbJenisKelamin.getSelectedItem() == null) || (cbStatus.getSelectedItem() == null)) {
             JOptionPane.showMessageDialog(null, "Harap mengisi data secara keseluruhan");
             return;
         }
@@ -365,7 +365,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
             siswaClass data = new siswaClass();
             
             data.setKodeEkstraSiswa(txtKodeEkstra.getText());
-            data.setNisn(txtNIM.getText());
+            data.setNisn(txtNISN.getText());
             data.setNama(txtNamaSiswa.getText());
             data.setJk(cbJenisKelamin.getSelectedItem().toString());
             
@@ -385,7 +385,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
         // TODO add your handling code here:
-        if (txtKodeEkstra.getText().isBlank() || txtNIM.getText().isBlank() || txtNamaSiswa.getText().isBlank()) {
+        if (txtKodeEkstra.getText().isBlank() || txtNISN.getText().isBlank() || txtNamaSiswa.getText().isBlank()) {
             JOptionPane.showMessageDialog(null, "Haram memilih data yang ingin dihapus");
             return;
         }
@@ -405,9 +405,9 @@ public class formSiswaPanel extends javax.swing.JPanel {
     private javax.swing.JButton buttonHapus;
     private javax.swing.JButton buttonPilihEkstra;
     private javax.swing.JButton buttonPilihKelas;
-    private javax.swing.JButton buttonSimpanUbah;
-    private javax.swing.JComboBox<String> cbJenisKelamin;
-    private javax.swing.JComboBox<String> cbStatus;
+    public static javax.swing.JButton buttonSimpanUbah;
+    public static javax.swing.JComboBox<String> cbJenisKelamin;
+    public static javax.swing.JComboBox<String> cbStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -419,10 +419,10 @@ public class formSiswaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txtJenisEkstra;
-    private javax.swing.JTextField txtKelasSiswa;
-    private javax.swing.JTextField txtKodeEkstra;
-    private javax.swing.JTextField txtNIM;
-    private javax.swing.JTextField txtNamaSiswa;
+    public static javax.swing.JTextField txtJenisEkstra;
+    public static javax.swing.JTextField txtKelasSiswa;
+    public static javax.swing.JTextField txtKodeEkstra;
+    public static javax.swing.JTextField txtNISN;
+    public static javax.swing.JTextField txtNamaSiswa;
     // End of variables declaration//GEN-END:variables
 }

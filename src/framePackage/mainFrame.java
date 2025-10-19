@@ -555,7 +555,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel labelClose;
-    private javax.swing.JLabel labelWaktu;
+    public static javax.swing.JLabel labelWaktu;
     private javax.swing.JPanel navbarPanel;
     private javax.swing.JLabel runningTextLabel;
     private javax.swing.JPanel sidebarPanel;

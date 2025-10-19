@@ -34,7 +34,7 @@ public class ekstraPanel extends javax.swing.JPanel {
         model.addColumn("Nama Pembina");
 
         try {
-            ResultSet rsVar = extra.showEsktra();
+            ResultSet rsVar = extra.showDataEkstra();
 
             while (rsVar.next()) {
                 String id = rsVar.getString("id_ekstra");

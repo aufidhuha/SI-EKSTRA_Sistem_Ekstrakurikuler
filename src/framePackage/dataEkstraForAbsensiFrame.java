@@ -4,6 +4,13 @@
  */
 package framePackage;
 
+import classPackage.ekstraClass;
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 /**
  *
  * @author ASUS
@@ -15,6 +22,28 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
      */
     public dataEkstraForAbsensiFrame() {
         initComponents();
+        loadData();
+    }
+    
+    void loadData(){
+        ekstraClass ekstra = new ekstraClass();
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("Nama Ekstrakurikuler");
+        
+        try {            
+            ResultSet rsVar = ekstra.showDataEkstra();
+            
+            while (rsVar.next()) {
+                String namaEkstra = rsVar.getString("nama_ekstra");
+                
+                Object[] data = {namaEkstra};
+                model.addRow(data);
+            }
+            tblEkstra.setModel(model);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
     }
 
     /**
@@ -28,16 +57,16 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblKelas = new javax.swing.JTable();
+        tblEkstra = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        buttonPilih = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        tblKelas.setModel(new javax.swing.table.DefaultTableModel(
+        tblEkstra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -48,17 +77,22 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblKelas);
+        jScrollPane1.setViewportView(tblEkstra);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("DATA EKSTRAKURIKULER");
 
-        jButton1.setBackground(new java.awt.Color(40, 167, 69));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("PILIH");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonPilih.setBackground(new java.awt.Color(40, 167, 69));
+        buttonPilih.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonPilih.setForeground(new java.awt.Color(255, 255, 255));
+        buttonPilih.setText("PILIH");
+        buttonPilih.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonPilih.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPilihActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,7 +100,7 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(207, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPilih, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
@@ -84,7 +118,7 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 388, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPilih, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -108,6 +142,22 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPilihActionPerformed
+        // TODO add your handling code here:
+        int choiceRow = tblEkstra.getSelectedRow();
+        
+        if (choiceRow < 0) {
+            JOptionPane.showMessageDialog(null, "Harap memilih data");
+            return;
+        }
+        
+        String namaEkstra = tblEkstra.getValueAt(choiceRow, 0).toString();
+        
+        absensiPanel.txtJenisExtra.setText(namaEkstra);
+        
+        dispose();
+    }//GEN-LAST:event_buttonPilihActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -118,20 +168,8 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(dataEkstraForAbsensiFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(dataEkstraForAbsensiFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(dataEkstraForAbsensiFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(dataEkstraForAbsensiFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (UnsupportedLookAndFeelException unsupportedLookAndFeelException) {
         }
         //</editor-fold>
 
@@ -144,10 +182,10 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buttonPilih;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblKelas;
+    private javax.swing.JTable tblEkstra;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,12 +4,12 @@
  */
 package framePackage;
 
-import static framePackage.NewJFrame.contentPanel;
 import classPackage.siswaClass;
 import static framePackage.mainFrame.contentPanel;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -21,16 +21,15 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
      */
     public kelolaSiswaNonAktifPanel() {
         initComponents();
-      //  dataTidakAktif();
-      //  cariDataTidakAktif();
+        dataTidakAktif();
     }
-    
+
     static String isMode = "Tidak Aktif";
-    
-    void dataTidakAktif(){
+
+    void dataTidakAktif() {
         DefaultTableModel model = new DefaultTableModel();
-        siswaClass dataC = new siswaClass();
-        
+        siswaClass dataSiswa = new siswaClass();
+
         model.addColumn("Kode Ekstra");
         model.addColumn("NISN");
         model.addColumn("Nama Siswa");
@@ -38,10 +37,10 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         model.addColumn("Kelas");
         model.addColumn("Ekstrakurikuler");
         model.addColumn("Status");
-        
+
         try {
-            ResultSet rsVar = dataC.showDataNonAktif();
-            
+            ResultSet rsVar = dataSiswa.showDataSiswa("Tidak Aktif");
+
             while (rsVar.next()) {
                 String id = rsVar.getString("kode_ekstra");
                 String nisn = rsVar.getString("nisn");
@@ -50,21 +49,21 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
                 String kelass = rsVar.getString("nama_kelas");
                 String ekstra = rsVar.getString("nama_ekstra");
                 String status = rsVar.getString("status");
-                
+
                 Object[] data = {id, nisn, nama, jenis, kelass, ekstra, status};
                 model.addRow(data);
             }
-            
+
             tableSiswaNonAktif.setModel(model);
         } catch (SQLException sQLException) {
             JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
         }
     }
-    
-    void dataPurna(){
+
+    void dataPurna() {
         DefaultTableModel model = new DefaultTableModel();
-        siswaClass dataC = new siswaClass();
-        
+        siswaClass dataSiswa = new siswaClass();
+
         model.addColumn("Kode Ekstra");
         model.addColumn("NISN");
         model.addColumn("Nama Siswa");
@@ -72,10 +71,10 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         model.addColumn("Kelas");
         model.addColumn("Ekstrakurikuler");
         model.addColumn("Status");
-        
+
         try {
-            ResultSet rsVar = dataC.showDataPurna();
-            
+            ResultSet rsVar = dataSiswa.showDataSiswa("Purna");
+
             while (rsVar.next()) {
                 String id = rsVar.getString("kode_ekstra");
                 String nisn = rsVar.getString("nisn");
@@ -84,36 +83,36 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
                 String kelass = rsVar.getString("nama_kelas");
                 String ekstra = rsVar.getString("nama_ekstra");
                 String status = rsVar.getString("status");
-                
+
                 Object[] data = {id, nisn, nama, jenis, kelass, ekstra, status};
                 model.addRow(data);
             }
-            
+
             tableSiswaNonAktif.setModel(model);
         } catch (SQLException sQLException) {
             JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
         }
     }
-    
-    void cariDataTidakAktif(){
+
+    void cariDataTidakAktif() {
         try {
             siswaClass cari = new siswaClass();
-            DefaultTableModel model = cari.cariDataNamaTidakAktif(txtCariNama.getText());
-            
+            DefaultTableModel model = cari.cariDataNamaSiswa("Tidak Aktif", txtCariNama.getText());
+
             tableSiswaNonAktif.setModel(model);
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
         }
     }
-    
-    void cariDataPurna(){
+
+    void cariDataPurna() {
         try {
             siswaClass cari = new siswaClass();
-            DefaultTableModel model = cari.cariDataNamaPurna(txtCariNama.getText());
-            
+            DefaultTableModel model = cari.cariDataNamaSiswa("Purna", txtCariNama.getText());
+
             tableSiswaNonAktif.setModel(model);
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
         }
@@ -316,33 +315,47 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
     private void buttonKelolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelolaActionPerformed
         // TODO add your handling code here:
         int choiceRow = tableSiswaNonAktif.getSelectedRow();
-        
+
         if (choiceRow < 0) {
             JOptionPane.showMessageDialog(null, "Harap memilih data");
             return;
         }
-        
+
         String kode = tableSiswaNonAktif.getValueAt(choiceRow, 0).toString();
         String nisn = tableSiswaNonAktif.getValueAt(choiceRow, 1).toString();
         String nama = tableSiswaNonAktif.getValueAt(choiceRow, 2).toString();
         String jenis = tableSiswaNonAktif.getValueAt(choiceRow, 3).toString();
-        String kelas = tableSiswaNonAktif.getValueAt(choiceRow, 4).toString();
-        String ekstra = tableSiswaNonAktif.getValueAt(choiceRow, 5).toString();
-        String status = tableSiswaNonAktif.getValueAt(choiceRow, 6).toString();
+        String kelas = "";
+         
+        if (tableSiswaNonAktif.getValueAt(choiceRow, 4) != null) {
+            kelas = tableSiswaNonAktif.getValueAt(choiceRow, 4).toString();
+        } else {
+            kelas = "";
+        }
         
+        String ekstra = "";
+        
+        if (tableSiswaNonAktif.getValueAt(choiceRow, 5) != null) {
+            ekstra = tableSiswaNonAktif.getValueAt(choiceRow, 5).toString();
+        } else {
+            ekstra = "";
+        }                
+                
+        String status = tableSiswaNonAktif.getValueAt(choiceRow, 6).toString();
+
         contentPanel.removeAll();
         contentPanel.add(new formSiswaPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
-        
+
         formSiswaPanel.txtKodeEkstra.setText(kode);
-        formSiswaPanel.txtNisn.setText(nisn);
-        formSiswaPanel.txtNama.setText(nama);
-        formSiswaPanel.obJenisKelamin.setSelectedItem(jenis);
+        formSiswaPanel.txtNISN.setText(nisn);
+        formSiswaPanel.txtNamaSiswa.setText(nama);
+        formSiswaPanel.cbJenisKelamin.setSelectedItem(jenis);
         formSiswaPanel.txtKelasSiswa.setText(kelas);
         formSiswaPanel.txtJenisEkstra.setText(ekstra);
-        formSiswaPanel.obStatus.setSelectedItem(status);
-        formSiswaPanel.buttonSimpan.setText("UBAH");
+        formSiswaPanel.cbStatus.setSelectedItem(status);
+        formSiswaPanel.buttonSimpanUbah.setText("UBAH");
     }//GEN-LAST:event_buttonKelolaActionPerformed
 
     private void buttonDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaftarActionPerformed
@@ -357,7 +370,7 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (isMode.equalsIgnoreCase("Tidak Aktif")) {
             cariDataTidakAktif();
-        }else {
+        } else {
             cariDataPurna();
         }
     }//GEN-LAST:event_txtCariNamaActionPerformed
@@ -366,16 +379,16 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         siswaClass deleteAll = new siswaClass();
         int rowCount = tableSiswaNonAktif.getRowCount();
-        
+
         if (rowCount == 0) {
             JOptionPane.showMessageDialog(null, "Tidak ada data yang dihapus");
             return;
         }
-        
+
         if (isMode.equalsIgnoreCase("Tidak Aktif")) {
             deleteAll.deleteDataSiswaAllStatus("Tidak Aktif");
             dataTidakAktif();
-        }else {
+        } else {
             deleteAll.deleteDataSiswaAllStatus("Purna");
             dataPurna();
         }

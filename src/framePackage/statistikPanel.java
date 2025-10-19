@@ -4,6 +4,10 @@
  */
 package framePackage;
 
+import classPackage.ekstraClass;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author ASUS
@@ -15,6 +19,30 @@ public class statistikPanel extends javax.swing.JPanel {
      */
     public statistikPanel() {
         initComponents();
+        loadData();
+    }
+    
+    void loadData(){
+        ekstraClass dataJumlah = new ekstraClass();
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("Nama Ekstrakurikuler");
+        model.addColumn("Jumlah Siswa");
+        
+        try {
+            ResultSet rsVar = dataJumlah.showStatiska();
+
+            while (rsVar.next()) {
+                String namaEkstra = rsVar.getString("nama_ekstra");
+                String jumlahSiswa = rsVar.getString("jumlah_siswa");
+                
+                Object[] data = {namaEkstra, jumlahSiswa};
+                model.addRow(data);
+            }
+            tableStatistik.setModel(model);
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
     }
 
     /**
@@ -30,7 +58,7 @@ public class statistikPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableData = new javax.swing.JTable();
+        tableStatistik = new javax.swing.JTable();
         buttonSimpanData = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -62,7 +90,7 @@ public class statistikPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("DATA STATISTIK TABEL EKSTRAKURIKULER");
 
-        tableData.setModel(new javax.swing.table.DefaultTableModel(
+        tableStatistik.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -73,7 +101,7 @@ public class statistikPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tableData);
+        jScrollPane1.setViewportView(tableStatistik);
 
         buttonSimpanData.setBackground(new java.awt.Color(40, 167, 69));
         buttonSimpanData.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -82,6 +110,11 @@ public class statistikPanel extends javax.swing.JPanel {
         buttonSimpanData.setText("SIMPAN DATA");
         buttonSimpanData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonSimpanData.setIconTextGap(8);
+        buttonSimpanData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSimpanDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -113,6 +146,10 @@ public class statistikPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonSimpanDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonSimpanDataActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonSimpanData;
@@ -120,6 +157,6 @@ public class statistikPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableData;
+    private javax.swing.JTable tableStatistik;
     // End of variables declaration//GEN-END:variables
 }
