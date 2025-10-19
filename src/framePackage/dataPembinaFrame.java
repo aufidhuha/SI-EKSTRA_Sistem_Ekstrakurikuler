@@ -4,6 +4,10 @@
  */
 package framePackage;
 
+import classPackage.pembinaClass;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
@@ -15,8 +19,23 @@ public class dataPembinaFrame extends javax.swing.JFrame {
      */
     public dataPembinaFrame() {
         initComponents();
+        loadData();
     }
 
+    
+    void loadData(){
+        
+        try {
+            pembinaClass pembina = new pembinaClass();
+            DefaultTableModel model = pembina.showNamaPembina();
+
+            tablePembina.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,16 +47,16 @@ public class dataPembinaFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblKelas = new javax.swing.JTable();
+        tablePembina = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        buttonPilih = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        tblKelas.setModel(new javax.swing.table.DefaultTableModel(
+        tablePembina.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -48,17 +67,22 @@ public class dataPembinaFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblKelas);
+        jScrollPane1.setViewportView(tablePembina);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("DATA GURU - PEMBINA");
 
-        jButton1.setBackground(new java.awt.Color(40, 167, 69));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("PILIH");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonPilih.setBackground(new java.awt.Color(40, 167, 69));
+        buttonPilih.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonPilih.setForeground(new java.awt.Color(255, 255, 255));
+        buttonPilih.setText("PILIH");
+        buttonPilih.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonPilih.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPilihActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,7 +90,7 @@ public class dataPembinaFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(207, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPilih, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
@@ -84,7 +108,7 @@ public class dataPembinaFrame extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 388, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPilih, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -107,6 +131,23 @@ public class dataPembinaFrame extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPilihActionPerformed
+        // TODO add your handling code here:
+        int choiceRow = tablePembina.getSelectedRow();
+        
+        if (choiceRow < 0) {
+            JOptionPane.showMessageDialog(null, "Harap memilih data");
+            return;
+        }
+        
+        String nama = tablePembina.getValueAt(choiceRow, 0).toString();
+        
+        ekstraPanel.txtPembina.setText(nama);
+        
+        dispose();
+        
+    }//GEN-LAST:event_buttonPilihActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,10 +185,10 @@ public class dataPembinaFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton buttonPilih;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblKelas;
+    private javax.swing.JTable tablePembina;
     // End of variables declaration//GEN-END:variables
 }

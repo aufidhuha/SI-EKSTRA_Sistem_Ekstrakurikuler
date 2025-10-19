@@ -45,7 +45,7 @@ public class absensiPanel extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("DATA SISWA AKTIF");
+        jLabel8.setText("ABSENSI SISWA AKTIF");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -90,7 +90,7 @@ public class absensiPanel extends javax.swing.JPanel {
         buttonEskul.setBackground(new java.awt.Color(111, 66, 193));
         buttonEskul.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonEskul.setForeground(new java.awt.Color(255, 255, 255));
-        buttonEskul.setText("CARI EKSTRAKURIKULER");
+        buttonEskul.setText("PILIH EKSTRAKURIKULER");
         buttonEskul.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonEskul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

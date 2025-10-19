@@ -3,12 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package framePackage;
+
 import classPackage.ekstraClass;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
@@ -21,47 +21,53 @@ public class ekstraPanel extends javax.swing.JPanel {
      */
     public ekstraPanel() {
         initComponents();
-     //   loadData();
-     //   autoID();
+        loadData();
+        autoID();
     }
-    void loadData (){
+
+    void loadData() {
         ekstraClass extra = new ekstraClass();
         DefaultTableModel model = new DefaultTableModel();
-        
+
         model.addColumn("ID Ekstra");
         model.addColumn("Nama Ekstra");
-        
+        model.addColumn("Nama Pembina");
+
         try {
             ResultSet rsVar = extra.showEsktra();
-            
-            while (rsVar.next()){
-                String id = rsVar.getString("Id_ekstra");
-                String nama = rsVar.getString("nama_ekstra");
-                
-                Object[] data = {id, nama};
+
+            while (rsVar.next()) {
+                String id = rsVar.getString("id_ekstra");
+                String namaEkstra = rsVar.getString("nama_ekstra");
+                String namaPembina = rsVar.getString("nama");
+
+                Object[] data = {id, namaEkstra, namaPembina};
                 model.addRow(data);
             }
         } catch (SQLException sQLException) {
             JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
         }
-        tabelEkstra.setModel(model);
+        tableEkstra.setModel(model);
     }
-    void reset (){
+
+    void reset() {
         txtKodeEkstra.setText(null);
         txtNamaEkstra.setText(null);
+        txtPembina.setText(null);
         buttonSimpan.setText("SIMPAN");
         autoID();
     }
-    void autoID (){
+
+    void autoID() {
         try {
             ekstraClass extra = new ekstraClass();
             String id = extra.autoIDExtra();
             txtKodeEkstra.setText(id);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error : " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
         }
         txtKodeEkstra.setEditable(false);
-        
+
     }
 
     /**
@@ -84,11 +90,11 @@ public class ekstraPanel extends javax.swing.JPanel {
         txtKodeEkstra = new javax.swing.JTextField();
         txtNamaEkstra = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtNamaEkstra1 = new javax.swing.JTextField();
+        txtPembina = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        buttonPembina = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableEkstra = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -187,28 +193,33 @@ public class ekstraPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("KODE EKTRAKURIKULER");
 
+        txtKodeEkstra.setEditable(false);
         txtKodeEkstra.setBackground(new java.awt.Color(255, 255, 255));
+        txtKodeEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         txtNamaEkstra.setBackground(new java.awt.Color(255, 255, 255));
+        txtNamaEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NAMA EKSTRAKURIKULER");
 
-        txtNamaEkstra1.setBackground(new java.awt.Color(255, 255, 255));
+        txtPembina.setEditable(false);
+        txtPembina.setBackground(new java.awt.Color(255, 255, 255));
+        txtPembina.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("PEMBINA EKSTRAKURIKULER");
 
-        jButton1.setBackground(new java.awt.Color(51, 153, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("PILIH PEMBINA");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonPembina.setBackground(new java.awt.Color(51, 153, 0));
+        buttonPembina.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonPembina.setForeground(new java.awt.Color(255, 255, 255));
+        buttonPembina.setText("PILIH PEMBINA");
+        buttonPembina.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonPembina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonPembinaActionPerformed(evt);
             }
         });
 
@@ -223,9 +234,9 @@ public class ekstraPanel extends javax.swing.JPanel {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txtNamaEkstra1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPembina, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(buttonPembina, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,12 +265,12 @@ public class ekstraPanel extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNamaEkstra1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPembina, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonPembina, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableEkstra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -270,7 +281,12 @@ public class ekstraPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        tableEkstra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableEkstraMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tableEkstra);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -302,31 +318,36 @@ public class ekstraPanel extends javax.swing.JPanel {
 
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         // TODO add your handling code here:
-        if (txtKodeEkstra.getText().isBlank() || txtNamaEkstra.getText()isBlack()) {
-        JOptionPane.showMessageDialog(null, "Harap isi semua");
-        return;
-    }
+        if (txtKodeEkstra.getText().isBlank() || txtNamaEkstra.getText().isBlank() || txtPembina.getText().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Harap isi semua");
+            return;
+        }
+
+        ekstraClass ekstra = new ekstraClass();
+
+        ekstra.setKodeEkstra(txtKodeEkstra.getText());
+        ekstra.setNamaEkstra(txtNamaEkstra.getText());
+        ekstra.getNamaPembina(txtPembina.getText());
         
-        ekstraClass extra = new ekstraClass();
+        ekstra.saveDataEsktra();
         
-        extra.setKodeEkstra(txtKodeEkstra.getText());
-        extra.setNamaEkstra(txtNamaEkstra.getName());
-        extra.saveDataEsktra();
         reset();
         loadData();
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
         // TODO add your handling code here:
-        if (txtKodeEkstra.getText().isBlank() || txtNamaEkstra.getText()isBlack()) {
-        JOptionPane.showMessageDialog(null, "Harap memilih data yang ingin dihapus");
-        return;
-    }
+        if (txtKodeEkstra.getText().isBlank() || txtNamaEkstra.getText().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Harap memilih data yang ingin dihapus");
+            return;
+        }
+
         ekstraClass extra = new ekstraClass();
-        
+
         extra.setKodeEkstra(txtKodeEkstra.getText());
-        extra.setNamaEkstra(txtNamaEkstra.getName());
-        extra.saveDataEsktra();
+       
+        extra.daleteDataEkstra();
+        
         reset();
         loadData();
     }//GEN-LAST:event_buttonHapusActionPerformed
@@ -336,17 +357,37 @@ public class ekstraPanel extends javax.swing.JPanel {
         reset();
     }//GEN-LAST:event_buttonBatalActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonPembinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPembinaActionPerformed
         // TODO add your handling code here:
         new dataPembinaFrame().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonPembinaActionPerformed
+
+    private void tableEkstraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableEkstraMouseClicked
+        // TODO add your handling code here:
+        int choiceRow = tableEkstra.getSelectedRow();
+        
+        String idEkstra = tableEkstra.getValueAt(choiceRow, 0).toString();
+        String namaEkstra = tableEkstra.getValueAt(choiceRow, 1).toString();
+        String namaPembina = "";
+        
+        if (tableEkstra.getValueAt(choiceRow, 2) != null) {
+            namaPembina = tableEkstra.getValueAt(choiceRow, 2).toString();
+        } else {
+            namaPembina = "";
+        }
+        
+        txtKodeEkstra.setText(idEkstra);
+        txtNamaEkstra.setText(namaEkstra);
+        txtPembina.setText(namaPembina);
+        buttonSimpan.setText("UBAH");
+    }//GEN-LAST:event_tableEkstraMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBatal;
     private javax.swing.JButton buttonHapus;
+    private javax.swing.JButton buttonPembina;
     private javax.swing.JButton buttonSimpan;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -355,9 +396,9 @@ public class ekstraPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableEkstra;
     private javax.swing.JTextField txtKodeEkstra;
     private javax.swing.JTextField txtNamaEkstra;
-    private javax.swing.JTextField txtNamaEkstra1;
+    public static javax.swing.JTextField txtPembina;
     // End of variables declaration//GEN-END:variables
 }

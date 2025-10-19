@@ -209,6 +209,7 @@ public class kelasPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("NAMA KELAS");
 
+        txtKodeKelas.setEditable(false);
         txtKodeKelas.setBackground(new java.awt.Color(255, 255, 255));
         txtKodeKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtKodeKelas.addActionListener(new java.awt.event.ActionListener() {

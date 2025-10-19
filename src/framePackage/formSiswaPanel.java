@@ -4,6 +4,9 @@
  */
 package framePackage;
 
+import classPackage.siswaClass;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -15,6 +18,30 @@ public class formSiswaPanel extends javax.swing.JPanel {
      */
     public formSiswaPanel() {
         initComponents();
+        reset();
+    }
+    
+    void autoId(){
+        try {
+            siswaClass siswa = new siswaClass();
+            String id = siswa.autoIDDataEkstra();
+            txtKodeEkstra.setText(id);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+        txtKodeEkstra.setEditable(false);
+    }
+    
+    void reset(){
+        txtKodeEkstra.setText(null);
+        txtNIM.setText(null);
+        txtNamaSiswa.setText(null);
+        txtKelasSiswa.setText(null);
+        txtJenisEkstra.setText(null);
+        cbJenisKelamin.setSelectedIndex(0);
+        cbStatus.setSelectedIndex(0);
+        buttonSimpanUbah.setText("SIMPAN");
+        autoId();
     }
 
     /**
@@ -148,12 +175,10 @@ public class formSiswaPanel extends javax.swing.JPanel {
         });
 
         cbJenisKelamin.setBackground(new java.awt.Color(255, 255, 255));
-        cbJenisKelamin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbJenisKelamin.setForeground(new java.awt.Color(0, 0, 0));
         cbJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
 
         cbStatus.setBackground(new java.awt.Color(255, 255, 255));
-        cbStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbStatus.setForeground(new java.awt.Color(0, 0, 0));
         cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktif", "Tidak Aktif", "Purna" }));
 
@@ -234,6 +259,11 @@ public class formSiswaPanel extends javax.swing.JPanel {
         buttonSimpanUbah.setText("SIMPAN");
         buttonSimpanUbah.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonSimpanUbah.setIconTextGap(8);
+        buttonSimpanUbah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSimpanUbahActionPerformed(evt);
+            }
+        });
 
         buttonHapus.setBackground(new java.awt.Color(211, 47, 47));
         buttonHapus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -242,6 +272,11 @@ public class formSiswaPanel extends javax.swing.JPanel {
         buttonHapus.setText("HAPUS");
         buttonHapus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonHapus.setIconTextGap(8);
+        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusActionPerformed(evt);
+            }
+        });
 
         buttonBatal.setBackground(new java.awt.Color(0, 123, 255));
         buttonBatal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -250,6 +285,11 @@ public class formSiswaPanel extends javax.swing.JPanel {
         buttonBatal.setText("BATAL");
         buttonBatal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonBatal.setIconTextGap(8);
+        buttonBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBatalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -308,6 +348,56 @@ public class formSiswaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         new dataEkstraFrame().setVisible(true);
     }//GEN-LAST:event_buttonPilihEkstraActionPerformed
+
+    private void buttonBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBatalActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_buttonBatalActionPerformed
+
+    private void buttonSimpanUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanUbahActionPerformed
+        // TODO add your handling code here:
+        if (txtKodeEkstra.getText().isBlank() || txtNIM.getText().isBlank() || txtNamaSiswa.getText().isBlank() || txtKelasSiswa.getText().isBlank() || txtJenisEkstra.getText().isBlank() || (cbJenisKelamin.getSelectedItem() == null) || (cbStatus.getSelectedItem() == null)) {
+            JOptionPane.showMessageDialog(null, "Harap mengisi data secara keseluruhan");
+            return;
+        }
+        
+        try {
+            siswaClass data = new siswaClass();
+            
+            data.setKodeEkstraSiswa(txtKodeEkstra.getText());
+            data.setNisn(txtNIM.getText());
+            data.setNama(txtNamaSiswa.getText());
+            data.setJk(cbJenisKelamin.getSelectedItem().toString());
+            
+            data.getNamaKelas(txtKelasSiswa.getText());
+            data.getNamaEkstra(txtJenisEkstra.getText());
+            
+            data.setStatus(cbStatus.getSelectedItem().toString());
+            
+            data.saveDataSiswa();
+            
+            reset();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
+        }
+    }//GEN-LAST:event_buttonSimpanUbahActionPerformed
+
+    private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
+        // TODO add your handling code here:
+        if (txtKodeEkstra.getText().isBlank() || txtNIM.getText().isBlank() || txtNamaSiswa.getText().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Haram memilih data yang ingin dihapus");
+            return;
+        }
+        
+        siswaClass data = new siswaClass();
+        
+        data.setKodeEkstraSiswa(txtKodeEkstra.getText());
+        
+        data.deleteDataSiswa();
+        
+        reset();
+    }//GEN-LAST:event_buttonHapusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
