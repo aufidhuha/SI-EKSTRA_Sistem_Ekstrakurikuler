@@ -5,6 +5,8 @@
 package framePackage;
 
 import classPackage.aboutClass;
+import classPackage.resetAppClass;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +40,7 @@ public class aboutPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         aboutLabel = new javax.swing.JLabel();
-        buttonHapusSemua = new javax.swing.JButton();
+        buttonReset = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -69,16 +71,16 @@ public class aboutPanel extends javax.swing.JPanel {
         aboutLabel.setForeground(new java.awt.Color(0, 0, 0));
         aboutLabel.setText("jLabel1");
 
-        buttonHapusSemua.setBackground(new java.awt.Color(0, 123, 255));
-        buttonHapusSemua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonHapusSemua.setForeground(new java.awt.Color(255, 255, 255));
-        buttonHapusSemua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-reset-24.png"))); // NOI18N
-        buttonHapusSemua.setText("RESET APLIKASI");
-        buttonHapusSemua.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonHapusSemua.setIconTextGap(8);
-        buttonHapusSemua.addActionListener(new java.awt.event.ActionListener() {
+        buttonReset.setBackground(new java.awt.Color(0, 123, 255));
+        buttonReset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonReset.setForeground(new java.awt.Color(255, 255, 255));
+        buttonReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-reset-24.png"))); // NOI18N
+        buttonReset.setText("RESET APLIKASI");
+        buttonReset.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonReset.setIconTextGap(8);
+        buttonReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHapusSemuaActionPerformed(evt);
+                buttonResetActionPerformed(evt);
             }
         });
 
@@ -93,7 +95,7 @@ public class aboutPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonHapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
@@ -103,20 +105,28 @@ public class aboutPanel extends javax.swing.JPanel {
                 .addGap(62, 62, 62)
                 .addComponent(aboutLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 486, Short.MAX_VALUE)
-                .addComponent(buttonHapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonReset, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonHapusSemuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusSemuaActionPerformed
+    private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
         // TODO add your handling code here:
+        resetAppClass reset = new resetAppClass();
         
-    }//GEN-LAST:event_buttonHapusSemuaActionPerformed
+        int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin me-Reset Aplikasi SI-EKSTRA?\n\nNote : Harap pertimbangkan kembali atau backup data bila perlu\nMereset Aplikasi akan mengembalikan Aplikasi menjadi Default dan data \nyang ada akan dihapus secara permanen", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        
+        if (yesOrNo == JOptionPane.YES_OPTION) {
+            reset.resetApp();
+            this.getTopLevelAncestor().setVisible(false);
+            new loginFrame().setVisible(true);
+        }
+    }//GEN-LAST:event_buttonResetActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aboutLabel;
-    private javax.swing.JButton buttonHapusSemua;
+    private javax.swing.JButton buttonReset;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

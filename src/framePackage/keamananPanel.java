@@ -311,7 +311,7 @@ public class keamananPanel extends javax.swing.JPanel {
             return;
             
         } else if (queryOk == 0) {
-            JOptionPane.showMessageDialog(null, "Username Lama Salah, Username Atau Password Gagal diubah");
+            JOptionPane.showMessageDialog(null, "Username Lama Salah, Username Atau Password gagal diubah");
             reset();
             return;
             

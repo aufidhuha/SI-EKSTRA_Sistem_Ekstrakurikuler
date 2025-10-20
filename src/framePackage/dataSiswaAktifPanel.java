@@ -138,6 +138,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("JENIS EKSTRAKURIKULER");
 
+        txtJenisExtra.setEditable(false);
         txtJenisExtra.setBackground(new java.awt.Color(204, 204, 204));
         txtJenisExtra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         txtJenisExtra.addActionListener(new java.awt.event.ActionListener() {

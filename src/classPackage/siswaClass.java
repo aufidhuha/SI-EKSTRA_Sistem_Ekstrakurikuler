@@ -69,30 +69,6 @@ public class siswaClass {
         return rsVar;
     }
 
-//    public ResultSet showDataNonAktif() {
-//        try {
-//            query = "SELECT ekstrasiswa.kode_ekstra,ekstrasiswa.nisn,ekstrasiswa.nama,ekstrasiswa.jenis,kelas.nama_kelas,ekstra.nama_ekstra,ekstrasiswa.status FROM ekstrasiswa JOIN ekstra ON ekstrasiswa.id_ekstra = ekstra.id_ekstra JOIN kelas ON kelas.id_kelas = ekstrasiswa.id_kelas WHERE ekstrasiswa.status = 'Tidak Aktif'";
-//
-//            stVar = cnVar.createStatement();
-//            rsVar = stVar.executeQuery(query);
-//        } catch (SQLException sQLException) {
-//            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
-//        }
-//        return rsVar;
-//    }
-//
-//    public ResultSet showDataPurna() {
-//        try {
-//            query = "SELECT ekstrasiswa.kode_ekstra,ekstrasiswa.nisn,ekstrasiswa.nama,ekstrasiswa.jenis,kelas.nama_kelas,ekstra.nama_ekstra,ekstrasiswa.status FROM ekstrasiswa JOIN ekstra ON ekstrasiswa.id_ekstra = ekstra.id_ekstra JOIN kelas ON kelas.id_kelas = ekstrasiswa.id_kelas WHERE ekstrasiswa.status = 'Purna'";
-//
-//            stVar = cnVar.createStatement();
-//            rsVar = stVar.executeQuery(query);
-//        } catch (SQLException sQLException) {
-//            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
-//        }
-//        return rsVar;
-//    }
-
     public ResultSet showSimpleDataNonAktif(String keaktifan) {
         try {
             query = "SELECT ekstrasiswa.nisn,ekstrasiswa.nama,kelas.nama_kelas,ekstra.nama_ekstra FROM ekstrasiswa LEFT JOIN ekstra ON ekstrasiswa.id_ekstra = ekstra.id_ekstra LEFT JOIN kelas ON kelas.id_kelas = ekstrasiswa.id_kelas WHERE status = ?";
@@ -106,18 +82,6 @@ public class siswaClass {
         }
         return rsVar;
     }
-
-//    public ResultSet showSimpleDataPurna() {
-//        try {
-//            query = "SELECT ekstrasiswa.nisn,ekstrasiswa.nama,kelas.nama_kelas,ekstra.nama_ekstra FROM ekstrasiswa JOIN ekstra ON ekstrasiswa.id_ekstra = ekstra.id_ekstra JOIN kelas ON kelas.id_kelas = ekstrasiswa.id_kelas WHERE status = 'Purna'";
-//
-//            stVar = cnVar.createStatement();
-//            rsVar = stVar.executeQuery(query);
-//        } catch (SQLException sQLException) {
-//            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
-//        }
-//        return rsVar;
-//    }
 
     public DefaultTableModel showDataSiswaAll() {
 
@@ -435,82 +399,6 @@ public class siswaClass {
         }
         return model;
     }
-
-//    public DefaultTableModel cariDataNamaTidakAktif(String namaSiswa) {
-//
-//        DefaultTableModel model = new DefaultTableModel();
-//
-//        model.addColumn("Kode Ekstra");
-//        model.addColumn("NISN");
-//        model.addColumn("Nama Siswa");
-//        model.addColumn("Jenis Kelamin");
-//        model.addColumn("Kelas");
-//        model.addColumn("Ekstrakurikuler");
-//        model.addColumn("Status");
-//
-//        try {
-//            query = "SELECT ekstrasiswa.kode_ekstra,ekstrasiswa.nisn,ekstrasiswa.nama,ekstrasiswa.jenis,kelas.nama_kelas,ekstra.nama_ekstra,ekstrasiswa.status FROM ekstrasiswa JOIN ekstra ON ekstrasiswa.id_ekstra = ekstra.id_ekstra JOIN kelas ON kelas.id_kelas = ekstrasiswa.id_kelas WHERE ekstrasiswa.status = 'Tidak Aktif' AND ekstrasiswa.nama LIKE ?";
-//
-//            psVar = cnVar.prepareStatement(query);
-//            psVar.setString(1, "%" + namaSiswa + "%");
-//            rsVar = stVar.executeQuery(query);
-//
-//            while (rsVar.next()) {
-//                String id = rsVar.getString("kode_ekstra");
-//                String nisn = rsVar.getString("nisn");
-//                String nama = rsVar.getString("nama");
-//                String jenis = rsVar.getString("jenis");
-//                String kelass = rsVar.getString("nama_kelas");
-//                String ekstra = rsVar.getString("nama_ekstra");
-//                String status = rsVar.getString("status");
-//
-//                Object[] data = {id, nisn, nama, jenis, kelass, ekstra, status};
-//                model.addRow(data);
-//            }
-//        } catch (SQLException sQLException) {
-//            JOptionPane.showMessageDialog(null, "Error" + sQLException.getMessage());
-//
-//        }
-//        return model;
-//    }
-
-//    public DefaultTableModel cariNamaPurna(String namaSiswa) {
-//
-//        DefaultTableModel model = new DefaultTableModel();
-//
-//        model.addColumn("Kode Ekstra");
-//        model.addColumn("NISN");
-//        model.addColumn("Nama Siswa");
-//        model.addColumn("Jenis Kelamin");
-//        model.addColumn("Kelas");
-//        model.addColumn("Ekstrakurikuler");
-//        model.addColumn("Status");
-//
-//        try {
-//            query = "SELECT ekstrasiswa.kode_ekstra,ekstrasiswa.nisn,ekstrasiswa.nama,ekstrasiswa.jenis,kelas.nama_kelas,ekstra.nama_ekstra,ekstrasiswa.status FROM ekstrasiswa JOIN ekstra ON ekstrasiswa.id_ekstra = ekstra.id_ekstra JOIN kelas ON kelas.id_kelas = ekstrasiswa.id_kelas WHERE ekstrasiswa.status = 'Purna' AND ekstrasiswa.nama LIKE ?";
-//
-//            psVar = cnVar.prepareStatement(query);
-//            psVar.setString(1, "%" + namaSiswa + "%");
-//            rsVar = stVar.executeQuery(query);
-//
-//            while (rsVar.next()) {
-//                String id = rsVar.getString("kode_ekstra");
-//                String nisn = rsVar.getString("nisn");
-//                String nama = rsVar.getString("nama");
-//                String jenis = rsVar.getString("jenis");
-//                String kelass = rsVar.getString("nama_kelas");
-//                String ekstra = rsVar.getString("nama_ekstra");
-//                String status = rsVar.getString("status");
-//
-//                Object[] data = {id, nisn, nama, jenis, kelass, ekstra, status};
-//                model.addRow(data);
-//            }
-//        } catch (SQLException sQLException) {
-//            JOptionPane.showMessageDialog(null, "Error" + sQLException.getMessage());
-//
-//        }
-//        return model;
-//    }
 
     public DefaultTableModel showDataAbsensiAll() {
 

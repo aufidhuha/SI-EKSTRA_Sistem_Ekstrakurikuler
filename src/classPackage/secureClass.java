@@ -104,7 +104,7 @@ public class secureClass {
             psVar.setString(3, this.pengguna);
             psVar.setString(4, this.lastUsername);
 
-            int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin mengubah \nUsername dan Password yang baru?", "konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin mengubah \nUsername dan Password yang baru?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
             if (yesOrNo == JOptionPane.YES_OPTION) {
                 queryok = psVar.executeUpdate();

@@ -109,7 +109,7 @@ public class aboutClass {
     public String keteranganTentang() {
         return this.tentang = "<html>"
                 + "<body>"
-                + "<p><b>Aplikasi SI-EKSTRA</b> atau <b>Aplikasi Sistem Ekstrakurikuler</b> merupakan aplikasi yang dapat digunakan untuk mempermudah pendapatan dan management terhadap ekstrakurikuler di lingkungan pendidikan <br> dan siswa yang mengikuti ekstrakurikuler tersebut <br><br>Aplikasi <b>SI-EKSTRA</b> dibuat oleh Mahasiswa <b>INSTITUT TEKNOLOGI MOJOSARI</b>, antara lain : "
+                + "<p><b>Aplikasi SI-EKSTRA</b> atau <b>Aplikasi Sistem Ekstrakurikuler</b> merupakan aplikasi yang dapat digunakan untuk mempermudah pendataan dan management terhadap ekstrakurikuler di institusi pendidikan dan siswa <br> yang mengikuti ekstrakurikuler tersebut <br><br>Aplikasi <b>SI-EKSTRA</b> dibuat oleh Mahasiswa <b>INSTITUT TEKNOLOGI MOJOSARI</b>, antara lain : "
                 + "<pre style = \"font-family : 'Segoe-UI';\">"
                 + "Anna Cahya Ningrum\t:     (202457201013)\n"
                 + "Aufi Dhuha Mutaafif\t:     (202457201015)\n"

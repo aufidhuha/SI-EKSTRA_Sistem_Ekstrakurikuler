@@ -29,7 +29,7 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="buttonHapusSemua" min="-2" pref="169" max="-2" attributes="0"/>
+              <Component id="buttonReset" min="-2" pref="169" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -41,7 +41,7 @@
               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               <Component id="aboutLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="486" max="32767" attributes="0"/>
-              <Component id="buttonHapusSemua" min="-2" pref="39" max="-2" attributes="0"/>
+              <Component id="buttonReset" min="-2" pref="39" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -100,7 +100,7 @@
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonHapusSemua">
+    <Component class="javax.swing.JButton" name="buttonReset">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="7b" red="0" type="rgb"/>
@@ -123,7 +123,7 @@
         <Property name="iconTextGap" type="int" value="8"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusSemuaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
