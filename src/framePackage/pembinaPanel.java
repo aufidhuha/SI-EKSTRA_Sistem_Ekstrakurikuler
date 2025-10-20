@@ -121,7 +121,7 @@ public class pembinaPanel extends javax.swing.JPanel {
         jLabel2.setText("NAMA PEMBINA");
 
         txtNIP.setBackground(new java.awt.Color(255, 255, 255));
-        txtNIP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        txtNIP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         txtNIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNIPActionPerformed(evt);
@@ -166,14 +166,15 @@ public class pembinaPanel extends javax.swing.JPanel {
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TOMBOL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TOMBOL KELOLA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
         butonHapus.setBackground(new java.awt.Color(211, 47, 47));
         butonHapus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         butonHapus.setForeground(new java.awt.Color(255, 255, 255));
         butonHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-delete-24.png"))); // NOI18N
         butonHapus.setText("HAPUS");
-        butonHapus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        butonHapus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        butonHapus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         butonHapus.setIconTextGap(10);
         butonHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +187,8 @@ public class pembinaPanel extends javax.swing.JPanel {
         butonBatal.setForeground(new java.awt.Color(255, 255, 255));
         butonBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-cancel-24.png"))); // NOI18N
         butonBatal.setText("BATAL");
-        butonBatal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        butonBatal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        butonBatal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         butonBatal.setIconTextGap(10);
         butonBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,7 +201,8 @@ public class pembinaPanel extends javax.swing.JPanel {
         butonSimpan.setForeground(new java.awt.Color(255, 255, 255));
         butonSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-save-24.png"))); // NOI18N
         butonSimpan.setText("SIMPAN");
-        butonSimpan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        butonSimpan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        butonSimpan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         butonSimpan.setIconTextGap(10);
         butonSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

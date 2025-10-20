@@ -122,14 +122,15 @@ public class ekstraPanel extends javax.swing.JPanel {
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TOMBOL", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TOMBOL KELOLA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
         buttonHapus.setBackground(new java.awt.Color(211, 47, 47));
         buttonHapus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonHapus.setForeground(new java.awt.Color(255, 255, 255));
         buttonHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-delete-24.png"))); // NOI18N
         buttonHapus.setText("HAPUS");
-        buttonHapus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonHapus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonHapus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonHapus.setIconTextGap(10);
         buttonHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +143,8 @@ public class ekstraPanel extends javax.swing.JPanel {
         buttonBatal.setForeground(new java.awt.Color(255, 255, 255));
         buttonBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-cancel-24.png"))); // NOI18N
         buttonBatal.setText("BATAL");
-        buttonBatal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonBatal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonBatal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonBatal.setIconTextGap(10);
         buttonBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +157,8 @@ public class ekstraPanel extends javax.swing.JPanel {
         buttonSimpan.setForeground(new java.awt.Color(255, 255, 255));
         buttonSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-save-24.png"))); // NOI18N
         buttonSimpan.setText("SIMPAN");
-        buttonSimpan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonSimpan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonSimpan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         buttonSimpan.setIconTextGap(10);
         buttonSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,10 +198,10 @@ public class ekstraPanel extends javax.swing.JPanel {
 
         txtKodeEkstra.setEditable(false);
         txtKodeEkstra.setBackground(new java.awt.Color(255, 255, 255));
-        txtKodeEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        txtKodeEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
 
         txtNamaEkstra.setBackground(new java.awt.Color(255, 255, 255));
-        txtNamaEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        txtNamaEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,7 +209,7 @@ public class ekstraPanel extends javax.swing.JPanel {
 
         txtPembina.setEditable(false);
         txtPembina.setBackground(new java.awt.Color(255, 255, 255));
-        txtPembina.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        txtPembina.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

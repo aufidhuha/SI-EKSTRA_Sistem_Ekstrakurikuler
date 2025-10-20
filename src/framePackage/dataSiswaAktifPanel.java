@@ -140,7 +140,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
 
         txtJenisExtra.setEditable(false);
         txtJenisExtra.setBackground(new java.awt.Color(204, 204, 204));
-        txtJenisExtra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtJenisExtra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtJenisExtra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtJenisExtraActionPerformed(evt);
@@ -159,7 +159,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         });
 
         txtCariSiswa.setBackground(new java.awt.Color(204, 204, 204));
-        txtCariSiswa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtCariSiswa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtCariSiswa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCariSiswaActionPerformed(evt);

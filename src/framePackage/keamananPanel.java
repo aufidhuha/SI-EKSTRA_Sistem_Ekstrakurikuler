@@ -133,7 +133,7 @@ public class keamananPanel extends javax.swing.JPanel {
         );
 
         txtUsernameLama.setBackground(new java.awt.Color(255, 255, 255));
-        txtUsernameLama.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtUsernameLama.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -166,10 +166,10 @@ public class keamananPanel extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
         txtPassword.setBackground(new java.awt.Color(255, 255, 255));
-        txtPassword.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtPassword.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         txtUsernameBaru.setBackground(new java.awt.Color(255, 255, 255));
-        txtUsernameBaru.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtUsernameBaru.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -192,7 +192,7 @@ public class keamananPanel extends javax.swing.JPanel {
         jLabel4.setText("NAMA PENGGUNA");
 
         txtPengguna.setBackground(new java.awt.Color(255, 255, 255));
-        txtPengguna.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtPengguna.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtPengguna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPenggunaActionPerformed(evt);

@@ -177,10 +177,12 @@ public class formSiswaPanel extends javax.swing.JPanel {
         cbJenisKelamin.setBackground(new java.awt.Color(255, 255, 255));
         cbJenisKelamin.setForeground(new java.awt.Color(0, 0, 0));
         cbJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
+        cbJenisKelamin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
 
         cbStatus.setBackground(new java.awt.Color(255, 255, 255));
         cbStatus.setForeground(new java.awt.Color(0, 0, 0));
         cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktif", "Tidak Aktif", "Purna" }));
+        cbStatus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -257,8 +259,9 @@ public class formSiswaPanel extends javax.swing.JPanel {
         buttonSimpanUbah.setForeground(new java.awt.Color(255, 255, 255));
         buttonSimpanUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-save-24.png"))); // NOI18N
         buttonSimpanUbah.setText("SIMPAN");
-        buttonSimpanUbah.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonSimpanUbah.setIconTextGap(8);
+        buttonSimpanUbah.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonSimpanUbah.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonSimpanUbah.setIconTextGap(10);
         buttonSimpanUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSimpanUbahActionPerformed(evt);
@@ -270,8 +273,9 @@ public class formSiswaPanel extends javax.swing.JPanel {
         buttonHapus.setForeground(new java.awt.Color(255, 255, 255));
         buttonHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-delete-24.png"))); // NOI18N
         buttonHapus.setText("HAPUS");
-        buttonHapus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonHapus.setIconTextGap(8);
+        buttonHapus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonHapus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonHapus.setIconTextGap(10);
         buttonHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonHapusActionPerformed(evt);
@@ -283,8 +287,9 @@ public class formSiswaPanel extends javax.swing.JPanel {
         buttonBatal.setForeground(new java.awt.Color(255, 255, 255));
         buttonBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-cancel-24.png"))); // NOI18N
         buttonBatal.setText("BATAL");
-        buttonBatal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonBatal.setIconTextGap(8);
+        buttonBatal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonBatal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonBatal.setIconTextGap(10);
         buttonBatal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonBatalActionPerformed(evt);

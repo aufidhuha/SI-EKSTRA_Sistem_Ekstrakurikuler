@@ -146,7 +146,7 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         jLabel1.setText("CARI SISWA");
 
         txtCariNama.setBackground(new java.awt.Color(204, 204, 204));
-        txtCariNama.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        txtCariNama.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtCariNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCariNamaActionPerformed(evt);
