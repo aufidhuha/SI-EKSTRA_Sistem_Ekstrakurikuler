@@ -238,8 +238,11 @@ public class absensiPanel extends javax.swing.JPanel {
 
     private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed
         // TODO add your handling code here:
+        int jumlahSpasi = 100;
+        String spasi = ".".repeat(jumlahSpasi);
+        
         JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("simpan Data JTable ke PDF");
+        chooser.setDialogTitle("Menyimpan Data Absensi Ekstrakurikuler " + txtJenisExtra.getText());
 
         int userSelection = chooser.showSaveDialog(this);
 
@@ -256,11 +259,16 @@ public class absensiPanel extends javax.swing.JPanel {
                 Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
 
                 //Tambahkan Judul
-                Paragraph title = new Paragraph("Daftar Siswa Aktif Ekstrakurikuler", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD));
+                Paragraph title = new Paragraph("Absensi Ekstrakurikuler ".toUpperCase() + txtJenisExtra.getText().toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
+                
+                Paragraph tanggal = new Paragraph("Hari / Tanggal : " + spasi, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
 
                 title.setAlignment(Element.ALIGN_CENTER);
                 document.add(title);
-                document.add(new Paragraph("")); //spasi
+                document.add(new Paragraph(" ")); //spasi
+                document.add(new Paragraph(" ")); 
+                document.add(tanggal); 
+                document.add(new Paragraph(" ")); 
 
                 //Buat tabel PDF sesuai jumlah kolom JTable
                 PdfPTable pdfTable = new PdfPTable(tableAbsensi.getColumnCount());
@@ -273,6 +281,8 @@ public class absensiPanel extends javax.swing.JPanel {
                     PdfPCell cell = new PdfPCell(new Phrase(tableAbsensi.getColumnName(i), fontHeader));
                     cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                    cell.setPaddingTop(5);
+                    cell.setPaddingBottom(5);
                     pdfTable.addCell(cell);
                 }
                 //Isi tabel
@@ -282,6 +292,11 @@ public class absensiPanel extends javax.swing.JPanel {
                         PdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
 
                         cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                        cell.setPaddingLeft(3);
+                        cell.setPaddingTop(5);
+                        cell.setPaddingRight(3);
+                        cell.setPaddingBottom(5);
                         pdfTable.addCell(cell);
                     }
                 }
@@ -289,8 +304,7 @@ public class absensiPanel extends javax.swing.JPanel {
                 document.add(pdfTable);
                 document.close();
 
-                JOptionPane.showMessageDialog(this,
-                        "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
+                JOptionPane.showMessageDialog(this, "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF : " + e.getMessage());

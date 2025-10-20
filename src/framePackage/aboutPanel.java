@@ -38,6 +38,7 @@ public class aboutPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         aboutLabel = new javax.swing.JLabel();
+        buttonHapusSemua = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,6 +69,19 @@ public class aboutPanel extends javax.swing.JPanel {
         aboutLabel.setForeground(new java.awt.Color(0, 0, 0));
         aboutLabel.setText("jLabel1");
 
+        buttonHapusSemua.setBackground(new java.awt.Color(0, 123, 255));
+        buttonHapusSemua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonHapusSemua.setForeground(new java.awt.Color(255, 255, 255));
+        buttonHapusSemua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-reset-24.png"))); // NOI18N
+        buttonHapusSemua.setText("RESET APLIKASI");
+        buttonHapusSemua.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonHapusSemua.setIconTextGap(8);
+        buttonHapusSemua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusSemuaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,6 +91,10 @@ public class aboutPanel extends javax.swing.JPanel {
                 .addGap(76, 76, 76)
                 .addComponent(aboutLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonHapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,13 +102,21 @@ public class aboutPanel extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addComponent(aboutLabel)
-                .addContainerGap(574, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 486, Short.MAX_VALUE)
+                .addComponent(buttonHapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonHapusSemuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusSemuaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_buttonHapusSemuaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aboutLabel;
+    private javax.swing.JButton buttonHapusSemua;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

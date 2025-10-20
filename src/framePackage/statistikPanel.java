@@ -5,8 +5,20 @@
 package framePackage;
 
 import classPackage.ekstraClass;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import java.io.File;
+import java.io.FileOutputStream;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 /**
  *
@@ -90,6 +102,7 @@ public class statistikPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("DATA STATISTIK TABEL EKSTRAKURIKULER");
 
+        tableStatistik.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tableStatistik.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -148,6 +161,70 @@ public class statistikPanel extends javax.swing.JPanel {
 
     private void buttonSimpanDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanDataActionPerformed
         // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Menyimpan Data Statistik Ekstrakurikuler");
+        
+        int userSelection = chooser.showSaveDialog(this);
+        
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = chooser.getSelectedFile();
+            
+            try {
+                Document document = new Document();
+                com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsoluteFile() + ".pdf"));
+                document.open();
+                
+                Font fontHeader = new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD);
+                Font fontCell = new Font(Font.FontFamily.HELVETICA, 11);
+                
+                Paragraph title = new Paragraph("Data Statistik Ekstrakurikuler".toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
+                
+                Paragraph tanggal = new Paragraph("Data diakses pada :  " + mainFrame.labelWaktu.getText(), new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
+                
+                title.setAlignment(Element.ALIGN_CENTER);
+                document.add(title);
+                document.add(new Paragraph(" "));
+                document.add(new Paragraph(" "));
+                document.add(new Paragraph(tanggal));
+                
+                PdfPTable pdfTable = new PdfPTable(tableStatistik.getColumnCount());
+                pdfTable.setWidthPercentage(100);
+                pdfTable.setSpacingBefore(10f);
+                pdfTable.setSpacingAfter(10f);
+                
+                for (int i = 0; i < tableStatistik.getColumnCount(); i++) {
+                    PdfPCell cell = new PdfPCell(new Phrase(tableStatistik.getColumnName(i), fontHeader));
+                    cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                    cell.setPaddingTop(5);
+                    cell.setPaddingBottom(5);
+                    pdfTable.addCell(cell);
+                }
+                
+                for (int row = 0; row < tableStatistik.getRowCount(); row++) {
+                    for (int col = 0; col < tableStatistik.getColumnCount(); col++) {
+                        
+                        Object value = tableStatistik.getValueAt(row, col);
+                        PdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
+                        cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                        cell.setPaddingLeft(3);
+                        cell.setPaddingTop(5);
+                        cell.setPaddingRight(3);
+                        cell.setPaddingBottom(5);
+                        pdfTable.addCell(cell);
+                    }
+                }
+                
+                document.add(pdfTable);
+                document.close();
+                
+                JOptionPane.showMessageDialog(this, "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
+                
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF : " + e.getMessage());
+            } 
+        }
     }//GEN-LAST:event_buttonSimpanDataActionPerformed
 
 

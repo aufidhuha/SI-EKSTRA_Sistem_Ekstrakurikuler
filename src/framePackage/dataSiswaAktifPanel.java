@@ -421,39 +421,48 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                 Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
 
                 //Tambahkan Judul
-                Paragraph title = new Paragraph("Daftar Siswa Aktif Ekstrakurikuler", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD));
+                Paragraph title = new Paragraph("Daftar Siswa Aktif Ekstrakurikuler ".toUpperCase() + txtJenisExtra.getText().toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
+                Paragraph tanggal = new Paragraph("Data diakses pada :  " + mainFrame.labelWaktu.getText(), new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
 
                 title.setAlignment(Element.ALIGN_CENTER);
                 document.add(title);
-                document.add(new Paragraph("")); //spasi
+                document.add(new Paragraph(" ")); //spasi
+                document.add(new Paragraph(" ")); //spasi
+                document.add(new Paragraph(tanggal)); //spasi
 
                 //Buat tabel PDF sesuai jumlah kolom JTable
-                PdfPTable pdfTable = new PdfPTable(tableSiswaAktif.getColumnCount());
+                PdfPTable pdfTable = new PdfPTable(tableSiswaAktif.getColumnCount() - 2);
                 pdfTable.setWidthPercentage(100); // tabel full width
                 pdfTable.setSpacingBefore(10f);
                 pdfTable.setSpacingAfter(10f);
 
                 //Header kolom
-                for (int i = 0; i < tableSiswaAktif.getColumnCount(); i++) {
+                for (int i = 1; i < tableSiswaAktif.getColumnCount() - 1; i++) {
                     PdfPCell cell = new PdfPCell(new Phrase(tableSiswaAktif.getColumnName(i), fontHeader));
                     cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                    cell.setPaddingTop(5);
+                    cell.setPaddingBottom(5);
                     pdfTable.addCell(cell);
                 }
                 //Isi tabel
                 for (int row = 0; row < tableSiswaAktif.getRowCount(); row++) {
-                    for (int col = 0; col < tableSiswaAktif.getColumnCount(); col++) {
+                    for (int col = 1; col < tableSiswaAktif.getColumnCount() - 1; col++) {
                         Object value = tableSiswaAktif.getValueAt(row, col);
                         PdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
                         cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                        cell.setPaddingLeft(3);
+                        cell.setPaddingTop(5);
+                        cell.setPaddingRight(3);
+                        cell.setPaddingBottom(5);
                         pdfTable.addCell(cell);
                     }
                 }
                 document.add(pdfTable);
                 document.close();
 
-                JOptionPane.showMessageDialog(this,
-                        "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
+                JOptionPane.showMessageDialog(this, "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF : " + e.getMessage());
@@ -471,7 +480,16 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
 
     private void buttonHapusSemuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusSemuaActionPerformed
         // TODO add your handling code here:
-
+        siswaClass deleteAll = new siswaClass();
+        int countRow =  tableSiswaAktif.getRowCount();
+        
+        if (countRow == 0) {
+            JOptionPane.showMessageDialog(null, "Tidak ada data yang dihapus");
+            return;
+        }
+        
+        deleteAll.deleteDataSiswaAllStatus("Aktif");
+        loadData();
     }//GEN-LAST:event_buttonHapusSemuaActionPerformed
 
 

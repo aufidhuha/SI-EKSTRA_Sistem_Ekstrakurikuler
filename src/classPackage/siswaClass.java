@@ -228,7 +228,6 @@ public class siswaClass {
                     psVar.setString(1, this.nisn);
                     psVar.setString(2, this.nama);
                     psVar.executeUpdate();
-                    psVar.close();
 
                     query = "INSERT INTO ekstrasiswa VALUES (?,?,?,?,?,?,?)";
                     psVar = cnVar.prepareStatement(query);
@@ -247,6 +246,7 @@ public class siswaClass {
             } else {
 
                 query = "SELECT * FROM siswa WHERE nisn = ?";
+                psVar = cnVar.prepareStatement(query);
                 psVar.setString(1, this.nisn);
                 rsVar = psVar.executeQuery();
 
@@ -289,7 +289,7 @@ public class siswaClass {
             }
 
         } catch (SQLException sQLException) {
-            JOptionPane.showMessageDialog(null, "Error" + sQLException.getMessage());
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
 
         }
     }
@@ -302,7 +302,7 @@ public class siswaClass {
             psVar = cnVar.prepareStatement(query);
             psVar.setString(1, this.kode_ekstra);
 
-            int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda ingin menghapus data ini?", "Konfirmasi", JOptionPane.QUESTION_MESSAGE);
+            int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda ingin menghapus data ini?", "Konfirmasi", JOptionPane.YES_OPTION, JOptionPane.QUESTION_MESSAGE);
 
             if (yesOrNo == JOptionPane.YES_OPTION) {
 
@@ -322,18 +322,18 @@ public class siswaClass {
 
             query = "DELETE FROM ekstrasiswa WHERE status = ?";
             psVar = cnVar.prepareStatement(query);
-            psVar.setString(1, this.status);
+            psVar.setString(1, status);
 
             int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda ingin menghapus semua data ini?\n\nNote : Data akan dihapus secara keseluruhan, kehilangan data tidak bisa dihindarkan", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
             if (yesOrNo == JOptionPane.YES_OPTION) {
 
                 int rowDelete = psVar.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Siswa : " + status + "berhasil dihapus\n\nNote : " + rowDelete + "Data Siswa : " + status + "dihapus");
+                JOptionPane.showMessageDialog(null, "Data Siswa " + status + " berhasil dihapus\n\nNote : " + rowDelete + " Data Siswa " + status + "dihapus");
 
             }
         } catch (SQLException sQLException) {
-            JOptionPane.showMessageDialog(null, "Error" + sQLException.getMessage());
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
         }
     }
 
@@ -353,7 +353,7 @@ public class siswaClass {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
         }
         return autoID;
     }
@@ -391,7 +391,7 @@ public class siswaClass {
             }
 
         } catch (SQLException sQLException) {
-            JOptionPane.showMessageDialog(null, "Error" + sQLException.getMessage());
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
 
         }
         return model;
@@ -430,7 +430,7 @@ public class siswaClass {
                 model.addRow(data);
             }
         } catch (SQLException sQLException) {
-            JOptionPane.showMessageDialog(null, "Error" + sQLException.getMessage());
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
 
         }
         return model;

@@ -274,19 +274,19 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
                 document.open();
 
                 //Font untuk header dan isi
-                Font fontHeader = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD);
-                Font fontCell = new Font(Font.FontFamily.HELVETICA, 9);
+                Font fontHeader = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD);
+                Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
 
                 //Tambahkan judul
                 Paragraph title;
 
                 if (isMode.equalsIgnoreCase("Tidak Aktif")) {
-                    title = new Paragraph("Daftar Siswa Tidak Aktif", new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
+                    title = new Paragraph("Daftar Siswa Tidak Aktif".toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
                 } else {
-                    title = new Paragraph("Daftar Siswa Purna", new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
+                    title = new Paragraph("Daftar Siswa Purna".toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
                 }
 
-                Paragraph tanggal = new Paragraph("Data diakses pada : " + mainFrame.labelWaktu.getText(), new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
+                Paragraph tanggal = new Paragraph("Data diakses pada :  " + mainFrame.labelWaktu.getText(), new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
 
                 title.setAlignment(Element.ALIGN_CENTER);
                 document.add(title);
@@ -305,6 +305,8 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
                     PdfPCell cell = new PdfPCell(new Phrase(tableNonAktif.getColumnName(i), fontHeader));
                     cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                    cell.setPaddingTop(5);
+                    cell.setPaddingBottom(5);
                     pdfTable.addCell(cell);
                 }
 
@@ -315,10 +317,10 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
                         PdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
                         cell.setHorizontalAlignment(Element.ALIGN_LEFT);
                         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                        cell.setPaddingLeft(4);
-                        cell.setPaddingTop(4);
-                        cell.setPaddingRight(4);
-                        cell.setPaddingBottom(4);
+                        cell.setPaddingLeft(3);
+                        cell.setPaddingTop(5);
+                        cell.setPaddingRight(3);
+                        cell.setPaddingBottom(5);
                         pdfTable.addCell(cell);
                     }
                 }

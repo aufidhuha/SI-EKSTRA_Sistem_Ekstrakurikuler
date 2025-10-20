@@ -88,7 +88,7 @@ public class pembinaClass {
             psVar = cnVar.prepareStatement(query);
             psVar.setString(1, this.nip);
             
-            int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin menghapus data ini?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda ingin menghapus data ini?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             
             if (yesOrNo == JOptionPane.YES_OPTION) {
                 psVar.executeUpdate();
