@@ -198,10 +198,10 @@ public class ekstraPanel extends javax.swing.JPanel {
 
         txtKodeEkstra.setEditable(false);
         txtKodeEkstra.setBackground(new java.awt.Color(255, 255, 255));
-        txtKodeEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtKodeEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         txtNamaEkstra.setBackground(new java.awt.Color(255, 255, 255));
-        txtNamaEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtNamaEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -209,7 +209,7 @@ public class ekstraPanel extends javax.swing.JPanel {
 
         txtPembina.setEditable(false);
         txtPembina.setBackground(new java.awt.Color(255, 255, 255));
-        txtPembina.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtPembina.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

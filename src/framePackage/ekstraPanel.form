@@ -306,7 +306,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                <EmptyBorder bottom="1" left="10" right="10" top="1"/>
+                <EmptyBorder bottom="1" left="10" right="1" top="1"/>
               </Border>
             </Property>
           </Properties>
@@ -318,7 +318,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                <EmptyBorder bottom="1" left="10" right="10" top="1"/>
+                <EmptyBorder bottom="1" left="10" right="1" top="1"/>
               </Border>
             </Property>
           </Properties>
@@ -342,7 +342,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                <EmptyBorder bottom="1" left="10" right="10" top="1"/>
+                <EmptyBorder bottom="1" left="10" right="1" top="1"/>
               </Border>
             </Property>
           </Properties>

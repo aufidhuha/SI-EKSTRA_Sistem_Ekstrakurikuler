@@ -110,7 +110,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
 
         txtKodeEkstra.setBackground(new java.awt.Color(255, 255, 255));
         txtKodeEkstra.setForeground(new java.awt.Color(0, 0, 0));
-        txtKodeEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtKodeEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -118,7 +118,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
 
         txtNISN.setBackground(new java.awt.Color(255, 255, 255));
         txtNISN.setForeground(new java.awt.Color(0, 0, 0));
-        txtNISN.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtNISN.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,7 +126,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
 
         txtNamaSiswa.setBackground(new java.awt.Color(255, 255, 255));
         txtNamaSiswa.setForeground(new java.awt.Color(0, 0, 0));
-        txtNamaSiswa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtNamaSiswa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,7 +134,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
 
         txtKelasSiswa.setBackground(new java.awt.Color(255, 255, 255));
         txtKelasSiswa.setForeground(new java.awt.Color(0, 0, 0));
-        txtKelasSiswa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtKelasSiswa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,7 +146,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
 
         txtJenisEkstra.setBackground(new java.awt.Color(255, 255, 255));
         txtJenisEkstra.setForeground(new java.awt.Color(0, 0, 0));
-        txtJenisEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtJenisEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,12 +177,12 @@ public class formSiswaPanel extends javax.swing.JPanel {
         cbJenisKelamin.setBackground(new java.awt.Color(255, 255, 255));
         cbJenisKelamin.setForeground(new java.awt.Color(0, 0, 0));
         cbJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
-        cbJenisKelamin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        cbJenisKelamin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         cbStatus.setBackground(new java.awt.Color(255, 255, 255));
         cbStatus.setForeground(new java.awt.Color(0, 0, 0));
         cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktif", "Tidak Aktif", "Purna" }));
-        cbStatus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        cbStatus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

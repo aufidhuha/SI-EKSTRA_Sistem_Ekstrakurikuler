@@ -214,7 +214,7 @@ public class kelasPanel extends javax.swing.JPanel {
 
         txtKodeKelas.setEditable(false);
         txtKodeKelas.setBackground(new java.awt.Color(255, 255, 255));
-        txtKodeKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtKodeKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtKodeKelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtKodeKelasActionPerformed(evt);
@@ -222,7 +222,7 @@ public class kelasPanel extends javax.swing.JPanel {
         });
 
         txtNamaKelas.setBackground(new java.awt.Color(255, 255, 255));
-        txtNamaKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtNamaKelas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtNamaKelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNamaKelasActionPerformed(evt);

@@ -121,7 +121,7 @@ public class pembinaPanel extends javax.swing.JPanel {
         jLabel2.setText("NAMA PEMBINA");
 
         txtNIP.setBackground(new java.awt.Color(255, 255, 255));
-        txtNIP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        txtNIP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         txtNIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNIPActionPerformed(evt);
