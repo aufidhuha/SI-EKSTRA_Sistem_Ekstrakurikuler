@@ -294,9 +294,9 @@ public class absensiPanel extends javax.swing.JPanel {
                         cell.setHorizontalAlignment(Element.ALIGN_LEFT);
                         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
                         cell.setPaddingLeft(3);
-                        cell.setPaddingTop(5);
+                        cell.setPaddingTop(6);
                         cell.setPaddingRight(3);
-                        cell.setPaddingBottom(5);
+                        cell.setPaddingBottom(6);
                         pdfTable.addCell(cell);
                     }
                 }

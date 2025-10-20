@@ -76,7 +76,7 @@ public class aboutClass {
 
     public String jumlahSiswa() {
         try {
-            query = "SELECT COUNT(*) AS jumlah_siswa FROM ekstrasiswa WHERE status = 'Aktif'";
+            query = "SELECT COUNT(DISTINCT nisn) AS jumlah_siswa FROM ekstrasiswa WHERE status = 'Aktif'";
             stVar = cnVar.createStatement();
             rsVar = stVar.executeQuery(query);
 
@@ -120,8 +120,8 @@ public class aboutClass {
                 + "Wahyu Masrun Najib\t:     (202457201068)\n"
                 + "</pre>"
                 + "</p>"
-                + "<body>"
-                + "<html>";
+                + "</body>"
+                + "</html>";
     }
 
 }

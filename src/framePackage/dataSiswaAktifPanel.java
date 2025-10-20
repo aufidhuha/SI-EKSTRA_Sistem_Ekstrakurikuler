@@ -429,7 +429,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                 document.add(title);
                 document.add(new Paragraph(" ")); //spasi
                 document.add(new Paragraph(" ")); //spasi
-                document.add(new Paragraph(tanggal)); //spasi
+                document.add(new Paragraph(tanggal));
 
                 //Buat tabel PDF sesuai jumlah kolom JTable
                 PdfPTable pdfTable = new PdfPTable(tableSiswaAktif.getColumnCount() - 2);

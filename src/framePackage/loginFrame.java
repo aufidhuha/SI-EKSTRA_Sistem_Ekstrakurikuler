@@ -25,6 +25,33 @@ public class loginFrame extends javax.swing.JFrame {
     public loginFrame() {
         initComponents();
     }
+    
+    void loginToApp(){
+        secureClass login = new secureClass();
+        login.setUsername(txtUsername.getText());
+        login.setPassword(txtPassword.getText());
+
+        if (login.getUsername().isBlank() && !login.getPassword().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Username tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else if (!login.getUsername().isBlank() && login.getPassword().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Password tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else if (login.getUsername().isBlank() && login.getPassword().isBlank()) {
+            JOptionPane.showMessageDialog(null, "Username dan Password tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+
+        boolean success = login.loginApp();
+        if (success) {
+            dispose();
+            new mainFrame().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Username atau Password salah", "Peringatan", JOptionPane.WARNING_MESSAGE);
+        
+        }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -108,6 +135,11 @@ public class loginFrame extends javax.swing.JFrame {
         txtUsername.setForeground(new java.awt.Color(255, 255, 255));
         txtUsername.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtUsername.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameActionPerformed(evt);
+            }
+        });
 
         cbxShowPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxShowPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,6 +166,11 @@ public class loginFrame extends javax.swing.JFrame {
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
         txtPassword.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         txtPassword.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
@@ -261,35 +298,23 @@ public class loginFrame extends javax.swing.JFrame {
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         // TODO add your handling code here:
-        secureClass login = new secureClass();
-        login.setUsername(txtUsername.getText());
-        login.setPassword(txtPassword.getText());
-
-        if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
-            JOptionPane.showMessageDialog(null, "Username tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
-            return;
-        } else if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
-            JOptionPane.showMessageDialog(null, "Password tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
-            return;
-        } else if (login.getUsername().isBlank() || login.getPassword().isBlank()) {
-            JOptionPane.showMessageDialog(null, "Username & Password tidak boleh kosong", "Peringatan", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        boolean success = login.loginApp();
-        if (success) {
-            dispose();
-            new mainFrame().setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Username atau Password salah", "Peringatan", JOptionPane.WARNING_MESSAGE);
-        }
-
+        loginToApp();
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void labelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCloseMouseClicked
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_labelCloseMouseClicked
+
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+        loginToApp();
+    }//GEN-LAST:event_txtUsernameActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+        loginToApp();
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     /**
      * @param args the command line arguments
