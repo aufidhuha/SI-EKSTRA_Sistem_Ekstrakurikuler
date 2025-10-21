@@ -191,7 +191,7 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         buttonDaftar.setBackground(new java.awt.Color(0, 123, 255));
         buttonDaftar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonDaftar.setForeground(new java.awt.Color(255, 255, 255));
-        buttonDaftar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-form-24.png"))); // NOI18N
+        buttonDaftar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-choice-24.png"))); // NOI18N
         buttonDaftar.setText("DAFTAR NON-AKTIF");
         buttonDaftar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonDaftar.setIconTextGap(8);
@@ -204,7 +204,7 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         buttonDeleteAll.setBackground(new java.awt.Color(211, 47, 47));
         buttonDeleteAll.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonDeleteAll.setForeground(new java.awt.Color(255, 255, 255));
-        buttonDeleteAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-delete-all-24.png"))); // NOI18N
+        buttonDeleteAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-delete-all-24.png"))); // NOI18N
         buttonDeleteAll.setText("HAPUS SEMUA DATA");
         buttonDeleteAll.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonDeleteAll.setIconTextGap(8);
@@ -217,7 +217,7 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         buttonKelola.setBackground(new java.awt.Color(108, 117, 125));
         buttonKelola.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonKelola.setForeground(new java.awt.Color(255, 255, 255));
-        buttonKelola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-manage-24.png"))); // NOI18N
+        buttonKelola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-manage-24.png"))); // NOI18N
         buttonKelola.setText("KELOLA");
         buttonKelola.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonKelola.setIconTextGap(8);
@@ -231,7 +231,7 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("KELOLA DATA SISWA NON-AKTIF");
+        jLabel8.setText("DATA SISWA NON-AKTIF");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

@@ -225,7 +225,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/framePackage/images/icons8-manage-24.png"/>
+          <Image iconType="3" name="/imagesPackage/icons8-manage-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="KELOLA"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -251,7 +251,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/framePackage/images/icons8-save-as-24.png"/>
+          <Image iconType="3" name="/imagesPackage/icons8-save-as-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="SIMPAN DATA"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -318,7 +318,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/framePackage/images/icons8-form-24.png"/>
+          <Image iconType="3" name="/imagesPackage/icons8-choice-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="ABSENSI"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -344,7 +344,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/framePackage/images/icons8-delete-all-24.png"/>
+          <Image iconType="3" name="/imagesPackage/icons8-delete-all-24.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="HAPUS SEMUA DATA"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

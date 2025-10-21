@@ -204,6 +204,11 @@ public class keamananPanel extends javax.swing.JPanel {
         btnBatal.setForeground(new java.awt.Color(255, 255, 255));
         btnBatal.setText("BATAL");
         btnBatal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBatalActionPerformed(evt);
+            }
+        });
 
         btnSimpan.setBackground(new java.awt.Color(40, 167, 69));
         btnSimpan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -332,6 +337,11 @@ public class keamananPanel extends javax.swing.JPanel {
             txtPassword.setEchoChar('\u2022');
         }
     }//GEN-LAST:event_cbxShowPasswordActionPerformed
+
+    private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_btnBatalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

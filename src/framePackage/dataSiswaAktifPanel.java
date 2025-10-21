@@ -197,7 +197,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         buttonKelola.setBackground(new java.awt.Color(108, 117, 125));
         buttonKelola.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonKelola.setForeground(new java.awt.Color(255, 255, 255));
-        buttonKelola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-manage-24.png"))); // NOI18N
+        buttonKelola.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-manage-24.png"))); // NOI18N
         buttonKelola.setText("KELOLA");
         buttonKelola.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonKelola.setIconTextGap(8);
@@ -210,7 +210,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         buttonSaveData.setBackground(new java.awt.Color(40, 167, 69));
         buttonSaveData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonSaveData.setForeground(new java.awt.Color(255, 255, 255));
-        buttonSaveData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-save-as-24.png"))); // NOI18N
+        buttonSaveData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-save-as-24.png"))); // NOI18N
         buttonSaveData.setText("SIMPAN DATA");
         buttonSaveData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonSaveData.setIconTextGap(8);
@@ -246,7 +246,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         buttonAbsensi.setBackground(new java.awt.Color(0, 123, 255));
         buttonAbsensi.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonAbsensi.setForeground(new java.awt.Color(255, 255, 255));
-        buttonAbsensi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-form-24.png"))); // NOI18N
+        buttonAbsensi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-choice-24.png"))); // NOI18N
         buttonAbsensi.setText("ABSENSI");
         buttonAbsensi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonAbsensi.setIconTextGap(8);
@@ -259,7 +259,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         buttonHapusSemua.setBackground(new java.awt.Color(211, 47, 47));
         buttonHapusSemua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonHapusSemua.setForeground(new java.awt.Color(255, 255, 255));
-        buttonHapusSemua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-delete-all-24.png"))); // NOI18N
+        buttonHapusSemua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-delete-all-24.png"))); // NOI18N
         buttonHapusSemua.setText("HAPUS SEMUA DATA");
         buttonHapusSemua.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonHapusSemua.setIconTextGap(8);
@@ -360,7 +360,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         int ChoiceRow = tableSiswaAktif.getSelectedRow();
 
         if (ChoiceRow < 0) {
-            JOptionPane.showMessageDialog(null, "Hrap memeilih data");
+            JOptionPane.showMessageDialog(null, "Harap memilih data");
             return;
         }
 

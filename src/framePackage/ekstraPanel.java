@@ -127,7 +127,7 @@ public class ekstraPanel extends javax.swing.JPanel {
         buttonHapus.setBackground(new java.awt.Color(211, 47, 47));
         buttonHapus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonHapus.setForeground(new java.awt.Color(255, 255, 255));
-        buttonHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-delete-24.png"))); // NOI18N
+        buttonHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-delete-24.png"))); // NOI18N
         buttonHapus.setText("HAPUS");
         buttonHapus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         buttonHapus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -141,7 +141,7 @@ public class ekstraPanel extends javax.swing.JPanel {
         buttonBatal.setBackground(new java.awt.Color(0, 123, 255));
         buttonBatal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonBatal.setForeground(new java.awt.Color(255, 255, 255));
-        buttonBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-cancel-24.png"))); // NOI18N
+        buttonBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-cancel-24.png"))); // NOI18N
         buttonBatal.setText("BATAL");
         buttonBatal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         buttonBatal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -155,7 +155,7 @@ public class ekstraPanel extends javax.swing.JPanel {
         buttonSimpan.setBackground(new java.awt.Color(40, 167, 69));
         buttonSimpan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonSimpan.setForeground(new java.awt.Color(255, 255, 255));
-        buttonSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-save-24.png"))); // NOI18N
+        buttonSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-save-24.png"))); // NOI18N
         buttonSimpan.setText("SIMPAN");
         buttonSimpan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         buttonSimpan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);

@@ -74,7 +74,7 @@ public class aboutPanel extends javax.swing.JPanel {
         buttonReset.setBackground(new java.awt.Color(0, 123, 255));
         buttonReset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         buttonReset.setForeground(new java.awt.Color(255, 255, 255));
-        buttonReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-reset-24.png"))); // NOI18N
+        buttonReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-reset-24.png"))); // NOI18N
         buttonReset.setText("RESET APLIKASI");
         buttonReset.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonReset.setIconTextGap(8);
@@ -114,7 +114,7 @@ public class aboutPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         resetAppClass reset = new resetAppClass();
         
-        int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin me-Reset Aplikasi SI-EKSTRA?\n\nNote : Harap pertimbangkan kembali atau backup data bila perlu\nMereset Aplikasi akan mengembalikan Aplikasi menjadi Default dan data \nyang ada akan dihapus secara permanen", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin melakukan Reset Aplikasi SI-EKSTRA?\n\nNote : Harap pertimbangkan kembali untuk melakukan Reset Aplikasi.\nMereset Aplikasi akan mengembalikan Aplikasi menjadi Default dan data \nyang ada akan dihapus secara permanen", "Konfirmasi Reset Aplikasi", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         
         if (yesOrNo == JOptionPane.YES_OPTION) {
             reset.resetApp();

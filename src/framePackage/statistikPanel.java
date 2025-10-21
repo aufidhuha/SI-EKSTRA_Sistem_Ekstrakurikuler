@@ -119,7 +119,7 @@ public class statistikPanel extends javax.swing.JPanel {
         buttonSimpanData.setBackground(new java.awt.Color(40, 167, 69));
         buttonSimpanData.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonSimpanData.setForeground(new java.awt.Color(255, 255, 255));
-        buttonSimpanData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-save-as-24.png"))); // NOI18N
+        buttonSimpanData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-save-as-24.png"))); // NOI18N
         buttonSimpanData.setText("SIMPAN DATA");
         buttonSimpanData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         buttonSimpanData.setIconTextGap(8);

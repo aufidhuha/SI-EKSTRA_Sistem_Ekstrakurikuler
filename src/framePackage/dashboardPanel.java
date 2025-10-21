@@ -82,7 +82,7 @@ public class dashboardPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-class-64.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-class-64.png"))); // NOI18N
 
         LabelKelas.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         LabelKelas.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,7 +145,7 @@ public class dashboardPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-training-64.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-training-64.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -202,7 +202,7 @@ public class dashboardPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-extracurricular-activities-64.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-extracurricular-activities-64.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -259,7 +259,7 @@ public class dashboardPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/framePackage/images/icons8-auditorium-64.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-auditorium-64.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

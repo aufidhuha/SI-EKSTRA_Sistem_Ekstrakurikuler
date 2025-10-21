@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class resetAppClass {
     
     private Connection cnVar;
-   
+    
     public resetAppClass() {
         connectionClass connection = new connectionClass();
         cnVar = connection.getConnection();
