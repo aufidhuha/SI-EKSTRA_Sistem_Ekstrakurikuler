@@ -208,10 +208,10 @@ public class statistikPanel extends javax.swing.JPanel {
                         PdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
                         cell.setHorizontalAlignment(Element.ALIGN_LEFT);
                         cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-                        cell.setPaddingLeft(5);
-                        cell.setPaddingTop(5);
-                        cell.setPaddingRight(5);
-                        cell.setPaddingBottom(5);
+                        cell.setPaddingLeft(6);
+                        cell.setPaddingTop(6);
+                        cell.setPaddingRight(6);
+                        cell.setPaddingBottom(6);
                         pdfTable.addCell(cell);
                     }
                 }

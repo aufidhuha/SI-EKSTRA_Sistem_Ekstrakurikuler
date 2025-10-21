@@ -9,6 +9,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -24,7 +25,11 @@ public class loginFrame extends javax.swing.JFrame {
      */
     public loginFrame() {
         initComponents();
+        
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagesPackage/SI-EKSTRA DefaultPNG.png"));
+        this.setIconImage(icon.getImage());
     }
+    
     
     void loginToApp(){
         secureClass login = new secureClass();

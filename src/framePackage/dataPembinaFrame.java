@@ -5,6 +5,7 @@
 package framePackage;
 
 import classPackage.pembinaClass;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +21,9 @@ public class dataPembinaFrame extends javax.swing.JFrame {
     public dataPembinaFrame() {
         initComponents();
         loadData();
+        
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagesPackage/SI-EKSTRA DefaultPNG.png"));
+        this.setIconImage(icon.getImage());
     }
 
     

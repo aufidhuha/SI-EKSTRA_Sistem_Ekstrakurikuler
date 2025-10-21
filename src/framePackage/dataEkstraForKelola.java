@@ -8,6 +8,7 @@ import classPackage.ekstraClass;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.sql.ResultSet;
 import  java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -25,6 +26,9 @@ public class dataEkstraForKelola extends javax.swing.JFrame {
     public dataEkstraForKelola() {
         initComponents();
         loadData();
+        
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagesPackage/SI-EKSTRA DefaultPNG.png"));
+        this.setIconImage(icon.getImage());
     }
     
     

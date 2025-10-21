@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -37,6 +38,9 @@ public class mainFrame extends javax.swing.JFrame {
         contentPanel.revalidate();
         contentPanel.repaint();
         
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagesPackage/SI-EKSTRA DefaultPNG.png"));
+        this.setIconImage(icon.getImage());
+        
     }
 
     
@@ -54,8 +58,7 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
         timer.start();
-    }
-    
+    }    
     
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

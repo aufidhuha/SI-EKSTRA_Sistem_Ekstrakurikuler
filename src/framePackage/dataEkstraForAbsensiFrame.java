@@ -8,6 +8,7 @@ import classPackage.ekstraClass;
 import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -23,6 +24,9 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
     public dataEkstraForAbsensiFrame() {
         initComponents();
         loadData();
+        
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagesPackage/SI-EKSTRA DefaultPNG.png"));
+        this.setIconImage(icon.getImage());
     }
     
     void loadData(){
