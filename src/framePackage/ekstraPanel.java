@@ -22,7 +22,7 @@ public class ekstraPanel extends javax.swing.JPanel {
     public ekstraPanel() {
         initComponents();
         loadData();
-        autoID();
+        reset();
     }
 
     void loadData() {
@@ -55,6 +55,7 @@ public class ekstraPanel extends javax.swing.JPanel {
         txtNamaEkstra.setText(null);
         txtPembina.setText(null);
         buttonSimpan.setText("SIMPAN");
+        buttonHapus.setEnabled(false);
         autoID();
     }
 
@@ -322,7 +323,7 @@ public class ekstraPanel extends javax.swing.JPanel {
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         // TODO add your handling code here:
         if (txtKodeEkstra.getText().isBlank() || txtNamaEkstra.getText().isBlank() || txtPembina.getText().isBlank()) {
-            JOptionPane.showMessageDialog(null, "Harap isi semua");
+            JOptionPane.showMessageDialog(null, "Harap mengisi data secara keseluruhan");
             return;
         }
 
@@ -383,6 +384,7 @@ public class ekstraPanel extends javax.swing.JPanel {
         txtNamaEkstra.setText(namaEkstra);
         txtPembina.setText(namaPembina);
         buttonSimpan.setText("UBAH");
+        buttonHapus.setEnabled(true);
     }//GEN-LAST:event_tableEkstraMouseClicked
 
 

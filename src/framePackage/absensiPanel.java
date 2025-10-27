@@ -228,7 +228,11 @@ public class absensiPanel extends javax.swing.JPanel {
 
     private void txtJenisExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJenisExtraActionPerformed
         // TODO add your handling code here:
-
+        if (txtJenisExtra.getText().isEmpty()) {
+            loadDataAll();
+        } else {
+            loadDataCategory();
+        }
     }//GEN-LAST:event_txtJenisExtraActionPerformed
 
     private void buttonEskulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEskulActionPerformed

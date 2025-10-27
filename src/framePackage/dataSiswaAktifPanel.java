@@ -333,7 +333,11 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
 
     private void txtJenisExtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJenisExtraActionPerformed
         // TODO add your handling code here:
-        cariDataEkstra();
+         if (txtJenisExtra.getText().isEmpty()) {
+            loadDataAll();
+        } else {
+            cariDataEkstra();
+        }
     }//GEN-LAST:event_txtJenisExtraActionPerformed
 
     private void txtCariSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariSiswaActionPerformed
@@ -400,6 +404,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         formSiswaPanel.cbStatus.setSelectedItem(status);
 
         formSiswaPanel.buttonSimpanUbah.setText("UBAH");
+        formSiswaPanel.buttonHapus.setEnabled(true);
     }//GEN-LAST:event_buttonKelolaActionPerformed
 
     private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed

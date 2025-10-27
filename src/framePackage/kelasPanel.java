@@ -53,6 +53,7 @@ public class kelasPanel extends javax.swing.JPanel {
         txtKodeKelas.setText(null);
         txtNamaKelas.setText(null);
         butonSimpan.setText("SIMPAN");
+        butonHapus.setEnabled(false);
         autoIDkelas();
     }
 
@@ -290,7 +291,7 @@ public class kelasPanel extends javax.swing.JPanel {
     private void butonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonSimpanActionPerformed
         // TODO add your handling code here:
         if (txtKodeKelas.getText().isBlank() || txtNamaKelas.getText().isBlank()) {
-            JOptionPane.showMessageDialog(null, "Harap isi semua");
+            JOptionPane.showMessageDialog(null, "Harap mengisi data secara keseluruhan");
             return;
         }
         kelasClass kelas = new kelasClass();
@@ -349,6 +350,7 @@ public class kelasPanel extends javax.swing.JPanel {
         txtKodeKelas.setText(kodeKelas);
         txtNamaKelas.setText(namaKelas);
         butonSimpan.setText("UBAH");
+        butonHapus.setEnabled(true);
     }//GEN-LAST:event_tableKelasMouseClicked
 
 

@@ -41,6 +41,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
         cbJenisKelamin.setSelectedIndex(0);
         cbStatus.setSelectedIndex(0);
         buttonSimpanUbah.setText("SIMPAN");
+        buttonHapus.setEnabled(false);
         autoId();
     }
 
@@ -391,7 +392,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
         // TODO add your handling code here:
         if (txtKodeEkstra.getText().isBlank() || txtNISN.getText().isBlank() || txtNamaSiswa.getText().isBlank()) {
-            JOptionPane.showMessageDialog(null, "Haram memilih data yang ingin dihapus");
+            JOptionPane.showMessageDialog(null, "Harap memilih data yang ingin dihapus");
             return;
         }
         
@@ -407,7 +408,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBatal;
-    private javax.swing.JButton buttonHapus;
+    public static javax.swing.JButton buttonHapus;
     private javax.swing.JButton buttonPilihEkstra;
     private javax.swing.JButton buttonPilihKelas;
     public static javax.swing.JButton buttonSimpanUbah;

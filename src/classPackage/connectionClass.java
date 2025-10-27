@@ -13,12 +13,13 @@ import java.sql.*;
  * @author ASUS
  */
 public class connectionClass {
-    private String localhost = "localhost";
+    
+    private String host = "localhost";
     private String db = "sistemekstra";
     private String user = "root";
     private String pass = "";
     private String port = "3306";
-    private String url = "jdbc:mysql://" + localhost + ":" + port + "/" + db;
+    private String url = "jdbc:mysql://" + host + ":" + port + "/" + db;
     private Connection cnVar;
     
     public Connection getConnection(){
@@ -26,7 +27,7 @@ public class connectionClass {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             cnVar = DriverManager.getConnection(url, user, pass);
         } catch (SQLException sQLException) {
-            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+            JOptionPane.showMessageDialog(null, "Error, gagal terkoneksi ke Database : " + sQLException.getMessage());
         }
         return cnVar;
     }

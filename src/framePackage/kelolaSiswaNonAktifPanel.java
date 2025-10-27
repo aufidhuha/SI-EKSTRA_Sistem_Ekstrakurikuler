@@ -356,6 +356,7 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
         formSiswaPanel.txtJenisEkstra.setText(ekstra);
         formSiswaPanel.cbStatus.setSelectedItem(status);
         formSiswaPanel.buttonSimpanUbah.setText("UBAH");
+        formSiswaPanel.buttonHapus.setEnabled(true);
     }//GEN-LAST:event_buttonKelolaActionPerformed
 
     private void buttonDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaftarActionPerformed

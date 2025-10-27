@@ -29,6 +29,7 @@ public class pembinaPanel extends javax.swing.JPanel {
         txtNIP.setEditable(true);
         txtNamaPembina.setText(null);
         butonSimpan.setText("SIMPAN");
+        butonHapus.setEnabled(false);
     }
     
     void loadData(){
@@ -300,7 +301,7 @@ public class pembinaPanel extends javax.swing.JPanel {
     private void butonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonSimpanActionPerformed
         // TODO add your handling code here:
         if (txtNIP.getText().isBlank() || txtNamaPembina.getText().isBlank()) {
-            JOptionPane.showMessageDialog(null, "Harap isi semua");
+            JOptionPane.showMessageDialog(null, "Harap mengisi data secara keseluruhan");
             return;
         }
         
@@ -327,6 +328,7 @@ public class pembinaPanel extends javax.swing.JPanel {
         txtNIP.setEditable(false);
         txtNamaPembina.setText(nama);
         butonSimpan.setText("UBAH");
+        butonHapus.setEnabled(true);
     }//GEN-LAST:event_tablePembinaMouseClicked
 
 
