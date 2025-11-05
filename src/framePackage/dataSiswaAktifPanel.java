@@ -129,7 +129,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         buttonSaveData = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        buttonAbsensi = new javax.swing.JButton();
+        buttonPresensi = new javax.swing.JButton();
         buttonHapusSemua = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -243,16 +243,16 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        buttonAbsensi.setBackground(new java.awt.Color(0, 123, 255));
-        buttonAbsensi.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonAbsensi.setForeground(new java.awt.Color(255, 255, 255));
-        buttonAbsensi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-choice-24.png"))); // NOI18N
-        buttonAbsensi.setText("ABSENSI");
-        buttonAbsensi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonAbsensi.setIconTextGap(8);
-        buttonAbsensi.addActionListener(new java.awt.event.ActionListener() {
+        buttonPresensi.setBackground(new java.awt.Color(0, 123, 255));
+        buttonPresensi.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonPresensi.setForeground(new java.awt.Color(255, 255, 255));
+        buttonPresensi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-choice-24.png"))); // NOI18N
+        buttonPresensi.setText("PRESENSI");
+        buttonPresensi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonPresensi.setIconTextGap(8);
+        buttonPresensi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAbsensiActionPerformed(evt);
+                buttonPresensiActionPerformed(evt);
             }
         });
 
@@ -296,7 +296,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonHapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buttonAbsensi, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonPresensi, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -325,7 +325,7 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonKelola, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAbsensi, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonPresensi, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonHapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
@@ -476,13 +476,13 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buttonSaveDataActionPerformed
 
-    private void buttonAbsensiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAbsensiActionPerformed
+    private void buttonPresensiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPresensiActionPerformed
         // TODO add your handling code here:
         contentPanel.removeAll();
-        contentPanel.add(new absensiPanel());
+        contentPanel.add(new presensiPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
-    }//GEN-LAST:event_buttonAbsensiActionPerformed
+    }//GEN-LAST:event_buttonPresensiActionPerformed
 
     private void buttonHapusSemuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusSemuaActionPerformed
         // TODO add your handling code here:
@@ -501,11 +501,11 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane JScrollPane1;
-    private javax.swing.JButton buttonAbsensi;
     private javax.swing.JButton buttonCariData;
     private javax.swing.JButton buttonEskul;
     private javax.swing.JButton buttonHapusSemua;
     private javax.swing.JButton buttonKelola;
+    private javax.swing.JButton buttonPresensi;
     private javax.swing.JButton buttonSaveData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

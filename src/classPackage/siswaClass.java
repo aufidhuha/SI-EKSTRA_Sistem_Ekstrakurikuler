@@ -16,11 +16,14 @@ public class siswaClass {
 
     private String kode_ekstra, nisn, nama, jk, id_kelas, id_ekstra, status;
 
-    private Connection cnVar;
+    private final Connection cnVar;
     private PreparedStatement psVar;
     private Statement stVar;
     private ResultSet rsVar;
     private String query;
+    
+    private PreparedStatement psVarReset1, psVarReset2;
+    private String queryReset1, queryReset2;
 
     public siswaClass() {
         connectionClass connection = new connectionClass();
@@ -460,4 +463,23 @@ public class siswaClass {
         }
         return model;
     }
+    
+    public void deleteDataSiswaAll(){
+        
+        try {
+            queryReset1 = "DELETE FROM ekstrasiswa";
+            queryReset2 = "DELETE FROM siswa";
+            
+            psVarReset1 = cnVar.prepareStatement(queryReset1);
+            psVarReset2 = cnVar.prepareStatement(queryReset2);
+            
+            psVarReset1.executeUpdate();
+            psVarReset2.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Data siswa berhasil dihapus secara keseluruhan");
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
+        }
+    }
+    
 }

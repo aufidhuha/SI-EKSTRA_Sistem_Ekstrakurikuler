@@ -77,6 +77,8 @@ public class formSiswaPanel extends javax.swing.JPanel {
         buttonSimpanUbah = new javax.swing.JButton();
         buttonHapus = new javax.swing.JButton();
         buttonBatal = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        buttonHapusSemuaData = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -133,6 +135,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("JENIS KELAMIN");
 
+        txtKelasSiswa.setEditable(false);
         txtKelasSiswa.setBackground(new java.awt.Color(255, 255, 255));
         txtKelasSiswa.setForeground(new java.awt.Color(0, 0, 0));
         txtKelasSiswa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
@@ -145,6 +148,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("JENIS EKSTRAKURIKULER");
 
+        txtJenisEkstra.setEditable(false);
         txtJenisEkstra.setBackground(new java.awt.Color(255, 255, 255));
         txtJenisEkstra.setForeground(new java.awt.Color(0, 0, 0));
         txtJenisEkstra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
@@ -321,6 +325,40 @@ public class formSiswaPanel extends javax.swing.JPanel {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "HAPUS DATA SISWA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        buttonHapusSemuaData.setBackground(new java.awt.Color(211, 47, 47));
+        buttonHapusSemuaData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonHapusSemuaData.setForeground(new java.awt.Color(255, 255, 255));
+        buttonHapusSemuaData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-delete-all-24.png"))); // NOI18N
+        buttonHapusSemuaData.setText("HAPUS SEMUA DATA");
+        buttonHapusSemuaData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonHapusSemuaData.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonHapusSemuaData.setIconTextGap(10);
+        buttonHapusSemuaData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHapusSemuaDataActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(buttonHapusSemuaData, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(buttonHapusSemuaData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -330,7 +368,9 @@ public class formSiswaPanel extends javax.swing.JPanel {
                 .addGap(44, 44, 44)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -338,9 +378,12 @@ public class formSiswaPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 85, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -405,10 +448,25 @@ public class formSiswaPanel extends javax.swing.JPanel {
         reset();
     }//GEN-LAST:event_buttonHapusActionPerformed
 
+    private void buttonHapusSemuaDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusSemuaDataActionPerformed
+        // TODO add your handling code here:
+        siswaClass siswaHapusData = new siswaClass();
+        
+        int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin menghapus semua data siswa?\n\nNote : Harap pertimbangkan kembali untuk menghapus semua data siswa.\nMenghapus data siswa secara keseluruhan akan menghapus data siswa secara permanen", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        
+        if (yesOrNo == JOptionPane.YES_OPTION) {
+            siswaHapusData.deleteDataSiswaAll();
+        }
+        
+        reset();
+        
+    }//GEN-LAST:event_buttonHapusSemuaDataActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBatal;
     public static javax.swing.JButton buttonHapus;
+    private javax.swing.JButton buttonHapusSemuaData;
     private javax.swing.JButton buttonPilihEkstra;
     private javax.swing.JButton buttonPilihKelas;
     public static javax.swing.JButton buttonSimpanUbah;
@@ -425,6 +483,7 @@ public class formSiswaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     public static javax.swing.JTextField txtJenisEkstra;
     public static javax.swing.JTextField txtKelasSiswa;
     public static javax.swing.JTextField txtKodeEkstra;

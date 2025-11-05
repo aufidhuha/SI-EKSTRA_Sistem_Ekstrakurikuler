@@ -37,7 +37,7 @@
                       <Group type="102" attributes="0">
                           <Component id="buttonKembali" min="-2" pref="127" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonSaveData" min="-2" pref="137" max="-2" attributes="0"/>
+                          <Component id="buttonCetak" min="-2" pref="137" max="-2" attributes="0"/>
                       </Group>
                       <Component id="JScrollPane" min="-2" pref="1024" max="-2" attributes="0"/>
                   </Group>
@@ -64,7 +64,7 @@
               <Component id="JScrollPane" min="-2" pref="410" max="-2" attributes="0"/>
               <EmptySpace pref="34" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttonSaveData" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="buttonCetak" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="buttonKembali" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -109,7 +109,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ABSENSI SISWA AKTIF"/>
+            <Property name="text" type="java.lang.String" value="PRESENSI SISWA AKTIF"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -188,7 +188,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEskulActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonSaveData">
+    <Component class="javax.swing.JButton" name="buttonCetak">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="45" green="a7" red="28" type="rgb"/>
@@ -202,7 +202,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagesPackage/icons8-save-as-24.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CETAK ABSENSI"/>
+        <Property name="text" type="java.lang.String" value="CETAK PRESENSI"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
             <EmptyBorder/>
@@ -211,14 +211,14 @@
         <Property name="iconTextGap" type="int" value="8"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSaveDataActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCetakActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="JScrollPane">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tableAbsensi">
+        <Component class="javax.swing.JTable" name="tablePresensi">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">

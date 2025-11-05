@@ -16,7 +16,7 @@ public class secureClass {
 
     private String username, password, lastUsername, newUsername, newPassword, pengguna;
 
-    private Connection cnVAR;
+    private final Connection cnVAR;
     private PreparedStatement psVar;
     private Statement stVar;
     private ResultSet rsVar;

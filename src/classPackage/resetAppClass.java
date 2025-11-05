@@ -11,7 +11,9 @@ import javax.swing.JOptionPane;
  */
 public class resetAppClass {
     
-    private Connection cnVar;
+    private final Connection cnVar;
+    private PreparedStatement psVar1, psVar2, psVar3, psVar4, psVar5, psVar6, psVar7;
+    private String query1, query2, query3, query4, query5, query6, query7;
     
     public resetAppClass() {
         connectionClass connection = new connectionClass();
@@ -22,21 +24,21 @@ public class resetAppClass {
     public void resetApp(){
         
         try {
-            String query1 = "DELETE FROM ekstrasiswa";
-            String query2 = "DELETE FROM ekstra";
-            String query3 = "DELETE FROM siswa";
-            String query4 = "DELETE FROM pembina";
-            String query5 = "DELETE FROM kelas";
-            String query6 = "DELETE FROM user";
-            String query7 = "INSERT INTO user VALUES ('admin', SHA2('admin', 384), 'ADMIN')";
+            query1  = "DELETE FROM ekstrasiswa";
+            query2  = "DELETE FROM ekstra";
+            query3  = "DELETE FROM siswa";
+            query4  = "DELETE FROM pembina";
+            query5  = "DELETE FROM kelas";
+            query6  = "DELETE FROM user";
+            query7  = "INSERT INTO user VALUES ('admin', SHA2('admin', 384), 'ADMIN')";
             
-            PreparedStatement psVar1 = cnVar.prepareStatement(query1);
-            PreparedStatement psVar2 = cnVar.prepareStatement(query2);
-            PreparedStatement psVar3 = cnVar.prepareStatement(query3);
-            PreparedStatement psVar4 = cnVar.prepareStatement(query4);
-            PreparedStatement psVar5 = cnVar.prepareStatement(query5);
-            PreparedStatement psVar6 = cnVar.prepareStatement(query6);
-            PreparedStatement psVar7 = cnVar.prepareStatement(query7);
+            psVar1 = cnVar.prepareStatement(query1);
+            psVar2  = cnVar.prepareStatement(query2);
+            psVar3  = cnVar.prepareStatement(query3);
+            psVar4  = cnVar.prepareStatement(query4);
+            psVar5  = cnVar.prepareStatement(query5);
+            psVar6  = cnVar.prepareStatement(query6);
+            psVar7  = cnVar.prepareStatement(query7);
             
             psVar1.executeUpdate();
             psVar2.executeUpdate();

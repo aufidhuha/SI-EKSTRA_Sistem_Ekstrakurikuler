@@ -17,9 +17,9 @@ import javax.swing.JOptionPane;
  */
 public class kelasClass {
 
-    String kodeKelas, namaKelas;
+    private String kodeKelas, namaKelas;
 
-    private Connection cnVar;
+    private final Connection cnVar;
     private PreparedStatement psVar;
     private Statement stVar;
     private ResultSet rsVar;

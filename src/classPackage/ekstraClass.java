@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
  */
 public class ekstraClass {
 
-    String kodeEkstra, namaEkstra, nipPembina;
+    private String kodeEkstra, namaEkstra, nipPembina;
 
-    private Connection cnVar;
+    private final Connection cnVar;
     private PreparedStatement psVar;
     private Statement stVar;
     private ResultSet rsVar;
@@ -134,7 +134,7 @@ public class ekstraClass {
             query = "DELETE FROM ekstra WHERE id_ekstra = ?";
             psVar = cnVar.prepareStatement(query);
             psVar.setString(1, this.kodeEkstra);
-            int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda ingin menghapus data ini", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda ingin menghapus data ini?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
             if (yesOrNo == JOptionPane.YES_OPTION) {
 

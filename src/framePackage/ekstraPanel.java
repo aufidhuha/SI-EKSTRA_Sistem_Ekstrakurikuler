@@ -5,8 +5,20 @@
 package framePackage;
 
 import classPackage.ekstraClass;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import static framePackage.dataSiswaAktifPanel.txtJenisExtra;
+import java.io.File;
+import java.io.FileOutputStream;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.sql.*;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -96,6 +108,8 @@ public class ekstraPanel extends javax.swing.JPanel {
         buttonPembina = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableEkstra = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        buttonSimpanData = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -292,6 +306,39 @@ public class ekstraPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableEkstra);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SIMPAN DATA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        buttonSimpanData.setBackground(new java.awt.Color(40, 167, 69));
+        buttonSimpanData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonSimpanData.setForeground(new java.awt.Color(255, 255, 255));
+        buttonSimpanData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-save-as-24.png"))); // NOI18N
+        buttonSimpanData.setText("SIMPAN DATA");
+        buttonSimpanData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonSimpanData.setIconTextGap(8);
+        buttonSimpanData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSimpanDataActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonSimpanData, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(buttonSimpanData, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -303,7 +350,9 @@ public class ekstraPanel extends javax.swing.JPanel {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addGap(56, 56, 56)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -315,7 +364,9 @@ public class ekstraPanel extends javax.swing.JPanel {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -387,12 +438,87 @@ public class ekstraPanel extends javax.swing.JPanel {
         buttonHapus.setEnabled(true);
     }//GEN-LAST:event_tableEkstraMouseClicked
 
+    private void buttonSimpanDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanDataActionPerformed
+        // TODO add your handling code here:
+        
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Menyimpan Data Ekstrakurikuler");
+
+        int userSelection = chooser.showSaveDialog(this);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = chooser.getSelectedFile();
+
+            try {
+                Document document = new Document();
+                com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsoluteFile() + ".pdf"));
+                document.open();
+
+                //Font untuk header dan isi
+                Font fontHeader = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD);
+                Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
+
+                //Tambahkan Judul
+                Paragraph title = new Paragraph("Daftar Ekstrakurikuler".toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
+
+               Paragraph tanggal = new Paragraph("Data diakses pada :  " + mainFrame.labelWaktu.getText(), new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
+
+                title.setAlignment(Element.ALIGN_CENTER);
+                document.add(title);
+                document.add(new Paragraph(" ")); //spasi
+                document.add(new Paragraph(" "));
+                document.add(tanggal);
+
+                //Buat tabel PDF sesuai jumlah kolom JTable
+                PdfPTable pdfTable = new PdfPTable(tableEkstra.getColumnCount());
+                pdfTable.setWidthPercentage(100); // tabel full width
+                pdfTable.setSpacingBefore(10f);
+                pdfTable.setSpacingAfter(10f);
+
+                //Header kolom
+                for (int i = 0; i < tableEkstra.getColumnCount(); i++) {
+                    PdfPCell cell = new PdfPCell(new Phrase(tableEkstra.getColumnName(i), fontHeader));
+                    cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                    cell.setPaddingTop(5);
+                    cell.setPaddingBottom(5);
+                    pdfTable.addCell(cell);
+                }
+                //Isi tabel
+                for (int row = 0; row < tableEkstra.getRowCount(); row++) {
+                    for (int col = 0; col < tableEkstra.getColumnCount(); col++) {
+                        Object value = tableEkstra.getValueAt(row, col);
+                        PdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
+
+                        cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+                        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                        cell.setPaddingLeft(3);
+                        cell.setPaddingTop(6);
+                        cell.setPaddingRight(3);
+                        cell.setPaddingBottom(6);
+                        pdfTable.addCell(cell);
+                    }
+                }
+
+                document.add(pdfTable);
+                document.close();
+
+                JOptionPane.showMessageDialog(this, "Data berhasil disimpan ke PDF:\n" + fileToSave.getAbsolutePath() + ".pdf");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Gagal menyimpan PDF : " + e.getMessage());
+            }
+
+        }
+    }//GEN-LAST:event_buttonSimpanDataActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBatal;
     private javax.swing.JButton buttonHapus;
     private javax.swing.JButton buttonPembina;
     private javax.swing.JButton buttonSimpan;
+    private javax.swing.JButton buttonSimpanData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -400,6 +526,7 @@ public class ekstraPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableEkstra;
     private javax.swing.JTextField txtKodeEkstra;

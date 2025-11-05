@@ -24,12 +24,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ASUS
  */
-public class absensiPanel extends javax.swing.JPanel {
+public class presensiPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form absensiPanel
      */
-    public absensiPanel() {
+    public presensiPanel() {
         initComponents();
         loadDataAll();
     }
@@ -38,7 +38,7 @@ public class absensiPanel extends javax.swing.JPanel {
         try {
             siswaClass dataAbsen = new siswaClass();
             DefaultTableModel model = dataAbsen.showDataAbsensiAll();
-            tableAbsensi.setModel(model);
+            tablePresensi.setModel(model);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
         }
@@ -48,7 +48,7 @@ public class absensiPanel extends javax.swing.JPanel {
         try {
             siswaClass dataAbsen = new siswaClass();
             DefaultTableModel model = dataAbsen.showDataAbsensiKategori(txtJenisExtra.getText());
-            tableAbsensi.setModel(model);
+            tablePresensi.setModel(model);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
         }
@@ -69,9 +69,9 @@ public class absensiPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtJenisExtra = new javax.swing.JTextField();
         buttonEskul = new javax.swing.JButton();
-        buttonSaveData = new javax.swing.JButton();
+        buttonCetak = new javax.swing.JButton();
         JScrollPane = new javax.swing.JScrollPane();
-        tableAbsensi = new javax.swing.JTable();
+        tablePresensi = new javax.swing.JTable();
         buttonKembali = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -80,7 +80,7 @@ public class absensiPanel extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("ABSENSI SISWA AKTIF");
+        jLabel8.setText("PRESENSI SISWA AKTIF");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,20 +134,20 @@ public class absensiPanel extends javax.swing.JPanel {
             }
         });
 
-        buttonSaveData.setBackground(new java.awt.Color(40, 167, 69));
-        buttonSaveData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonSaveData.setForeground(new java.awt.Color(255, 255, 255));
-        buttonSaveData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-save-as-24.png"))); // NOI18N
-        buttonSaveData.setText("CETAK ABSENSI");
-        buttonSaveData.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        buttonSaveData.setIconTextGap(8);
-        buttonSaveData.addActionListener(new java.awt.event.ActionListener() {
+        buttonCetak.setBackground(new java.awt.Color(40, 167, 69));
+        buttonCetak.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonCetak.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCetak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-save-as-24.png"))); // NOI18N
+        buttonCetak.setText("CETAK PRESENSI");
+        buttonCetak.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        buttonCetak.setIconTextGap(8);
+        buttonCetak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSaveDataActionPerformed(evt);
+                buttonCetakActionPerformed(evt);
             }
         });
 
-        tableAbsensi.setModel(new javax.swing.table.DefaultTableModel(
+        tablePresensi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -158,7 +158,7 @@ public class absensiPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        JScrollPane.setViewportView(tableAbsensi);
+        JScrollPane.setViewportView(tablePresensi);
 
         buttonKembali.setBackground(new java.awt.Color(108, 117, 125));
         buttonKembali.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -191,7 +191,7 @@ public class absensiPanel extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(buttonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(buttonCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(JScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(57, 57, 57))
         );
@@ -211,7 +211,7 @@ public class absensiPanel extends javax.swing.JPanel {
                 .addComponent(JScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCetak, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonKembali, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
         );
@@ -237,16 +237,16 @@ public class absensiPanel extends javax.swing.JPanel {
 
     private void buttonEskulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEskulActionPerformed
         // TODO add your handling code here:
-        new dataEkstraForAbsensiFrame().setVisible(true);
+        new dataEkstraForPresensiFrame().setVisible(true);
     }//GEN-LAST:event_buttonEskulActionPerformed
 
-    private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed
+    private void buttonCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCetakActionPerformed
         // TODO add your handling code here:
         int jumlahSpasi = 100;
         String spasi = ".".repeat(jumlahSpasi);
         
         JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("Menyimpan Data Absensi Ekstrakurikuler " + txtJenisExtra.getText());
+        chooser.setDialogTitle("Menyimpan Presensi Siswa" + txtJenisExtra.getText());
 
         int userSelection = chooser.showSaveDialog(this);
 
@@ -263,7 +263,7 @@ public class absensiPanel extends javax.swing.JPanel {
                 Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
 
                 //Tambahkan Judul
-                Paragraph title = new Paragraph("Absensi Ekstrakurikuler ".toUpperCase() + txtJenisExtra.getText().toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
+                Paragraph title = new Paragraph("Presensi Ekstrakurikuler ".toUpperCase() + txtJenisExtra.getText().toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
                 
                 Paragraph tanggal = new Paragraph("Hari / Tanggal : " + spasi, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
 
@@ -275,14 +275,14 @@ public class absensiPanel extends javax.swing.JPanel {
                 document.add(new Paragraph(" ")); 
 
                 //Buat tabel PDF sesuai jumlah kolom JTable
-                PdfPTable pdfTable = new PdfPTable(tableAbsensi.getColumnCount());
+                PdfPTable pdfTable = new PdfPTable(tablePresensi.getColumnCount());
                 pdfTable.setWidthPercentage(100); // tabel full width
                 pdfTable.setSpacingBefore(10f);
                 pdfTable.setSpacingAfter(10f);
 
                 //Header kolom
-                for (int i = 0; i < tableAbsensi.getColumnCount(); i++) {
-                    PdfPCell cell = new PdfPCell(new Phrase(tableAbsensi.getColumnName(i), fontHeader));
+                for (int i = 0; i < tablePresensi.getColumnCount(); i++) {
+                    PdfPCell cell = new PdfPCell(new Phrase(tablePresensi.getColumnName(i), fontHeader));
                     cell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
                     cell.setPaddingTop(5);
@@ -290,9 +290,9 @@ public class absensiPanel extends javax.swing.JPanel {
                     pdfTable.addCell(cell);
                 }
                 //Isi tabel
-                for (int row = 0; row < tableAbsensi.getRowCount(); row++) {
-                    for (int col = 0; col < tableAbsensi.getColumnCount(); col++) {
-                        Object value = tableAbsensi.getValueAt(row, col);
+                for (int row = 0; row < tablePresensi.getRowCount(); row++) {
+                    for (int col = 0; col < tablePresensi.getColumnCount(); col++) {
+                        Object value = tablePresensi.getValueAt(row, col);
                         PdfPCell cell = new PdfPCell(new Phrase(value == null ? "" : value.toString(), fontCell));
 
                         cell.setHorizontalAlignment(Element.ALIGN_LEFT);
@@ -315,7 +315,7 @@ public class absensiPanel extends javax.swing.JPanel {
             }
 
         }
-    }//GEN-LAST:event_buttonSaveDataActionPerformed
+    }//GEN-LAST:event_buttonCetakActionPerformed
 
     private void buttonKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKembaliActionPerformed
         // TODO add your handling code here:
@@ -329,13 +329,13 @@ public class absensiPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane JScrollPane;
     private javax.swing.JButton buttonCariData;
+    private javax.swing.JButton buttonCetak;
     private javax.swing.JButton buttonEskul;
     private javax.swing.JButton buttonKembali;
-    private javax.swing.JButton buttonSaveData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTable tableAbsensi;
+    private javax.swing.JTable tablePresensi;
     public static javax.swing.JTextField txtJenisExtra;
     // End of variables declaration//GEN-END:variables
 }

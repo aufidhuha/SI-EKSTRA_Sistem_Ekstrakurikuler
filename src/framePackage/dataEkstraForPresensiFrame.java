@@ -16,12 +16,12 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author ASUS
  */
-public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
+public class dataEkstraForPresensiFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form dataEkstraForAbsensiFrame
      */
-    public dataEkstraForAbsensiFrame() {
+    public dataEkstraForPresensiFrame() {
         initComponents();
         loadData();
         
@@ -157,7 +157,7 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
         
         String namaEkstra = tblEkstra.getValueAt(choiceRow, 0).toString();
         
-        absensiPanel.txtJenisExtra.setText(namaEkstra);
+        presensiPanel.txtJenisExtra.setText(namaEkstra);
         
         dispose();
     }//GEN-LAST:event_buttonPilihActionPerformed
@@ -180,7 +180,7 @@ public class dataEkstraForAbsensiFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new dataEkstraForAbsensiFrame().setVisible(true);
+                new dataEkstraForPresensiFrame().setVisible(true);
             }
         });
     }

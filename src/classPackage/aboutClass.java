@@ -15,7 +15,7 @@ public class aboutClass {
 
     private String kelas, ekstra, pengguna, siswa, tentang;
 
-    private Connection cnVar;
+    private final Connection cnVar;
     private PreparedStatement psVar;
     private Statement stVar;
     private ResultSet rsVar;
