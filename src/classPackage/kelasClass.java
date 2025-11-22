@@ -124,7 +124,7 @@ public class kelasClass {
     }
 
     public ResultSet showKelas() {
-        query = "SELECT * FROM kelas";
+        query = "SELECT * FROM kelas ORDER BY id_kelas ASC";
 
         try {
             stVar = cnVar.createStatement();

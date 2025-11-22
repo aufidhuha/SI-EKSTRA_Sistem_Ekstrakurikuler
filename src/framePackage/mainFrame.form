@@ -85,7 +85,7 @@
                   <Component id="buttonLogout" alignment="0" max="32767" attributes="0"/>
                   <Component id="buttonPembina" alignment="0" max="32767" attributes="0"/>
                   <Component id="buttonSiswa" alignment="0" max="32767" attributes="0"/>
-                  <Component id="buttonStatistikTabel" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonStatistik" alignment="0" max="32767" attributes="0"/>
                   <Component id="buttonPengaturan" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -119,7 +119,7 @@
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="subButtonSiswa" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="buttonStatistikTabel" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="buttonStatistik" min="-2" pref="48" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="buttonPengaturan" min="-2" pref="48" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -213,7 +213,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEkstraActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonStatistikTabel">
+            <Component class="javax.swing.JButton" name="buttonStatistik">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="8a" green="3a" red="1e" type="rgb"/>
@@ -227,7 +227,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagesPackage/icons8-website-statistics-24.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="STATISTIK TABEL"/>
+                <Property name="text" type="java.lang.String" value="STATISTIK"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                     <EmptyBorder bottom="1" left="15" right="1" top="1"/>
@@ -237,7 +237,7 @@
                 <Property name="iconTextGap" type="int" value="8"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonStatistikTabelActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonStatistikActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="buttonLogout">

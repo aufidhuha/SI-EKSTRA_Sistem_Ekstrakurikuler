@@ -32,23 +32,22 @@ public class mainFrame extends javax.swing.JFrame {
         waktu();
         runningText();
         closeButton();
-        
+
         contentPanel.removeAll();
         contentPanel.add(new dashboardPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
-        
+
         ImageIcon icon = new ImageIcon(getClass().getResource("/imagesPackage/SI-EKSTRA DefaultPNG.png"));
         this.setIconImage(icon.getImage());
-        
+
     }
 
-    
-    void waktu(){
+    void waktu() {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", new Locale("in", "ID"));
-        
+
         Timer timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,17 +57,17 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
         timer.start();
-    }    
-    
+    }
 
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-    Date date = new Date();
-    int jumlahSpasi = 190;
-    String spasi = " ".repeat(jumlahSpasi);
-    String text = spasi + "Selamat datang di Aplikasi SI-EKSTRA Sistem Ekstrakurikuler, untuk mengembangkan minat dan bakat siswa di Institusi atau Lembaga Pendidikan. Aplikasi SI-EKSTRA dapat membantu memanajemen pendataan siswa yang aktif mengikuti Ekstrakurikuler.  -  " + dateFormat.format(date);
     void runningText() {
 
         Timer timer = new Timer(100, new ActionListener() {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            Date date = new Date();
+            int jumlahSpasi = 190;
+            String spasi = " ".repeat(jumlahSpasi);
+            String text = spasi + "Selamat datang di Aplikasi SI-EKSTRA Sistem Ekstrakurikuler, untuk mengembangkan minat dan bakat siswa di Institusi atau Lembaga Pendidikan. Aplikasi SI-EKSTRA dapat membantu memanajemen pendataan siswa yang aktif mengikuti Ekstrakurikuler.  -  " + dateFormat.format(date);
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 text = text.substring(1) + text.charAt(0);
@@ -78,23 +77,21 @@ public class mainFrame extends javax.swing.JFrame {
         timer.start();
     }
 
-    
-    void closeButton(){
+    void closeButton() {
         subButtonSiswa.setVisible(false);
         subButtonPengaturan.setVisible(false);
     }
-            
-    
-    void subButton(JPanel panel){
+
+    void subButton(JPanel panel) {
         boolean isVisible = panel.isVisible();
-        
+
         closeButton();
-        
+
         if (!isVisible) {
             panel.setVisible(true);
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,7 +106,7 @@ public class mainFrame extends javax.swing.JFrame {
         buttonDashboard = new javax.swing.JButton();
         buttonKelas = new javax.swing.JButton();
         buttonEkstra = new javax.swing.JButton();
-        buttonStatistikTabel = new javax.swing.JButton();
+        buttonStatistik = new javax.swing.JButton();
         buttonLogout = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -178,17 +175,17 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
 
-        buttonStatistikTabel.setBackground(new java.awt.Color(30, 58, 138));
-        buttonStatistikTabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonStatistikTabel.setForeground(new java.awt.Color(255, 255, 255));
-        buttonStatistikTabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-website-statistics-24.png"))); // NOI18N
-        buttonStatistikTabel.setText("STATISTIK TABEL");
-        buttonStatistikTabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        buttonStatistikTabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonStatistikTabel.setIconTextGap(8);
-        buttonStatistikTabel.addActionListener(new java.awt.event.ActionListener() {
+        buttonStatistik.setBackground(new java.awt.Color(30, 58, 138));
+        buttonStatistik.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonStatistik.setForeground(new java.awt.Color(255, 255, 255));
+        buttonStatistik.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-website-statistics-24.png"))); // NOI18N
+        buttonStatistik.setText("STATISTIK");
+        buttonStatistik.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonStatistik.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonStatistik.setIconTextGap(8);
+        buttonStatistik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonStatistikTabelActionPerformed(evt);
+                buttonStatistikActionPerformed(evt);
             }
         });
 
@@ -380,7 +377,7 @@ public class mainFrame extends javax.swing.JFrame {
             .addComponent(buttonLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(buttonPembina, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(buttonSiswa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(buttonStatistikTabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonStatistik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(buttonPengaturan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(sidebarPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
@@ -411,7 +408,7 @@ public class mainFrame extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(subButtonSiswa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(buttonStatistikTabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonStatistik, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(buttonPengaturan, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -512,7 +509,7 @@ public class mainFrame extends javax.swing.JFrame {
     private void labelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCloseMouseClicked
         // TODO add your handling code here:
         int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin keluar?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        
+
         if (yesOrNo == JOptionPane.YES_OPTION) {
             dispose();
             new loginFrame().setVisible(true);
@@ -522,7 +519,7 @@ public class mainFrame extends javax.swing.JFrame {
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
         // TODO add your handling code here:
         int yesOrNo = JOptionPane.showConfirmDialog(null, "Apakah anda yakin ingin keluar?", "Konfirmasi", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        
+
         if (yesOrNo == JOptionPane.YES_OPTION) {
             dispose();
             new loginFrame().setVisible(true);
@@ -537,13 +534,13 @@ public class mainFrame extends javax.swing.JFrame {
         contentPanel.repaint();
     }//GEN-LAST:event_buttonFormSiswaActionPerformed
 
-    private void buttonStatistikTabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStatistikTabelActionPerformed
+    private void buttonStatistikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStatistikActionPerformed
         // TODO add your handling code here:
         contentPanel.removeAll();
         contentPanel.add(new statistikPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
-    }//GEN-LAST:event_buttonStatistikTabelActionPerformed
+    }//GEN-LAST:event_buttonStatistikActionPerformed
 
     private void buttonKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKelasActionPerformed
         // TODO add your handling code here:
@@ -571,7 +568,7 @@ public class mainFrame extends javax.swing.JFrame {
 
     private void buttonSiswaAktifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSiswaAktifActionPerformed
         // TODO add your handling code here:
-         contentPanel.removeAll();
+        contentPanel.removeAll();
         contentPanel.add(new dataSiswaAktifPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
@@ -655,7 +652,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JButton buttonSiswa;
     private javax.swing.JButton buttonSiswaAktif;
     private javax.swing.JButton buttonSiswaNonAktif;
-    private javax.swing.JButton buttonStatistikTabel;
+    private javax.swing.JButton buttonStatistik;
     public static javax.swing.JPanel contentPanel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

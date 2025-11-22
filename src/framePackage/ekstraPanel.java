@@ -44,6 +44,7 @@ public class ekstraPanel extends javax.swing.JPanel {
         model.addColumn("ID Ekstra");
         model.addColumn("Nama Ekstra");
         model.addColumn("Nama Pembina");
+        model.addColumn("NIP Pembina");
 
         try {
             ResultSet rsVar = extra.showDataEkstra();
@@ -52,20 +53,23 @@ public class ekstraPanel extends javax.swing.JPanel {
                 String id = rsVar.getString("id_ekstra");
                 String namaEkstra = rsVar.getString("nama_ekstra");
                 String namaPembina = rsVar.getString("nama");
+                String nipPembina = rsVar.getString("nip");
 
-                Object[] data = {id, namaEkstra, namaPembina};
+                Object[] data = {id, namaEkstra, namaPembina, nipPembina};
                 model.addRow(data);
             }
         } catch (SQLException sQLException) {
             JOptionPane.showMessageDialog(null, "Error : " + sQLException.getMessage());
         }
         tableEkstra.setModel(model);
+        tableEkstra.removeColumn(tableEkstra.getColumnModel().getColumn(3));
     }
 
     void reset() {
         txtKodeEkstra.setText(null);
         txtNamaEkstra.setText(null);
         txtPembina.setText(null);
+        labelNIP.setText(null);
         buttonSimpan.setText("SIMPAN");
         buttonHapus.setEnabled(false);
         autoID();
@@ -110,6 +114,7 @@ public class ekstraPanel extends javax.swing.JPanel {
         tableEkstra = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         buttonSimpanData = new javax.swing.JButton();
+        labelNIP = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -339,6 +344,9 @@ public class ekstraPanel extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        labelNIP.setForeground(new java.awt.Color(255, 255, 255));
+        labelNIP.setText("NIP");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -352,7 +360,8 @@ public class ekstraPanel extends javax.swing.JPanel {
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelNIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -364,16 +373,19 @@ public class ekstraPanel extends javax.swing.JPanel {
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelNIP)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         // TODO add your handling code here:
-        if (txtKodeEkstra.getText().isBlank() || txtNamaEkstra.getText().isBlank() || txtPembina.getText().isBlank()) {
+        if (txtKodeEkstra.getText().isBlank() || txtNamaEkstra.getText().isBlank() || txtPembina.getText().isBlank() || labelNIP.getText().isBlank()) {
             JOptionPane.showMessageDialog(null, "Harap mengisi data secara keseluruhan");
             return;
         }
@@ -382,7 +394,7 @@ public class ekstraPanel extends javax.swing.JPanel {
 
         ekstra.setKodeEkstra(txtKodeEkstra.getText());
         ekstra.setNamaEkstra(txtNamaEkstra.getText());
-        ekstra.getNamaPembina(txtPembina.getText());
+        ekstra.setNipPembina(labelNIP.getText());
         
         ekstra.saveDataEsktra();
         
@@ -419,21 +431,32 @@ public class ekstraPanel extends javax.swing.JPanel {
 
     private void tableEkstraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableEkstraMouseClicked
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tableEkstra.getModel();
+        
         int choiceRow = tableEkstra.getSelectedRow();
         
-        String idEkstra = tableEkstra.getValueAt(choiceRow, 0).toString();
-        String namaEkstra = tableEkstra.getValueAt(choiceRow, 1).toString();
+        String idEkstra = model.getValueAt(choiceRow, 0).toString();
+        String namaEkstra = model.getValueAt(choiceRow, 1).toString();
         String namaPembina = "";
         
-        if (tableEkstra.getValueAt(choiceRow, 2) != null) {
-            namaPembina = tableEkstra.getValueAt(choiceRow, 2).toString();
+        if (model.getValueAt(choiceRow, 2) != null) {
+            namaPembina = model.getValueAt(choiceRow, 2).toString();
         } else {
             namaPembina = "";
         }
         
+        String nip = "";
+        
+        if (model.getValueAt(choiceRow, 3) != null) {
+            nip = model.getValueAt(choiceRow, 3).toString();
+        } else {
+            nip = "";
+        }        
+        
         txtKodeEkstra.setText(idEkstra);
         txtNamaEkstra.setText(namaEkstra);
         txtPembina.setText(namaPembina);
+        labelNIP.setText(nip);
         buttonSimpan.setText("UBAH");
         buttonHapus.setEnabled(true);
     }//GEN-LAST:event_tableEkstraMouseClicked
@@ -528,6 +551,7 @@ public class ekstraPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
+    public static javax.swing.JLabel labelNIP;
     private javax.swing.JTable tableEkstra;
     private javax.swing.JTextField txtKodeEkstra;
     private javax.swing.JTextField txtNamaEkstra;

@@ -74,7 +74,7 @@ public class ekstraClass {
         return autoID;
     }
 
-    public String getNamaPembina(String namaPembina) {
+    /* public String getNamaPembina(String namaPembina) {
 
         try {
             query = "SELECT nip FROM pembina WHERE nama = ?";
@@ -91,7 +91,7 @@ public class ekstraClass {
             return "";
         }
         return "";
-    }
+    } */
 
     public void saveDataEsktra() {
 
@@ -151,7 +151,7 @@ public class ekstraClass {
 
     public ResultSet showDataEkstra() {
 
-        query = "SELECT ekstra.id_ekstra, ekstra.nama_ekstra, pembina.nama FROM ekstra JOIN pembina ON ekstra.nip_pembina = pembina.nip ORDER BY ekstra.id_ekstra ASC";
+        query = "SELECT ekstra.id_ekstra, ekstra.nama_ekstra, pembina.nama, pembina.nip FROM ekstra LEFT JOIN pembina ON ekstra.nip_pembina = pembina.nip ORDER BY ekstra.id_ekstra ASC";
 
         try {
             stVar = cnVar.createStatement();
@@ -176,6 +176,5 @@ public class ekstraClass {
         }
         return rsVar;
     }
-
 
 }

@@ -246,7 +246,7 @@ public class presensiPanel extends javax.swing.JPanel {
         String spasi = ".".repeat(jumlahSpasi);
         
         JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("Menyimpan Presensi Siswa" + txtJenisExtra.getText());
+        chooser.setDialogTitle("Menyimpan Presensi Siswa " + txtJenisExtra.getText());
 
         int userSelection = chooser.showSaveDialog(this);
 

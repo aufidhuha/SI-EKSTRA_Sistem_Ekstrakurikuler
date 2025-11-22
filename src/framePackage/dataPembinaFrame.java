@@ -5,8 +5,11 @@
 package framePackage;
 
 import classPackage.pembinaClass;
+import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -34,6 +37,7 @@ public class dataPembinaFrame extends javax.swing.JFrame {
             DefaultTableModel model = pembina.showNamaPembina();
 
             tablePembina.setModel(model);
+            tablePembina.removeColumn(tablePembina.getColumnModel().getColumn(1));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());
         }
@@ -138,6 +142,8 @@ public class dataPembinaFrame extends javax.swing.JFrame {
 
     private void buttonPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPilihActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tablePembina.getModel();
+        
         int choiceRow = tablePembina.getSelectedRow();
         
         if (choiceRow < 0) {
@@ -145,9 +151,11 @@ public class dataPembinaFrame extends javax.swing.JFrame {
             return;
         }
         
-        String nama = tablePembina.getValueAt(choiceRow, 0).toString();
+        String nama = model.getValueAt(choiceRow, 0).toString();
+        String nip = model.getValueAt(choiceRow, 1).toString();
         
         ekstraPanel.txtPembina.setText(nama);
+        ekstraPanel.labelNIP.setText(nip);
         
         dispose();
         
@@ -163,20 +171,8 @@ public class dataPembinaFrame extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(dataPembinaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(dataPembinaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(dataPembinaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(dataPembinaFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (UnsupportedLookAndFeelException unsupportedLookAndFeelException) {
         }
         //</editor-fold>
 

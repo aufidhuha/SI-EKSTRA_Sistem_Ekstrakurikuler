@@ -135,9 +135,10 @@ public class pembinaClass {
         DefaultTableModel model = new DefaultTableModel();
         
         model.addColumn("Nama Guru atau Pembina");
+        model.addColumn("NIP");
         
         try {
-            query = "SELECT nama FROM pembina ORDER BY nip ASC";
+            query = "SELECT * FROM pembina ORDER BY nip ASC";
             
             stVar = cnVar.createStatement();
             rsVar = stVar.executeQuery(query);
@@ -145,8 +146,9 @@ public class pembinaClass {
             while (rsVar.next()) { 
                 
                 String nama = rsVar.getString("nama");
+                String nip = rsVar.getString("nip");
                 
-                Object data[] = {nama};
+                Object data[] = {nama, nip};
                 model.addRow(data);
             }
             

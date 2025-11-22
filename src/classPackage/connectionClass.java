@@ -16,8 +16,8 @@ public class connectionClass {
     
     private String host = "localhost";
     private String db = "sistemekstra";
-    private String user = "root";
-    private String pass = "";
+    private String user = "serversiekstra";
+    private String pass = "orangbelajar";
     private String port = "3306";
     private String url = "jdbc:mysql://" + host + ":" + port + "/" + db;
     private Connection cnVar;
