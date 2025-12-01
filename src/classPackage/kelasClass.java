@@ -63,7 +63,7 @@ public class kelasClass {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+           JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());;
         }
         return autoID;
     }

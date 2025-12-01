@@ -22,6 +22,7 @@ public class kelolaSiswaNonAktifPanel extends javax.swing.JPanel {
     public kelolaSiswaNonAktifPanel() {
         initComponents();
         dataTidakAktif();
+        isMode = "Tidak Aktif";
     }
 
     static String isMode = "Tidak Aktif";

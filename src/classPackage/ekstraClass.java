@@ -61,14 +61,14 @@ public class ekstraClass {
             if (rsVar.next()) {
                 String maxID = rsVar.getString("maxID");
                 if (maxID == null) {
-                    autoID = "KODE001"; //ID pertama
+                    autoID = "KDE001"; //ID pertama
                 } else {
                     int id = Integer.parseInt(maxID.substring(maxID.length() - 3)) + 1;
                     autoID = "KDE" + String.format("%03d", id);
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error : " + e.getMessage());;
         }
 
         return autoID;

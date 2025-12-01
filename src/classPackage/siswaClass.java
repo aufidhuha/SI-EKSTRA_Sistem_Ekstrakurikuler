@@ -296,7 +296,7 @@ public class siswaClass {
             if (yesOrNo == JOptionPane.YES_OPTION) {
 
                 int rowDelete = psVar.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Data Siswa " + status + " berhasil dihapus\n\nNote : " + rowDelete + " Data Siswa " + status + "dihapus");
+                JOptionPane.showMessageDialog(null, "Data Siswa " + status + " berhasil dihapus\n\nNote : " + rowDelete + " Data Siswa " + status + " dihapus");
 
             }
         } catch (SQLException sQLException) {
