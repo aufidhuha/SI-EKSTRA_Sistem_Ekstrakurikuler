@@ -5,7 +5,9 @@
 package framePackage;
 
 import classPackage.ekstraClass;
+import classPackage.profilClass;
 import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
@@ -14,6 +16,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -250,6 +253,33 @@ public class statistikPanel extends javax.swing.JPanel {
 
     private void buttonSimpanDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanDataActionPerformed
         // TODO add your handling code here:
+        profilClass profil = new profilClass();
+
+        String nama_lembaga = ""; 
+        String alamat = "";
+        String kodePos = "";
+        String telepon = "";
+        String email = "";
+
+        try {
+            ResultSet rsVar = profil.showData();
+
+            if (rsVar.next()) {
+                nama_lembaga = rsVar.getString("nama_lembaga");
+                alamat = rsVar.getString("alamat");
+                kodePos = rsVar.getString("kodepos");
+                telepon = rsVar.getString("telepon");
+                email = rsVar.getString("email");
+            } else {
+                nama_lembaga = "-";
+                alamat = "-";
+                kodePos = "-";
+                telepon = "-";
+                email = "-";
+            }
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(this, "Error : " + sQLException.getMessage());
+        }
         
         // membuat file chooser dan memberi judul dialog
         JFileChooser chooser = new JFileChooser();
@@ -274,24 +304,57 @@ public class statistikPanel extends javax.swing.JPanel {
                 // membuka dokumen sehingga dapat menerima content
                 document.open();
 
-                // mendefinisikan dan mengatur font untuk header dan isi cell tabel
+                // mendefinisikan dan mengatur font untuk font kop 1 dan 2, header dan isi cell tabel
+                Font fontKop1 = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD);
+                Font fontKop2 = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL);
                 Font fontHeader = new Font(Font.FontFamily.HELVETICA, 11, Font.BOLD);
                 Font fontCell = new Font(Font.FontFamily.HELVETICA, 11);
+                
+                // membuat paragraf untuk informasi kop 1
+                Paragraph kop1 = new Paragraph(nama_lembaga, fontKop1);
+                
+                // mengatur kop 1 agar berada di tengah
+                kop1.setAlignment(Element.ALIGN_CENTER);
+                
+                // membuat paragraf untuk informasi kop 2
+                Paragraph kop2 = new Paragraph(
+                        alamat + "\nKode Pos : " + kodePos + "  —  Telp. " + telepon + "  —  E-mail : " + email,
+                        fontKop2
+                );
+                // mengatur kop 2 agar berada di tengah
+                kop2.setAlignment(Element.ALIGN_CENTER);
+                
+                // menambahkan komponen kedalam dokumen
+                document.add(kop1);
+                document.add(kop2);
+                
+                // membuat object LineSeparator dan disimpan di variabel separator
+                LineSeparator separator = new LineSeparator();
+                
+                // mengatur ukuran garis
+                separator.setLineWidth(2);
+                
+                // menambahkan komponen kedalam dokumen
+                document.add(new Chunk(separator));
+                document.add(new Paragraph(" "));
 
                 // menyusun judul dokumen
                 Paragraph title = new Paragraph("Tabel Statistik Ekstrakurikuler".toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
 
+                // mengatur judul agar berada di tengah
+                title.setAlignment(Element.ALIGN_CENTER);
+                
                 // membuat paragraf untuk informasi tanggal
                 Paragraph tanggal = new Paragraph("Data diakses pada :  " + mainFrame.labelWaktu.getText(), new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
 
-                // mengatur judul agar berada di tengah
-                title.setAlignment(Element.ALIGN_CENTER);
+                // mengatur tanggal agar berada di tengah
+                tanggal.setAlignment(Element.ALIGN_CENTER);
                 
                 // menambahkan komponen kedalam dokumen
                 document.add(title);
                 document.add(new Paragraph(" "));
-                document.add(new Paragraph(" "));
                 document.add(new Paragraph(tanggal));
+                document.add(new Paragraph(" "));
 
                 // membuat objek tabel pdf dengan jumlah kolom sesuai dengan JTable
                 PdfPTable pdfTable = new PdfPTable(tableStatistik.getColumnCount());

@@ -118,8 +118,9 @@ public class mainFrame extends javax.swing.JFrame {
         buttonSiswaNonAktif = new javax.swing.JButton();
         buttonPengaturan = new javax.swing.JButton();
         subButtonPengaturan = new javax.swing.JPanel();
-        buttonKeamanan = new javax.swing.JButton();
+        buttonProfil = new javax.swing.JButton();
         buttonAbout = new javax.swing.JButton();
+        buttonKeamanan = new javax.swing.JButton();
         navbarPanel = new javax.swing.JPanel();
         labelClose = new javax.swing.JLabel();
         runningTextLabel = new javax.swing.JLabel();
@@ -319,17 +320,17 @@ public class mainFrame extends javax.swing.JFrame {
 
         subButtonPengaturan.setBackground(new java.awt.Color(30, 58, 138));
 
-        buttonKeamanan.setBackground(new java.awt.Color(30, 58, 138));
-        buttonKeamanan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonKeamanan.setForeground(new java.awt.Color(255, 255, 255));
-        buttonKeamanan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-secure-24.png"))); // NOI18N
-        buttonKeamanan.setText("KEAMANAN");
-        buttonKeamanan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
-        buttonKeamanan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        buttonKeamanan.setIconTextGap(8);
-        buttonKeamanan.addActionListener(new java.awt.event.ActionListener() {
+        buttonProfil.setBackground(new java.awt.Color(30, 58, 138));
+        buttonProfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonProfil.setForeground(new java.awt.Color(255, 255, 255));
+        buttonProfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-school-building-24.png"))); // NOI18N
+        buttonProfil.setText("PROFIL LEMBAGA");
+        buttonProfil.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonProfil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonProfil.setIconTextGap(8);
+        buttonProfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonKeamananActionPerformed(evt);
+                buttonProfilActionPerformed(evt);
             }
         });
 
@@ -347,6 +348,20 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
 
+        buttonKeamanan.setBackground(new java.awt.Color(30, 58, 138));
+        buttonKeamanan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        buttonKeamanan.setForeground(new java.awt.Color(255, 255, 255));
+        buttonKeamanan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagesPackage/icons8-secure-24.png"))); // NOI18N
+        buttonKeamanan.setText("KEAMANAN");
+        buttonKeamanan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
+        buttonKeamanan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        buttonKeamanan.setIconTextGap(8);
+        buttonKeamanan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKeamananActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout subButtonPengaturanLayout = new javax.swing.GroupLayout(subButtonPengaturan);
         subButtonPengaturan.setLayout(subButtonPengaturanLayout);
         subButtonPengaturanLayout.setHorizontalGroup(
@@ -355,11 +370,14 @@ public class mainFrame extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(subButtonPengaturanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonAbout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonProfil, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addComponent(buttonKeamanan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))
         );
         subButtonPengaturanLayout.setVerticalGroup(
             subButtonPengaturanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(subButtonPengaturanLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(buttonProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(buttonKeamanan, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -415,7 +433,7 @@ public class mainFrame extends javax.swing.JFrame {
                 .addComponent(subButtonPengaturan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         navbarPanel.setBackground(new java.awt.Color(37, 99, 235));
@@ -582,13 +600,13 @@ public class mainFrame extends javax.swing.JFrame {
         contentPanel.repaint();
     }//GEN-LAST:event_buttonSiswaNonAktifActionPerformed
 
-    private void buttonKeamananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKeamananActionPerformed
+    private void buttonProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProfilActionPerformed
         // TODO add your handling code here:
         contentPanel.removeAll();
-        contentPanel.add(new keamananPanel());
+        contentPanel.add(new profilLembagaPanel());
         contentPanel.revalidate();
         contentPanel.repaint();
-    }//GEN-LAST:event_buttonKeamananActionPerformed
+    }//GEN-LAST:event_buttonProfilActionPerformed
 
     private void buttonAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAboutActionPerformed
         // TODO add your handling code here:
@@ -615,6 +633,14 @@ public class mainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         subButton(subButtonPengaturan);
     }//GEN-LAST:event_buttonPengaturanActionPerformed
+
+    private void buttonKeamananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKeamananActionPerformed
+        // TODO add your handling code here:
+        contentPanel.removeAll();
+        contentPanel.add(new keamananPanel());
+        contentPanel.revalidate();
+        contentPanel.repaint();
+    }//GEN-LAST:event_buttonKeamananActionPerformed
 
     /**
      * @param args the command line arguments
@@ -649,6 +675,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JButton buttonLogout;
     private javax.swing.JButton buttonPembina;
     private javax.swing.JButton buttonPengaturan;
+    private javax.swing.JButton buttonProfil;
     private javax.swing.JButton buttonSiswa;
     private javax.swing.JButton buttonSiswaAktif;
     private javax.swing.JButton buttonSiswaNonAktif;

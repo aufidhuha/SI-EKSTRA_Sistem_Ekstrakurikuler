@@ -4,9 +4,11 @@
  */
 package framePackage;
 
+import classPackage.profilClass;
 import static framePackage.mainFrame.contentPanel;
 import classPackage.siswaClass;
 import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
@@ -14,6 +16,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 import java.io.File;
 import java.io.FileOutputStream;
 import javax.swing.table.DefaultTableModel;
@@ -33,6 +36,7 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
     public dataSiswaNonAktifPanel() {
         initComponents();
         dataTidakAktif();
+        isMode = "Tidak Aktif";
     }
 
     static String isMode = "Tidak Aktif";
@@ -258,6 +262,34 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
 
     private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed
         // TODO add your handling code here:
+        profilClass profil = new profilClass();
+
+        String nama_lembaga = ""; 
+        String alamat = "";
+        String kodePos = "";
+        String telepon = "";
+        String email = "";
+
+        try {
+            ResultSet rsVar = profil.showData();
+
+            if (rsVar.next()) {
+                nama_lembaga = rsVar.getString("nama_lembaga");
+                alamat = rsVar.getString("alamat");
+                kodePos = rsVar.getString("kodepos");
+                telepon = rsVar.getString("telepon");
+                email = rsVar.getString("email");
+            } else {
+                nama_lembaga = "-";
+                alamat = "-";
+                kodePos = "-";
+                telepon = "-";
+                email = "-";
+            }
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(this, "Error : " + sQLException.getMessage());
+        }
+        
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Menyimpan Data Siswa " + isMode);
 
@@ -273,9 +305,28 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
                 com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsolutePath() + ".pdf"));
                 document.open();
 
-                //Font untuk header dan isi
+                //Font untuk font kop 1 dan 2, header dan isi
+                Font fontKop1 = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD);
+                Font fontKop2 = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL);
                 Font fontHeader = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD);
                 Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
+                
+                Paragraph kop1 = new Paragraph(nama_lembaga, fontKop1);
+                kop1.setAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph kop2 = new Paragraph(
+                        alamat + "\nKode Pos : " + kodePos + "  —  Telp. " + telepon + "  —  E-mail : " + email,
+                        fontKop2
+                );
+                kop2.setAlignment(Element.ALIGN_CENTER);
+                
+                document.add(kop1);
+                document.add(kop2);
+                
+                LineSeparator separator = new LineSeparator();
+                separator.setLineWidth(2);
+                document.add(new Chunk(separator));
+                document.add(new Paragraph(" "));
 
                 //Tambahkan judul
                 Paragraph title;
@@ -285,14 +336,15 @@ public class dataSiswaNonAktifPanel extends javax.swing.JPanel {
                 } else {
                     title = new Paragraph("Daftar Siswa Purna".toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
                 }
+                title.setAlignment(Element.ALIGN_CENTER);
 
                 Paragraph tanggal = new Paragraph("Data diakses pada :  " + mainFrame.labelWaktu.getText(), new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
+                tanggal.setAlignment(Element.ALIGN_CENTER);
 
-                title.setAlignment(Element.ALIGN_CENTER);
                 document.add(title);
                 document.add(new Paragraph(" ")); // spasi
+                document.add(tanggal);
                 document.add(new Paragraph(" "));
-                document.add(new Paragraph(tanggal));
 
                 //buat tabel PDF sesuai jumlah kolom JTable
                 PdfPTable pdfTable = new PdfPTable(tableNonAktif.getColumnCount());

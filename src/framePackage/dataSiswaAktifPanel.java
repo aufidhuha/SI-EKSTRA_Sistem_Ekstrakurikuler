@@ -4,8 +4,10 @@
  */
 package framePackage;
 
+import classPackage.profilClass;
 import classPackage.siswaClass;
 import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
@@ -13,6 +15,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 import static framePackage.mainFrame.contentPanel;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -409,6 +412,34 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
 
     private void buttonSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveDataActionPerformed
         // TODO add your handling code here:
+        profilClass profil = new profilClass();
+
+        String nama_lembaga = ""; 
+        String alamat = "";
+        String kodePos = "";
+        String telepon = "";
+        String email = "";
+
+        try {
+            ResultSet rsVar = profil.showData();
+
+            if (rsVar.next()) {
+                nama_lembaga = rsVar.getString("nama_lembaga");
+                alamat = rsVar.getString("alamat");
+                kodePos = rsVar.getString("kodepos");
+                telepon = rsVar.getString("telepon");
+                email = rsVar.getString("email");
+            } else {
+                nama_lembaga = "-";
+                alamat = "-";
+                kodePos = "-";
+                telepon = "-";
+                email = "-";
+            }
+        } catch (SQLException sQLException) {
+            JOptionPane.showMessageDialog(this, "Error : " + sQLException.getMessage());
+        }
+        
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Menyimpan Data Siswa Aktif");
 
@@ -422,19 +453,40 @@ public class dataSiswaAktifPanel extends javax.swing.JPanel {
                 com.itextpdf.text.pdf.PdfWriter.getInstance(document, new FileOutputStream(fileToSave.getAbsolutePath() + ".pdf"));
                 document.open();
 
-                //Font untuk header dan isi
+                //Font untuk font kop 1 dan 2, header dan isi
+                Font fontKop1 = new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD);
+                Font fontKop2 = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL);
                 Font fontHeader = new Font(Font.FontFamily.HELVETICA, 9, Font.BOLD);
                 Font fontCell = new Font(Font.FontFamily.HELVETICA, 8);
+                
+                Paragraph kop1 = new Paragraph(nama_lembaga, fontKop1);
+                kop1.setAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph kop2 = new Paragraph(
+                        alamat + "\nKode Pos : " + kodePos + "  —  Telp. " + telepon + "  —  E-mail : " + email,
+                        fontKop2
+                );
+                kop2.setAlignment(Element.ALIGN_CENTER);
+                
+                document.add(kop1);
+                document.add(kop2);
+                
+                LineSeparator separator = new LineSeparator();
+                separator.setLineWidth(2);
+                document.add(new Chunk(separator));
+                document.add(new Paragraph(" "));
 
                 //Tambahkan Judul
-                Paragraph title = new Paragraph("Daftar Siswa Aktif Ekstrakurikuler ".toUpperCase() + txtJenisExtra.getText().toUpperCase(), new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD));
-                Paragraph tanggal = new Paragraph("Data diakses pada :  " + mainFrame.labelWaktu.getText(), new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
-
+                Paragraph title = new Paragraph("Daftar Siswa Aktif Ekstrakurikuler ".toUpperCase() + txtJenisExtra.getText().toUpperCase(), new Font(Font.FontFamily.HELVETICA, 13, Font.BOLD));
                 title.setAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph tanggal = new Paragraph("Data diakses pada :  " + mainFrame.labelWaktu.getText(), new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL));
+                tanggal.setAlignment(Element.ALIGN_CENTER);
+
                 document.add(title);
                 document.add(new Paragraph(" ")); //spasi
+                document.add(tanggal);
                 document.add(new Paragraph(" ")); //spasi
-                document.add(new Paragraph(tanggal));
 
                 //Buat tabel PDF sesuai jumlah kolom JTable
                 PdfPTable pdfTable = new PdfPTable(tableSiswaAktif.getColumnCount() - 2);
