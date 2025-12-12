@@ -413,7 +413,7 @@ public class siswaClass {
         model.addColumn("Keterangan");
 
         try {
-            query = "SELECT ekstrasiswa.nama, kelas.nama_kelas, ekstra.nama_ekstra FROM ekstrasiswa LEFT JOIN ekstra ON ekstrasiswa.id_ekstra = ekstra.id_ekstra LEFT JOIN kelas ON ekstrasiswa.id_kelas = kelas.id_kelas WHERE ekstrasiswa.status = 'Aktif'";
+            query = "SELECT ekstrasiswa.nama, kelas.nama_kelas, ekstra.nama_ekstra FROM ekstrasiswa LEFT JOIN ekstra ON ekstrasiswa.id_ekstra = ekstra.id_ekstra LEFT JOIN kelas ON ekstrasiswa.id_kelas = kelas.id_kelas WHERE ekstrasiswa.status = 'Aktif' ORDER BY ekstrasiswa.nama ASC";
             
             stVar = cnVar.createStatement();
             rsVar = stVar.executeQuery(query);
@@ -443,7 +443,7 @@ public class siswaClass {
         model.addColumn("Keterangan");
 
         try {
-            query = "SELECT ekstrasiswa.nama, kelas.nama_kelas, ekstra.nama_ekstra FROM ekstrasiswa LEFT JOIN ekstra ON ekstrasiswa.id_ekstra = ekstra.id_ekstra LEFT JOIN kelas ON ekstrasiswa.id_kelas = kelas.id_kelas WHERE ekstrasiswa.status = 'Aktif' AND ekstra.nama_ekstra LIKE ?";
+            query = "SELECT ekstrasiswa.nama, kelas.nama_kelas, ekstra.nama_ekstra FROM ekstrasiswa LEFT JOIN ekstra ON ekstrasiswa.id_ekstra = ekstra.id_ekstra LEFT JOIN kelas ON ekstrasiswa.id_kelas = kelas.id_kelas WHERE ekstrasiswa.status = 'Aktif' AND ekstra.nama_ekstra LIKE ? ORDER BY ekstrasiswa.nama ASC";
             
             psVar = cnVar.prepareStatement(query);
             psVar.setString(1, "%" + cariNamaEkstra + "%");
