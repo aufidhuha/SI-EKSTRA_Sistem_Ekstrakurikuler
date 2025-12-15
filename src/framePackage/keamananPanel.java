@@ -230,15 +230,15 @@ public class keamananPanel extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btnBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbxShowPassword, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUsernameBaru, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPengguna, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsernameBaru, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPengguna, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -316,13 +316,13 @@ public class keamananPanel extends javax.swing.JPanel {
             return;
             
         } else if (queryOk == 0) {
-            JOptionPane.showMessageDialog(null, "Username Lama Salah, Username Atau Password gagal diubah");
+            JOptionPane.showMessageDialog(null, "Username lama salah, Username atau Password gagal diubah", "Peringatan", JOptionPane.WARNING_MESSAGE);
             reset();
             return;
             
         } else {
             reset();
-            JOptionPane.showMessageDialog(null, "Username Atau Password Berhasil Diubah");
+            JOptionPane.showMessageDialog(null, "Username atau Password berhasil diubah");
             this.getTopLevelAncestor().setVisible(false);
             new loginFrame().setVisible(true);
 

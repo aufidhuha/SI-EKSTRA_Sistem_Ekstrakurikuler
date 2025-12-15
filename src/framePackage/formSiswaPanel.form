@@ -117,22 +117,22 @@
                   </Group>
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtNISN" max="32767" attributes="0"/>
-                      <Component id="txtKodeEkstra" max="32767" attributes="0"/>
-                      <Component id="txtNamaSiswa" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtJenisEkstra" alignment="0" pref="205" max="32767" attributes="0"/>
-                              <Component id="txtKelasSiswa" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtJenisEkstra" min="-2" pref="205" max="-2" attributes="0"/>
+                              <Component id="txtKelasSiswa" min="-2" pref="205" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="buttonPilihKelas" max="32767" attributes="0"/>
-                              <Component id="buttonPilihEkstra" pref="117" max="32767" attributes="0"/>
+                              <Component id="buttonPilihEkstra" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="cbJenisKelamin" max="32767" attributes="0"/>
                       <Component id="cbStatus" alignment="1" max="32767" attributes="0"/>
+                      <Component id="txtNISN" alignment="0" min="-2" pref="340" max="-2" attributes="0"/>
+                      <Component id="txtNamaSiswa" alignment="0" min="-2" pref="340" max="-2" attributes="0"/>
+                      <Component id="txtKodeEkstra" alignment="0" min="-2" pref="340" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="107" max="32767" attributes="0"/>
               </Group>

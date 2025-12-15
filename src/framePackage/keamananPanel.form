@@ -252,16 +252,16 @@
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="btnBatal" min="-2" pref="114" max="-2" attributes="0"/>
-                          <EmptySpace pref="32" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnSimpan" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="cbxShowPassword" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtUsernameBaru" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtPengguna" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtPassword" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                      <Component id="txtUsernameBaru" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                      <Component id="txtPengguna" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="102" max="32767" attributes="0"/>
               </Group>
